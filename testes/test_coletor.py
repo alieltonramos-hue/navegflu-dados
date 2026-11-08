@@ -165,6 +165,32 @@ class ColetorTeste(unittest.TestCase):
         self.assertIn("lista anterior mantida", d["fontes"]["AVURNAV"]["msg"])
         self.assertTrue(d["fontes"]["BDARN"]["ok"])
 
+    def test_avisos_geo_sai_com_as_posicoes_do_aviso(self):
+        self.texto_aviso = AVISO_TXT + " UNO – PONTO TESTE: LAT. 19º35'54\"S LONG. 057º26'29\"W."
+        d = self.rodar(None)
+        self.assertEqual(list(d["avisos_geo"]), ["HI 0049/26"])
+        g = d["avisos_geo"]["HI 0049/26"][0]
+        self.assertEqual(g["tipo"], "PONTO")
+        self.assertEqual(g["coords"], [[-19.59833, -57.44139]])
+        self.assertLessEqual(len(g["nome"]), 90)
+
+    def test_parser_que_falha_nao_derruba_a_coleta(self):
+        self.texto_aviso = AVISO_TXT + " LAT. 19º35'54\"S LONG. 057º26'29\"W."
+        with mock.patch.object(coletor, "extrair_avisos_geo", side_effect=ValueError("teste")):
+            d = self.rodar(None)
+        self.assertEqual(d["avisos_geo"], {})
+        self.assertEqual(len(d["avurnav"]), 1)
+        self.assertTrue(d["fontes"]["AVURNAV"]["ok"])
+
+    def test_avurnav_falha_mantem_avisos_geo_anterior(self):
+        self.av_ok = False
+        geo = {"HI 0001/26": [{"nome": "UNO", "tipo": "PONTO", "coords": [[-19.0, -57.0]]}]}
+        ant = self.anterior(avurnav=[{"numero": "HI 0001/26", "texto": "x", "sistema": "CUIABA",
+                                      "km": 10.0, "coord": None}], avurnav_de="2026-10-15")
+        ant["avisos_geo"] = geo
+        d = self.rodar(ant)
+        self.assertEqual(d["avisos_geo"], geo)
+
     def test_e_tudo_falha_com_anterior_sai_zero_e_nada_se_perde(self):
         self.bdarn_ok = False
         self.av_ok = False
@@ -384,6 +410,57 @@ class ColetorTeste(unittest.TestCase):
             saida = _grade_historico_real(b"%PDF", datetime.date(2026, 11, 16))
             self.assertEqual(chamadas, ["NOV"])
             self.assertEqual(saida, {"2026-11-01": 1.0, "2026-11-05": 9.0})
+
+
+def _fixture(nome):
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "fixtures", nome), encoding="utf-8") as f:
+        return f.read()
+
+
+class AvisosGeoTeste(unittest.TestCase):
+    """Parser das posicoes dos avisos (avisos_geo), sem rede: so funcoes puras."""
+
+    def test_hi_0037_26_onze_areas_com_o_uno_de_42_posicoes(self):
+        grupos, descartadas = coletor.extrair_avisos_geo(_fixture("hi_0037_26.txt"))
+        self.assertEqual(len(grupos), 11)
+        self.assertEqual({g["tipo"] for g in grupos}, {"AREA"})
+        self.assertTrue(grupos[0]["nome"].startswith("UNO"))
+        self.assertEqual(len(grupos[0]["coords"]), 42)
+        self.assertEqual(descartadas, 0)
+        for g in grupos:
+            self.assertLessEqual(len(g["nome"]), 90)
+            for lat, lon in g["coords"]:
+                self.assertTrue(-28 <= lat <= -14 and -62 <= lon <= -54)
+
+    def test_hi_0067_09_pontos_com_quatro_posicoes(self):
+        grupos, _ = coletor.extrair_avisos_geo(_fixture("hi_0067_09.txt"))
+        self.assertEqual(len(grupos), 1)
+        self.assertEqual(grupos[0]["tipo"], "PONTOS")
+        self.assertEqual(len(grupos[0]["coords"]), 4)
+
+    def test_texto_sem_coordenada_nao_gera_entrada(self):
+        self.assertEqual(coletor.extrair_avisos_geo("HI 0001/26 - RIO PARAGUAI - AVISO SEM POSICAO. km 1234,5."),
+                         ([], 0))
+
+    def test_coordenada_fora_da_bacia_e_descartada_e_contada(self):
+        texto = "HI 0002/26 - RIO PARAGUAI - BOIA NA POSICAO LAT. 45º00'00\"S LONG. 057º00'00\"W."
+        grupos, descartadas = coletor.extrair_avisos_geo(texto)
+        self.assertEqual(grupos, [])
+        self.assertEqual(descartadas, 1)
+
+    def test_letra_e_conjuncao_nao_inverte_o_sinal(self):
+        texto = ("HI 0026/23 - BRASIL - REPOSICIONADA NAS COORDENADAS LAT 18°59,8640'S E LONG 057°37,9482' "
+                 "E ALTERADA SIMBOLOGIA PARA H/O.")
+        grupos, descartadas = coletor.extrair_avisos_geo(texto)
+        self.assertEqual(grupos[0]["coords"], [[-18.99773, -57.63247]])
+        self.assertEqual(descartadas, 0)
+
+    def test_nome_tem_no_maximo_90_caracteres(self):
+        texto = "HI 0003/26 - RIO PARAGUAI - UNO – " + "PROXIMIDADES " * 30 + "LAT. 19º35'54\"S LONG. 057º26'29\"W."
+        grupos, _ = coletor.extrair_avisos_geo(texto)
+        self.assertEqual(len(grupos), 1)
+        self.assertLessEqual(len(grupos[0]["nome"]), 90)
+        self.assertTrue(grupos[0]["nome"].startswith("UNO"))
 
 
 if __name__ == "__main__":

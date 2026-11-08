@@ -22,8 +22,8 @@ texto traz so coordenada, km = null e "coord" = [lat, lon].
 Ultima leitura boa: se uma estacao nao trouxe valor nesta rodada, ela fica com o registro
 do hidro.json anterior e "atual": false. Cada estacao tem "serie" (ultimos 7 dias, um
 valor por data), preenchida com o historico da DMH-PY e da grade do CHN-6 quando a serie
-guardada ainda nao tem 7 datas. Se a AVURNAV falhar, a lista anterior inteira fica e
-"avurnav_de" diz a data dela.
+guardada ainda nao tem 7 datas. Se a AVURNAV falhar, a lista anterior inteira fica (com
+"avisos_geo" anterior) e "avurnav_de" diz a data dela.
 
 Codigo de saida: 0 se pelo menos uma fonte respondeu, ou se todas falharam mas existe um
 hidro.json anterior (que e regravado com o que ja estava); 1 se todas falharam e nao ha
@@ -221,6 +221,118 @@ def sinais_da_tabela(texto):
     return saida
 
 
+# ---- posicoes dos avisos (avisos_geo): grupos "LAT ... LONG ..." do texto de cada aviso ----
+GEO_LAT = (-28.0, -14.0)                  # caixa da bacia Paraguai-Parana: coordenada fora dela e descartada
+GEO_LON = (-62.0, -54.0)
+GEO_NOME_MAX = 90
+_GEO_NUMD = r'\d{1,2}(?:[.,]\s?\d+)?'
+_GEO_SEP = r'[^\dA-Za-z]{1,6}?'           # qualquer separador: ° ' " ’ ” espaco
+_GEO_ORD = (r'(?:PRIMEIRO|UNO|DOIS|TR.S|QUATRO|CINCO|SEIS|SETE|OITO|NOVE|DEZESSEIS|DEZESSETE|DEZOITO|'
+            r'DEZENOVE|CATORZE|QUINZE|TREZE|DOZE|ONZE|DEZ|VINTE)')
+_GEO_MARCA = re.compile(r'(?<![A-Za-zÀ-ÿ])' + _GEO_ORD + r'\s*[–—\-]\s*')   # "UNO – ..." (nome do grupo)
+_GEO_AREA_KW = re.compile(r'DELIMITAD|INTERLIGA|ÁREA|AREA |CONTORNO|ENGLOBA|ISOBAT|PERÍMETRO|PERIMETRO')
+
+
+def _geo_coord(hemisferios):
+    return (r'(?<![\d.,])(\d{1,3})' + _GEO_SEP + r'(' + _GEO_NUMD + r')'
+            r'(?:' + _GEO_SEP + r'(\d{1,2}(?:[.,]\d+)?))?'
+            r'[^\dA-Za-z]{0,4}([' + hemisferios + r'])')
+
+
+_GEO_PAR = re.compile(r'(?:LAT(?:ITUDE)?[./]?\s*)?' + _geo_coord('NS') + r'[\s/]*(?:[eE]\s+|[eE]\s*)?'
+                      r'(?:LONG(?:ITUDE)?\.?|LON\.?)?\s*' + _geo_coord('WE'), re.I)
+
+
+def _geo_dd(graus, minutos, segundos):
+    # Toda a hidrovia fica no hemisferio Sul e a Oeste: o sinal e sempre negativo, como em
+    # _coord_para_decimal. A letra nao decide: em "LONG 057°37,9482' E ALTERADA" o "E" e a conjuncao.
+    minutos = minutos.replace(' ', '').replace(',', '.')
+    segundos = (segundos or '').replace(' ', '').replace(',', '.')
+    v = float(graus) + float(minutos) / 60
+    if segundos:
+        v += float(segundos) / 3600
+    return -v
+
+
+def _geo_pontos(texto):
+    """[(inicio, fim, lat, lon)] de cada par LAT/LONG do texto, na ordem em que aparecem."""
+    pontos = []
+    for m in _GEO_PAR.finditer(texto):
+        g = m.groups()
+        pontos.append((m.start(), m.end(), _geo_dd(g[0], g[1], g[2]), _geo_dd(g[4], g[5], g[6])))
+    return pontos
+
+
+def _geo_separador_ok(entre):
+    """Texto entre dois pares que ainda faz parte da mesma lista (E, virgula, ponto e virgula, ate)."""
+    g = re.sub(r'\([^)]*\)', '', entre)
+    g = re.sub(r'\b(E|e|ATÉ|ATE|AT.)\b', '', g)
+    return re.fullmatch(r'[\s;,/.]*', g) is not None
+
+
+def _geo_grupos(texto):
+    """[(prefixo, [(lat, lon), ...])]: cada grupo e uma lista de posicoes; o prefixo e o texto
+    entre o grupo anterior e este (onde fica o nome)."""
+    pontos = _geo_pontos(texto)
+    if not pontos:
+        return []
+    corridas = [[pontos[0]]]
+    for a, b in zip(pontos, pontos[1:]):
+        if _geo_separador_ok(texto[a[1]:b[0]]):
+            corridas[-1].append(b)
+        else:
+            corridas.append([b])
+    grupos, fim_anterior = [], 0
+    for corrida in corridas:
+        grupos.append((texto[fim_anterior:corrida[0][0]], [(p[2], p[3]) for p in corrida]))
+        fim_anterior = corrida[-1][1]
+    return grupos
+
+
+def _geo_nome(prefixo):
+    """Nome do grupo: a partir da ultima marca de ordinal ("UNO – ...") ou a ultima frase antes da lista."""
+    p = prefixo.strip()
+    partes = re.split(r'\.\s+(?=[A-ZÇÃÉÍÓÚÂÊÔ0-9])', p)
+    ultimo = partes[-1] if partes else p
+    marcas = list(_GEO_MARCA.finditer(ultimo))
+    if marcas:
+        ultimo = ultimo[marcas[-1].start():]
+    ultimo = ultimo.split(':')[0]
+    ultimo = re.sub(r'\s+', ' ', ultimo).strip(' -–—:;,')
+    return ultimo[:GEO_NOME_MAX].rstrip()
+
+
+def _geo_tipo(pontos, texto):
+    """PONTO (1), LINHA (2, ou aberta com "LINHA DE"), AREA (fechada ou com palavra de area), PONTOS (bóias, pedras)."""
+    n = len(pontos)
+    if n == 1:
+        return "PONTO"
+    if n == 2:
+        return "LINHA"
+    fechada = abs(pontos[0][0] - pontos[-1][0]) < 1e-5 and abs(pontos[0][1] - pontos[-1][1]) < 1e-5
+    if not fechada and re.search(r'LINHA DE', texto):
+        return "LINHA"
+    if fechada or _GEO_AREA_KW.search(texto):
+        return "AREA"
+    return "PONTOS"
+
+
+def extrair_avisos_geo(texto):
+    """Posicoes de um aviso: ([{"nome", "tipo", "coords": [[lat, lon], ...]}], descartadas).
+    Coordenada fora da caixa da bacia (GEO_LAT, GEO_LON) e descartada e contada em "descartadas";
+    grupo que fica sem coordenada nenhuma nao entra. Texto sem coordenada: ([], 0)."""
+    grupos, descartadas = [], 0
+    for prefixo, pontos in _geo_grupos(texto):
+        dentro = [(la, lo) for la, lo in pontos
+                  if GEO_LAT[0] <= la <= GEO_LAT[1] and GEO_LON[0] <= lo <= GEO_LON[1]]
+        descartadas += len(pontos) - len(dentro)
+        if not dentro:
+            continue
+        grupos.append({"nome": _geo_nome(prefixo), "tipo": _geo_tipo(dentro, texto),
+                       "coords": [[round(la, 5), round(lo, 5)] for la, lo in dentro]})
+    return grupos, descartadas
+
+
 def _baixar_avurnav_mais_novo():
     """Baixa as revisoes do PDF Avisos-Radio em Vigor dos ultimos 3 meses e escolhe a MAIS
     NOVA pelo Last-Modified do HTTP (o sufixo _N e imprevisivel). Devolve
@@ -334,8 +446,22 @@ def _publicar_avisos():
 
         avisos.append({"id": f"HI {ident}", "texto": _previa(texto_aviso),
                        "km": km_encontrado, "coord": coord, "sistema": sistema_av})
+    # posicoes (avisos_geo): um aviso que falha no parser nao derruba a coleta
+    geo, descartadas = {}, 0
+    for numero, texto_aviso in textos_completos.items():
+        try:
+            grupos, fora = extrair_avisos_geo(texto_aviso)
+        except Exception as e:
+            log_erro("AVISOS-GEO", numero, e)
+            continue
+        descartadas += fora
+        if grupos:
+            geo[numero] = grupos
+    print(f"[*] AVISOS-GEO: {len(geo)} avisos com posicao, {sum(len(g) for g in geo.values())} grupos; "
+          f"{descartadas} coordenadas fora da bacia descartadas.", flush=True)
     dados_nav["avurnav"] = avisos
     dados_nav["avisos_texto"] = textos_completos
+    dados_nav["avisos_geo"] = geo
     dados_nav["avurnav_de"] = dia_lista.isoformat()
     n_avisos = len({a["id"] for a in avisos})
     print(f"[*] AVISOS AOS NAVEGANTES: {n_avisos} avisos para a hidrovia, {len(avisos)} posicoes ({status_data}).",
@@ -811,6 +937,7 @@ def coletar(anterior=None):
         # fonte falhou e ha lista anterior: ela fica inteira
         avurnav = anterior["avurnav"]
         avisos_texto = anterior.get("avisos_texto") if isinstance(anterior.get("avisos_texto"), dict) else {}
+        avisos_geo = anterior.get("avisos_geo") if isinstance(anterior.get("avisos_geo"), dict) else {}
         avurnav_de = anterior.get("avurnav_de") or (anterior.get("gerado_em_local") or "")[:10] or None
         fontes["AVURNAV"]["msg"] += f"; lista anterior mantida (de {avurnav_de})"
     else:
@@ -823,6 +950,7 @@ def coletar(anterior=None):
                    for a in dados_nav.get("avurnav", [])]
         avurnav_de = dados_nav.get("avurnav_de")
         avisos_texto = dict(dados_nav.get("avisos_texto") or {})
+        avisos_geo = dict(dados_nav.get("avisos_geo") or {})
     print(f"      -> {fontes['AVURNAV']['msg']}", flush=True)
 
     # Ultima leitura boa: estacao sem valor nesta rodada fica com o registro anterior
@@ -850,6 +978,7 @@ def coletar(anterior=None):
         "estacoes": finais,
         "avurnav": avurnav,
         "avisos_texto": avisos_texto,
+        "avisos_geo": avisos_geo,
         "avurnav_de": avurnav_de,
         "fontes": fontes,
     }
