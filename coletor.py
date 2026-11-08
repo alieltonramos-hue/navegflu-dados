@@ -17,7 +17,14 @@ Uso:  python coletor.py [saida.json]      (padrao: hidro.json)
 Sem regua e sem GPX: o KM de um aviso vem so do texto dele (regex de "KM"). Quando o
 texto traz so coordenada, km = null e "coord" = [lat, lon].
 
-Codigo de saida: 0 se pelo menos uma fonte respondeu; 1 se todas falharam.
+Ultima leitura boa: se uma estacao nao trouxe valor nesta rodada, ela fica com o registro
+do hidro.json anterior e "atual": false. Cada estacao tem "serie" (ultimos 7 dias, um
+valor por data). Se a AVURNAV falhar, a lista anterior inteira fica e "avurnav_de" diz
+a data dela.
+
+Codigo de saida: 0 se pelo menos uma fonte respondeu, ou se todas falharam mas existe um
+hidro.json anterior (que e regravado com o que ja estava); 1 se todas falharam e nao ha
+hidro.json anterior.
 """
 import io, os, re, sys, json, datetime, unicodedata
 import urllib3, requests, pdfplumber
@@ -30,6 +37,7 @@ TZ_LOCAL = datetime.timezone(datetime.timedelta(hours=-4))   # Cuiaba: UTC-4 sem
 HOJE_STR = ""
 dados_nav = {}                                               # _publicar_avisos grava dados_nav["avurnav"]
 _avisos_fontes = {"bdarn": None, "avrad": None}
+SERIE_DIAS = 7                                               # datas guardadas em "serie"
 
 ORDEM_ESTACOES = ["Cuiabá", "Cáceres", "Bela Vista Norte", "Ladário", "F. Coimbra", "P. Murtinho",
                   "Vallemi PY", "Concepción PY", "Assunção PY"]
@@ -256,9 +264,11 @@ def _publicar_avisos():
         bd = None                       # boletim mais velho que a revisao: nao manda na lista
     if bd:
         universo = bd["ids"]
+        dia_lista = bd["dia"]
         status_data = f"boletim {bd['data'][:5]}"
     elif av:
         universo = av["ids"]
+        dia_lista = av["dia"]
         status_data = f"rev. {av['data'][:5]}"
     else:
         return
@@ -308,6 +318,7 @@ def _publicar_avisos():
         avisos.append({"id": f"HI {ident}", "texto": texto_resumo, "texto_completo": texto_aviso,
                        "km": km_encontrado, "coord": coord, "sistema": sistema_av})
     dados_nav["avurnav"] = avisos
+    dados_nav["avurnav_de"] = dia_lista.isoformat()
     n_avisos = len({a["id"] for a in avisos})
     print(f"[*] AVISOS AOS NAVEGANTES: {n_avisos} avisos para a hidrovia, {len(avisos)} posicoes ({status_data}).",
           flush=True)
@@ -421,7 +432,39 @@ def ler_dmh(url):
             "data_ref": iso(datas_leit[1]) if len(datas_leit) > 1 else None}
 
 
-def coletar():
+def carregar_anterior(caminho):
+    """Le o hidro.json da rodada anterior. Devolve o dict, ou None se o arquivo nao existe,
+    nao e JSON valido ou nao tem a lista de estacoes."""
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            dados = json.load(f)
+    except Exception:
+        return None
+    if isinstance(dados, dict) and isinstance(dados.get("estacoes"), list):
+        return dados
+    return None
+
+
+def _serie_atualizada(serie, data_iso, valor):
+    """Serie curta da estacao: um valor por data, so as ultimas SERIE_DIAS datas. Data repetida
+    fica com o valor novo. Com data_iso/valor None, so reaplica o limite de dias."""
+    por_data = {}
+    for p in serie or []:
+        if isinstance(p, dict) and p.get("data") and p.get("valor_m") is not None:
+            por_data[p["data"]] = p["valor_m"]
+    if data_iso and valor is not None:
+        por_data[data_iso] = round(float(valor), 2)
+    return [{"data": d, "valor_m": por_data[d]} for d in sorted(por_data)[-SERIE_DIAS:]]
+
+
+def _serie_do_anterior(velho):
+    """Serie do registro anterior. Registro antigo, sem serie, comeca com o proprio valor."""
+    if isinstance(velho.get("serie"), list):
+        return velho["serie"]
+    return [{"data": velho.get("data_leitura"), "valor_m": velho.get("valor_m")}]
+
+
+def coletar(anterior=None):
     global HOJE_STR
     agora = datetime.datetime.now(TZ_LOCAL)
     hoje = agora.date()
@@ -484,6 +527,7 @@ def coletar():
 
     # 3. AVURNAV: revisao mais nova das Avisos-Radio em Vigor + boletim do dia
     print("[3/3] AVURNAV (Avisos-Radio em Vigor)", flush=True)
+    av_ok = False
     try:
         pdf_av, etiqueta, dia_rev = _baixar_avurnav_mais_novo()
         if pdf_av:
@@ -491,24 +535,52 @@ def coletar():
             if ids:
                 _avisos_fontes["avrad"] = {"ids": ids, "textos": textos, "dia": dia_rev, "data": etiqueta}
             _publicar_avisos()
+            av_ok = True
             fontes["AVURNAV"] = {"ok": True, "msg": f"revisao {etiqueta}; boletim do dia: {'sim' if _avisos_fontes['bdarn'] else 'nao'}"}
         else:
             fontes["AVURNAV"] = {"ok": False, "msg": "Avisos-Radio em Vigor nao encontrado (3 meses)"}
-            if _avisos_fontes["bdarn"]:
-                _publicar_avisos()
     except Exception as e:
         fontes["AVURNAV"] = {"ok": False, "msg": f"falha: {type(e).__name__}: {e}"}
+
+    if not av_ok and anterior and isinstance(anterior.get("avurnav"), list):
+        # fonte falhou e ha lista anterior: ela fica inteira
+        avurnav = anterior["avurnav"]
+        avurnav_de = anterior.get("avurnav_de") or (anterior.get("gerado_em_local") or "")[:10] or None
+        fontes["AVURNAV"]["msg"] += f"; lista anterior mantida (de {avurnav_de})"
+    else:
+        # rodada com a fonte, ou sem lista anterior: so o boletim do dia, se houver
+        if not av_ok and _avisos_fontes["bdarn"]:
+            _publicar_avisos()
+        avurnav = [{"numero": a["id"], "texto": a["texto"], "sistema": a["sistema"],
+                    "km": (round(a["km"], 1) if a["km"] is not None else None),
+                    "coord": a.get("coord")}
+                   for a in dados_nav.get("avurnav", [])]
+        avurnav_de = dados_nav.get("avurnav_de")
     print(f"      -> {fontes['AVURNAV']['msg']}", flush=True)
 
-    avurnav = [{"numero": a["id"], "texto": a["texto"], "sistema": a["sistema"],
-                "km": (round(a["km"], 1) if a["km"] is not None else None),
-                "coord": a.get("coord")}
-               for a in dados_nav.get("avurnav", [])]
+    # Ultima leitura boa: estacao sem valor nesta rodada fica com o registro anterior
+    anteriores = {e["nome"]: e for e in (anterior or {}).get("estacoes", [])
+                  if isinstance(e, dict) and e.get("nome")}
+    finais = []
+    for nome in ORDEM_ESTACOES + [n for n in anteriores if n not in ORDEM_ESTACOES]:
+        novo, velho = estacoes.get(nome), anteriores.get(nome)
+        # leitura com data mais antiga que a guardada nao substitui a guardada
+        if novo and not (velho and (velho.get("data_leitura") or "") > novo["data_leitura"]):
+            reg = dict(novo, atual=True)
+            reg["serie"] = _serie_atualizada(_serie_do_anterior(velho) if velho else [],
+                                             novo["data_leitura"], novo["valor_m"])
+            finais.append(reg)
+        elif velho:
+            reg = dict(velho, atual=False)
+            reg["serie"] = _serie_atualizada(_serie_do_anterior(velho), None, None)
+            finais.append(reg)
+
     return {
         "gerado_em_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "gerado_em_local": agora.isoformat(timespec="seconds"),
-        "estacoes": [estacoes[n] for n in ORDEM_ESTACOES if n in estacoes],
+        "estacoes": finais,
         "avurnav": avurnav,
+        "avurnav_de": avurnav_de,
         "fontes": fontes,
     }
 
@@ -517,7 +589,10 @@ def main(argv):
     saida = os.path.abspath(argv[1] if len(argv) > 1 else "hidro.json")
     print(f"[*] coletor.py | Python {sys.version.split()[0]} | "
           f"{datetime.datetime.now(TZ_LOCAL).strftime('%d/%m/%Y %H:%M')} (UTC-4)", flush=True)
-    dados = coletar()
+    anterior = carregar_anterior(saida)           # lido antes de gravar por cima
+    print("[*] hidro.json anterior: " + ("lido" if anterior is not None else "nao ha (ou nao e valido)"),
+          flush=True)
+    dados = coletar(anterior)
     with open(saida, "w", encoding="utf-8", newline="\n") as f:
         json.dump(dados, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -526,8 +601,10 @@ def main(argv):
     for nome, f_ in dados["fontes"].items():
         print(f"    {nome}: {'OK' if f_['ok'] else 'FALHOU'} - {f_['msg']}", flush=True)
     if not any(f_["ok"] for f_ in dados["fontes"].values()):
-        print("[!] TODAS as fontes falharam: saida 1.", flush=True)
-        return 1
+        if anterior is None:
+            print("[!] TODAS as fontes falharam e nao ha hidro.json anterior: saida 1.", flush=True)
+            return 1
+        print("[!] TODAS as fontes falharam: mantida a ultima leitura boa (saida 0).", flush=True)
     return 0
 
 

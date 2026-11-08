@@ -1,55 +1,104 @@
 {
-  "gerado_em_utc": "2026-11-08T13:32:24Z",
-  "gerado_em_local": "2026-11-08T09:31:30-04:00",
+  "gerado_em_utc": "2026-11-08T13:45:45Z",
+  "gerado_em_local": "2026-11-08T09:45:29-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
       "valor_m": 0.86,
       "data_leitura": "2026-11-08",
       "fonte": "BDARN CHN-6",
-      "variacao_24h": -0.09
+      "variacao_24h": -0.09,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 0.86
+        }
+      ]
     },
     {
       "nome": "Cáceres",
       "valor_m": 1.18,
       "data_leitura": "2026-11-08",
       "fonte": "BDARN CHN-6",
-      "variacao_24h": -0.05
+      "variacao_24h": -0.05,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 1.18
+        }
+      ]
     },
     {
       "nome": "Ladário",
       "valor_m": 0.82,
       "data_leitura": "2026-11-08",
       "fonte": "BDARN CHN-6",
-      "variacao_24h": -0.03
+      "variacao_24h": -0.03,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 0.82
+        }
+      ]
     },
     {
       "nome": "P. Murtinho",
       "valor_m": 2.27,
       "data_leitura": "2026-11-08",
       "fonte": "BDARN CHN-6",
-      "variacao_24h": -0.02
+      "variacao_24h": -0.02,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 2.27
+        }
+      ]
     },
     {
       "nome": "Vallemi PY",
       "valor_m": 2.33,
       "data_leitura": "2026-11-08",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.04
+      "variacao_24h": -0.04,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 2.33
+        }
+      ]
     },
     {
       "nome": "Concepción PY",
       "valor_m": 1.89,
       "data_leitura": "2026-11-08",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.03
+      "variacao_24h": -0.03,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 1.89
+        }
+      ]
     },
     {
       "nome": "Assunção PY",
       "valor_m": 2.3,
       "data_leitura": "2026-11-08",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.03
+      "variacao_24h": -0.03,
+      "atual": true,
+      "serie": [
+        {
+          "data": "2026-11-08",
+          "valor_m": 2.3
+        }
+      ]
     }
   ],
   "avurnav": [
@@ -1890,6 +1939,7 @@
       ]
     }
   ],
+  "avurnav_de": "2026-11-08",
   "fontes": {
     "BDARN": {
       "ok": true,

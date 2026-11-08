@@ -1,12 +1,15 @@
 name: coletar
 
-# Teste inicial: so manual (workflow_dispatch).
-# O agendamento abaixo fica DESLIGADO ate o teste ser validado; para ligar, descomente.
+# A Marinha publica a altura do rio entre 06:45 e 08:30 (Cuiaba, UTC-4, sem horario de verao)
+# e depois nao publica mais nada. Os crons abaixo estao em UTC (= hora local + 4).
+# O cron do GitHub pode atrasar de 5 a 20 minutos.
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: "0,30 9-17 * * *"              # 05h-13h locais (UTC-4) = 09h-17h UTC, a cada 30 min
-  #   - cron: "0 0,2,4,6,8,18,20,22 * * *"   # demais horas, de 2 em 2 h (UTC)
+  schedule:
+    - cron: "45 10 * * *"           # 06:45 local
+    - cron: "*/15 11 * * *"         # 07:00-07:45 local
+    - cron: "0,15,30,45 12 * * *"   # 08:00-08:45 local (folga apos as 08:30)
+    - cron: "0 16,22 * * *"         # 12:00 e 18:00 local: DMH-PY e AVURNAV
 
 permissions:
   contents: write
@@ -32,6 +35,9 @@ jobs:
 
       - name: Instalar dependencias
         run: pip install -r requirements.txt
+
+      - name: Testes do coletor (sem rede; falha aqui impede a publicacao)
+        run: python -m unittest discover -s testes -v
 
       - name: Coletar fontes oficiais
         id: coleta

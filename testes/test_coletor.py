@@ -1,0 +1,222 @@
+"""Testes do coletor.py sem rede: as funcoes de busca sao trocadas por stubs.
+
+Rodar, a partir da raiz do repositorio:  python -m unittest discover -s testes -v
+"""
+import contextlib
+import datetime
+import io
+import json
+import os
+import sys
+import tempfile
+import unittest
+from unittest import mock
+
+RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, RAIZ)
+import coletor  # noqa: E402
+
+UM_DIA = datetime.timedelta(days=1)
+AVISO_TXT = ("HI 0049/26 - RIO PARAGUAI - ALTERADA A SINALIZACAO. "
+             "Paraguai km 1234,5 - AVISO DE TESTE.")
+VALORES_ANTERIORES = {"Cuiabá": 0.95, "Cáceres": 1.30, "Bela Vista Norte": 0.70, "Ladário": 0.90,
+                      "F. Coimbra": 1.10, "P. Murtinho": 2.40, "Vallemi PY": 2.40,
+                      "Concepción PY": 1.95, "Assunção PY": 2.35}
+
+
+def sem_atual(reg):
+    return {k: v for k, v in reg.items() if k != "atual"}
+
+
+class ColetorTeste(unittest.TestCase):
+
+    def setUp(self):
+        self.hoje = datetime.datetime.now(coletor.TZ_LOCAL).date()
+        self.ontem = self.hoje - UM_DIA
+        coletor.dados_nav.clear()
+        coletor._avisos_fontes.update({"bdarn": None, "avrad": None})
+        # cenario padrao: BDARN e revisao respondem; DMH responde nas 3 paginas paraguaias
+        self.bdarn_ok = True
+        self.av_ok = True
+        self.lidos_bdarn = {"Cuiabá": (0.86, "DESCENDO", 0.09), "Cáceres": (1.18, "DESCENDO", 0.05),
+                            "Ladário": (0.82, "DESCENDO", 0.03), "P. Murtinho": (2.27, "DESCENDO", 0.02)}
+        self.dmh = {"Vallemi PY": self._dmh(2.33, self.hoje, -0.04),
+                    "Concepción PY": self._dmh(1.89, self.hoje, -0.03),
+                    "Assunção PY": self._dmh(2.30, self.hoje, -0.03)}
+        for nome, fn in [("_baixar_bdarn", self._fake_bdarn), ("ler_bdarn", self._fake_ler_bdarn),
+                         ("_ler_avisos_pdf", self._fake_avisos),
+                         ("_baixar_avurnav_mais_novo", self._fake_avurnav), ("ler_dmh", self._fake_dmh)]:
+            p = mock.patch.object(coletor, nome, side_effect=fn)
+            p.start()
+            self.addCleanup(p.stop)
+
+    # ---- stubs -------------------------------------------------------------
+    def _fake_bdarn(self, dia, camuflagem):
+        return (b"%PDF-falso", "BDARN_TESTE.pdf") if self.bdarn_ok else (None, None)
+
+    def _fake_ler_bdarn(self, pdf, hoje):
+        return dict(self.lidos_bdarn)
+
+    def _fake_avisos(self, pdf):
+        return {"0049/26"}, {"0049/26": AVISO_TXT}
+
+    def _fake_avurnav(self):
+        return (b"%PDF-falso", "07/11/2026", self.hoje - UM_DIA) if self.av_ok else (None, "", None)
+
+    def _fake_dmh(self, url):
+        est = next(a["estacao"] for a in coletor.ALVOS_DMH if a["url"] == url)
+        r = self.dmh.get(est)
+        if isinstance(r, Exception):
+            raise r
+        return r
+
+    # ---- auxiliares --------------------------------------------------------
+    def _dmh(self, nivel, data, variacao):
+        return {"nivel": nivel, "data": data.isoformat(), "hoje": True, "variacao": variacao, "data_ref": None}
+
+    def reg_ant(self, nome, dias=3, data=None, fonte="BDARN CHN-6"):
+        """Registro do hidro.json anterior, com serie de `dias` datas terminando em `data`."""
+        data = data or self.ontem
+        valor = VALORES_ANTERIORES[nome]
+        serie = [{"data": (data - datetime.timedelta(days=i)).isoformat(), "valor_m": valor}
+                 for i in reversed(range(dias))]
+        return {"nome": nome, "valor_m": valor, "data_leitura": data.isoformat(), "fonte": fonte,
+                "variacao_24h": -0.01, "serie": serie}
+
+    def anterior(self, nomes=None, dias=3, avurnav=None, avurnav_de=None):
+        nomes = nomes or list(VALORES_ANTERIORES)
+        return {"gerado_em_utc": "2026-11-07T14:00:00Z", "gerado_em_local": "2026-11-07T10:00:00-04:00",
+                "estacoes": [self.reg_ant(n, dias=dias) for n in nomes],
+                "avurnav": avurnav or [], "avurnav_de": avurnav_de, "fontes": {}}
+
+    def rodar(self, anterior):
+        with contextlib.redirect_stdout(io.StringIO()):
+            return coletor.coletar(anterior)
+
+    # ---- testes ------------------------------------------------------------
+    def test_a_rodada_normal_sem_anterior(self):
+        d = self.rodar(None)
+        est = {e["nome"]: e for e in d["estacoes"]}
+        self.assertEqual(set(est), {"Cuiabá", "Cáceres", "Ladário", "P. Murtinho",
+                                    "Vallemi PY", "Concepción PY", "Assunção PY"})
+        self.assertTrue(all(e["atual"] for e in est.values()))
+        self.assertEqual(est["Cuiabá"]["valor_m"], 0.86)
+        self.assertEqual(est["Cuiabá"]["serie"], [{"data": self.hoje.isoformat(), "valor_m": 0.86}])
+        self.assertTrue(d["fontes"]["BDARN"]["ok"])
+        self.assertTrue(d["fontes"]["AVURNAV"]["ok"])
+        self.assertEqual(d["avurnav_de"], self.hoje.isoformat())
+        self.assertEqual(d["avurnav"][0]["numero"], "HI 0049/26")
+
+    def test_b_bdarn_falha_mantem_as_estacoes_do_bdarn(self):
+        self.bdarn_ok = False
+        ant = self.anterior()
+        antigo = {e["nome"]: e for e in ant["estacoes"]}
+        est = {e["nome"]: e for e in self.rodar(ant)["estacoes"]}
+        for n in ["Cuiabá", "Cáceres", "Ladário", "P. Murtinho"]:
+            self.assertFalse(est[n]["atual"], n)
+            self.assertEqual(sem_atual(est[n]), sem_atual(antigo[n]), n)
+        for n in ["Vallemi PY", "Concepción PY", "Assunção PY"]:
+            self.assertTrue(est[n]["atual"], n)
+            self.assertEqual(est[n]["data_leitura"], self.hoje.isoformat(), n)
+        self.assertFalse(self.rodar(ant)["fontes"]["BDARN"]["ok"])
+
+    def test_c_aguardando_em_uma_estacao_so_ela_fica_mantida(self):
+        del self.lidos_bdarn["Cáceres"]          # BDARN com AGUARDANDO: o leitor nao devolve a estacao
+        ant = self.anterior()
+        antigo = {e["nome"]: e for e in ant["estacoes"]}
+        d = self.rodar(ant)
+        est = {e["nome"]: e for e in d["estacoes"]}
+        self.assertFalse(est["Cáceres"]["atual"])
+        self.assertEqual(sem_atual(est["Cáceres"]), sem_atual(antigo["Cáceres"]))
+        for n in ["Cuiabá", "Ladário", "P. Murtinho", "Vallemi PY"]:
+            self.assertTrue(est[n]["atual"], n)
+        self.assertFalse(est["Bela Vista Norte"]["atual"])   # sem valor nesta rodada, mas tinha antes
+        self.assertTrue(d["fontes"]["BDARN"]["ok"])
+
+    def test_d_avurnav_falha_mantem_lista_anterior(self):
+        self.av_ok = False
+        lista = [{"numero": "HI 0001/26", "texto": "aviso antigo", "sistema": "CUIABA", "km": 10.0, "coord": None}]
+        ant = self.anterior(avurnav=lista, avurnav_de="2026-10-15")
+        d = self.rodar(ant)
+        self.assertEqual(d["avurnav"], lista)
+        self.assertEqual(d["avurnav_de"], "2026-10-15")
+        self.assertFalse(d["fontes"]["AVURNAV"]["ok"])
+        self.assertIn("lista anterior mantida", d["fontes"]["AVURNAV"]["msg"])
+        self.assertTrue(d["fontes"]["BDARN"]["ok"])
+
+    def test_e_tudo_falha_com_anterior_sai_zero_e_nada_se_perde(self):
+        self.bdarn_ok = False
+        self.av_ok = False
+        self.dmh = {}                              # todas as paginas DMH sem tabela
+        lista = [{"numero": "HI 0001/26", "texto": "aviso antigo", "sistema": "CUIABA", "km": 10.0, "coord": None}]
+        ant = self.anterior(avurnav=lista, avurnav_de="2026-10-15")
+        antigo = {e["nome"]: e for e in ant["estacoes"]}
+        with tempfile.TemporaryDirectory() as tmp:
+            caminho = os.path.join(tmp, "hidro.json")
+            with open(caminho, "w", encoding="utf-8") as f:
+                json.dump(ant, f, ensure_ascii=False)
+            with contextlib.redirect_stdout(io.StringIO()):
+                codigo = coletor.main(["coletor.py", caminho])
+            with open(caminho, encoding="utf-8") as f:
+                novo = json.load(f)
+        self.assertEqual(codigo, 0)
+        self.assertEqual({e["nome"] for e in novo["estacoes"]}, set(antigo))
+        for e in novo["estacoes"]:
+            self.assertFalse(e["atual"], e["nome"])
+            self.assertEqual(sem_atual(e), sem_atual(antigo[e["nome"]]), e["nome"])
+        self.assertEqual(novo["avurnav"], lista)
+        self.assertEqual(novo["avurnav_de"], "2026-10-15")
+
+    def test_f_tudo_falha_sem_anterior_sai_um(self):
+        self.bdarn_ok = False
+        self.av_ok = False
+        self.dmh = {}
+        with tempfile.TemporaryDirectory() as tmp:
+            with contextlib.redirect_stdout(io.StringIO()):
+                codigo = coletor.main(["coletor.py", os.path.join(tmp, "inexistente.json")])
+        self.assertEqual(codigo, 1)
+
+    def test_g_serie_um_valor_por_data_e_sete_datas(self):
+        serie = []
+        for i in range(8):                       # 8 dias seguidos
+            dia = self.hoje - datetime.timedelta(days=7 - i)
+            serie = coletor._serie_atualizada(serie, dia.isoformat(), 1.0 + i / 100)
+        self.assertEqual(len(serie), 7)
+        datas = [p["data"] for p in serie]
+        self.assertEqual(datas, sorted(set(datas)))
+        self.assertEqual(datas[0], (self.hoje - datetime.timedelta(days=6)).isoformat())
+        self.assertEqual(datas[-1], self.hoje.isoformat())
+        serie = coletor._serie_atualizada(serie, datas[-1], 9.99)   # mesma data: vale o valor novo
+        self.assertEqual(len(serie), 7)
+        self.assertEqual(serie[-1]["valor_m"], 9.99)
+
+    def test_g2_serie_no_coletor_empurra_o_dia_mais_antigo(self):
+        ant = self.anterior(dias=7)              # 7 datas terminando ontem
+        est = {e["nome"]: e for e in self.rodar(ant)["estacoes"]}
+        datas = [p["data"] for p in est["Cuiabá"]["serie"]]
+        self.assertEqual(len(datas), 7)
+        self.assertEqual(datas[0], (self.hoje - datetime.timedelta(days=6)).isoformat())
+        self.assertEqual(datas[-1], self.hoje.isoformat())
+        self.assertEqual(est["Cuiabá"]["serie"][-1]["valor_m"], 0.86)
+
+    def test_h_leitura_mais_antiga_nao_substitui_a_guardada(self):
+        ant = self.anterior(nomes=["Vallemi PY"])
+        ant["estacoes"][0]["data_leitura"] = self.hoje.isoformat()
+        ant["estacoes"][0]["valor_m"] = 9.9
+        self.dmh["Vallemi PY"] = self._dmh(2.0, self.ontem, None)   # DMH devolve data mais antiga
+        self.bdarn_ok = False
+        est = {e["nome"]: e for e in self.rodar(ant)["estacoes"]}
+        self.assertEqual(est["Vallemi PY"]["valor_m"], 9.9)
+        self.assertFalse(est["Vallemi PY"]["atual"])
+
+    def test_i_carregar_anterior_arquivo_invalido_ou_ausente(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ruim = os.path.join(tmp, "ruim.json")
+            with open(ruim, "w", encoding="utf-8") as f:
+                f.write("{nao e json")
+            self.assertIsNone(coletor.carregar_anterior(ruim))
+            self.assertIsNone(coletor.carregar_anterior(os.path.join(tmp, "nao_existe.json")))
+
+
+if __name__ == "__main__":
+    unittest.main()
