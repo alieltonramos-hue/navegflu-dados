@@ -638,6 +638,36 @@ def _serie_do_anterior(velho):
     return [{"data": velho.get("data_leitura"), "valor_m": velho.get("valor_m")}]
 
 
+def _variacao_da_serie(reg):
+    """Variacao do dia pela serie: valor de data_leitura menos o valor do dia anterior, com 2
+    casas. None se a serie nao tem o dia anterior."""
+    por_data = {p["data"]: p["valor_m"] for p in reg.get("serie", []) if isinstance(p, dict)}
+    d = reg.get("data_leitura")
+    if d not in por_data:
+        return None
+    try:
+        anterior = (datetime.date.fromisoformat(d) - datetime.timedelta(days=1)).isoformat()
+    except (TypeError, ValueError):
+        return None
+    if anterior not in por_data:
+        return None
+    return round(por_data[d] - por_data[anterior], 2)
+
+
+def _com_variacao(reg):
+    """Sem variacao_24h da fonte principal, usa a da serie (variacao_fonte: "serie"). A da
+    fonte principal nunca e trocada."""
+    if reg.get("variacao_fonte") == "serie":          # recalcula a que veio de uma rodada anterior
+        reg.pop("variacao_24h", None)
+        reg.pop("variacao_fonte", None)
+    if "variacao_24h" not in reg:
+        v = _variacao_da_serie(reg)
+        if v is not None:
+            reg["variacao_24h"] = v
+            reg["variacao_fonte"] = "serie"
+    return reg
+
+
 CAMPOS_TEMPO = ("gerado_em_utc", "gerado_em_local", "verificado_em_utc", "verificado_em_local")
 
 
@@ -810,11 +840,11 @@ def coletar(anterior=None):
             reg = dict(novo, atual=(novo["fonte"] != FONTE_GRADE_CHN6 or novo["data_leitura"] == hoje.isoformat()))
             leitura = [{"data": novo["data_leitura"], "valor_m": novo["valor_m"]}]
             reg["serie"] = _serie_mesclada([hist_d, hist_g, guardada, leitura])
-            finais.append(reg)
+            finais.append(_com_variacao(reg))
         elif velho:
             reg = dict(velho, atual=False)
             reg["serie"] = _serie_mesclada([hist_d, hist_g, guardada])
-            finais.append(reg)
+            finais.append(_com_variacao(reg))
 
     saida = {
         "estacoes": finais,

@@ -346,8 +346,18 @@ class ColetorTeste(unittest.TestCase):
         self.assertFalse(b["atual"])                              # valor de ontem: nao e atual
         self.assertEqual([p["data"] for p in b["serie"]],
                          [(self.ontem - UM_DIA).isoformat(), self.ontem.isoformat()])
-        self.assertNotIn("variacao_24h", b)                       # variacao so da fonte principal
+        self.assertEqual(b["variacao_24h"], -0.03)                # ontem 0,77 - anteontem 0,80
+        self.assertEqual(b["variacao_fonte"], "serie")
         self.assertTrue(est["F. Coimbra"]["atual"])               # valor de hoje: atual
+
+    def test_t_variacao_da_serie_sem_dia_anterior_fica_ausente(self):
+        self.grade["BELA VISTA DO NORTE"] = {self.ontem.isoformat(): 0.77}   # so ontem na serie
+        est = {e["nome"]: e for e in self.rodar(None)["estacoes"]}
+        b = est["Bela Vista Norte"]
+        self.assertNotIn("variacao_24h", b)
+        self.assertNotIn("variacao_fonte", b)
+        self.assertEqual(est["Cuiabá"]["variacao_24h"], -0.09)    # fonte principal (BDARN) nao muda
+        self.assertNotIn("variacao_fonte", est["Cuiabá"])
 
     def test_r_nao_busca_pdf_com_serie_completa_e_uma_vez_por_rodada(self):
         self.rodar(self.anterior(dias=7))

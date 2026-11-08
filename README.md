@@ -28,7 +28,7 @@ O programa imprime, por fonte, a URL, o status HTTP, o tamanho e o início da re
 
 - `verificado_em_utc` e `verificado_em_local` (UTC-4): horário da última verificação, ou seja, desta coleta. Muda a cada rodada que termina com pelo menos uma fonte respondendo.
 - `gerado_em_utc` e `gerado_em_local`: quando os dados mudaram pela última vez. Se nada além dos campos de horário mudou, eles ficam com o valor da coleta anterior; mudou algum dado (estação, aviso, fonte), passam a ser o horário desta coleta.
-- `estacoes`: lista de `nome`, `valor_m` (altura em metros), `data_leitura`, `fonte`, `variacao_24h` (quando a fonte informa), `atual` e `serie`.
+- `estacoes`: lista de `nome`, `valor_m` (altura em metros), `data_leitura`, `fonte`, `variacao_24h` (quando a fonte informa, ou calculada pela `serie` quando ela tem o dia anterior, com `variacao_fonte: "serie"`), `atual` e `serie`.
   - `atual`: `true` se o valor saiu nesta coleta; `false` se a estação não trouxe valor agora e o registro é a última leitura boa da coleta anterior. Para estação que veio só da grade do CHN-6, `true` apenas se o valor for de hoje.
   - `serie`: até 7 datas distintas, cada uma com `data` (AAAA-MM-DD) e `valor_m`, um valor por data. Serve para o gráfico. Quando a série guardada tem menos de 7 datas, ela é completada com o histórico da DMH-PY e da grade do CHN-6 (uma busca por régua por rodada; sem essa busca, a série guardada fica como está). Na mesma data, vale a leitura que já estava na série (BDARN); o histórico de DMH-PY perde para o da grade.
   - Estação que nunca teve valor não aparece na lista.
