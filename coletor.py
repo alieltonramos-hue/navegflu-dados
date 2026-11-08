@@ -257,8 +257,17 @@ def _baixar_avurnav_mais_novo():
     return None, "", None
 
 
+PREVIA_CHARS = 200                                           # tamanho da previa de avurnav[].texto
+
+
+def _previa(txt, n=PREVIA_CHARS):
+    """Primeiros n caracteres do texto; com "…" no fim se cortou."""
+    return txt if len(txt) <= n else txt[:n] + "…"
+
+
 def _publicar_avisos():
-    """Monta dados_nav["avurnav"] juntando as duas fontes (boletim do dia e revisao mensal)."""
+    """Monta dados_nav["avurnav"] juntando as duas fontes (boletim do dia e revisao mensal).
+    dados_nav["avisos_texto"] guarda o texto completo de cada aviso, uma vez por numero."""
     bd, av = _avisos_fontes["bdarn"], _avisos_fontes["avrad"]
     if bd and av and bd["dia"] < av["dia"]:
         bd = None                       # boletim mais velho que a revisao: nao manda na lista
@@ -276,7 +285,7 @@ def _publicar_avisos():
     palavras_chave = ["paraguai", "ladario", "corumba", "caceres", "miranda",
                       "murtinho", "leverger", "albuquerque", "coimbra", "olimpo",
                       "vallemi", "concepcion", "assuncao", "fluvial", "hidrovia", "rio cuiaba"]
-    avisos = []
+    avisos, textos_completos = [], {}
     for ident in sorted(universo, key=lambda x: (x[-2:], x[:4])):   # por ano/numero
         texto_aviso = (bd and bd["textos"].get(ident)) or (av and av["textos"].get(ident))
         if not texto_aviso:
@@ -284,6 +293,7 @@ def _publicar_avisos():
         texto_norm = remover_acentos(texto_aviso.lower())
         if not any(p in texto_norm for p in palavras_chave):
             continue
+        textos_completos[f"HI {ident}"] = texto_aviso      # uma vez por aviso, inteiro
 
         # Aviso com tabela de sinais: uma entrada por sinal, cada uma no seu KM.
         # Sistema do aviso: "Rio Cuiaba" no texto -> CUIABA; senao PARAGUAI.
@@ -291,9 +301,9 @@ def _publicar_avisos():
         sinais = sinais_da_tabela(texto_aviso)
         if sinais:
             for nome_s, km_s, sit_s in sinais:
-                # linha do sinal + texto completo do aviso (o sinal diferencia as entradas do mesmo aviso)
+                # previa: linha do sinal + comeco do aviso (o sinal diferencia as entradas)
                 resumo_s = f"{sit_s}: {nome_s} (KM {km_s:.1f})."
-                avisos.append({"id": f"HI {ident}", "texto": f"{resumo_s} {texto_aviso}",
+                avisos.append({"id": f"HI {ident}", "texto": _previa(f"{resumo_s} {texto_aviso}"),
                                "km": km_s, "coord": None, "sistema": sistema_av})
             continue
 
@@ -315,9 +325,10 @@ def _publicar_avisos():
             if la is not None and lo is not None:
                 coord = [round(la, 5), round(lo, 5)]
 
-        avisos.append({"id": f"HI {ident}", "texto": texto_aviso,
+        avisos.append({"id": f"HI {ident}", "texto": _previa(texto_aviso),
                        "km": km_encontrado, "coord": coord, "sistema": sistema_av})
     dados_nav["avurnav"] = avisos
+    dados_nav["avisos_texto"] = textos_completos
     dados_nav["avurnav_de"] = dia_lista.isoformat()
     n_avisos = len({a["id"] for a in avisos})
     print(f"[*] AVISOS AOS NAVEGANTES: {n_avisos} avisos para a hidrovia, {len(avisos)} posicoes ({status_data}).",
@@ -557,6 +568,7 @@ def coletar(anterior=None):
     if not av_ok and anterior and isinstance(anterior.get("avurnav"), list):
         # fonte falhou e ha lista anterior: ela fica inteira
         avurnav = anterior["avurnav"]
+        avisos_texto = anterior.get("avisos_texto") if isinstance(anterior.get("avisos_texto"), dict) else {}
         avurnav_de = anterior.get("avurnav_de") or (anterior.get("gerado_em_local") or "")[:10] or None
         fontes["AVURNAV"]["msg"] += f"; lista anterior mantida (de {avurnav_de})"
     else:
@@ -568,6 +580,7 @@ def coletar(anterior=None):
                     "coord": a.get("coord")}
                    for a in dados_nav.get("avurnav", [])]
         avurnav_de = dados_nav.get("avurnav_de")
+        avisos_texto = dict(dados_nav.get("avisos_texto") or {})
     print(f"      -> {fontes['AVURNAV']['msg']}", flush=True)
 
     # Ultima leitura boa: estacao sem valor nesta rodada fica com o registro anterior
@@ -590,6 +603,7 @@ def coletar(anterior=None):
     saida = {
         "estacoes": finais,
         "avurnav": avurnav,
+        "avisos_texto": avisos_texto,
         "avurnav_de": avurnav_de,
         "fontes": fontes,
     }

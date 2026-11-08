@@ -218,13 +218,25 @@ class ColetorTeste(unittest.TestCase):
             self.assertIsNone(coletor.carregar_anterior(ruim))
             self.assertIsNone(coletor.carregar_anterior(os.path.join(tmp, "nao_existe.json")))
 
-    def test_j_texto_do_aviso_sai_inteiro(self):
+    def test_j_previa_curta_e_texto_completo_em_avisos_texto(self):
         longo = AVISO_TXT + " " + "trecho de teste " * 40 + "FIM."
         self.assertGreater(len(longo), 500)
         self.texto_aviso = longo
         d = self.rodar(None)
-        self.assertEqual(d["avurnav"][0]["texto"], longo)
-        self.assertFalse(d["avurnav"][0]["texto"].endswith("..."))
+        previa = d["avurnav"][0]["texto"]
+        self.assertLessEqual(len(previa), 201)
+        self.assertEqual(previa, longo[:200] + "…")
+        self.assertEqual(d["avisos_texto"], {"HI 0049/26": longo})
+
+    def test_m_aviso_com_tres_sinais_tem_uma_entrada_em_avisos_texto(self):
+        sinais = [("POSTE A", 1.0, "DESTRUIDO"), ("POSTE B", 2.5, "INOPERANTE"), ("POSTE C", 3.0, "INOPERANTE")]
+        with mock.patch.object(coletor, "sinais_da_tabela", return_value=sinais):
+            d = self.rodar(None)
+        self.assertEqual(len(d["avurnav"]), 3)
+        for a in d["avurnav"]:
+            self.assertLessEqual(len(a["texto"]), 201)
+        self.assertTrue(d["avurnav"][0]["texto"].startswith("DESTRUIDO: POSTE A (KM 1.0)."))
+        self.assertEqual(d["avisos_texto"], {"HI 0049/26": AVISO_TXT})
 
     def test_k_verificado_muda_a_cada_rodada(self):
         t1 = datetime.datetime(2026, 11, 8, 10, 45, 0, tzinfo=datetime.timezone.utc)

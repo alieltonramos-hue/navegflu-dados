@@ -31,7 +31,8 @@ O programa imprime, por fonte, a URL, o status HTTP, o tamanho e o início da re
   - `atual`: `true` se o valor saiu nesta coleta; `false` se a estação não trouxe valor agora e o registro é a última leitura boa da coleta anterior.
   - `serie`: até 7 datas distintas, cada uma com `data` (AAAA-MM-DD) e `valor_m`, um valor por data (o mais recente). Serve para o gráfico.
   - Estação que nunca teve valor não aparece na lista.
-- `avurnav`: lista de avisos, com `numero`, `texto` (texto completo do aviso, como lido do PDF, com os espaços e quebras de linha normalizados; em aviso com tabela de sinais, a linha do sinal vem antes do texto), `sistema` (`CUIABA` ou `PARAGUAI`), `km` (KM citado no texto do aviso, ou `null`) e `coord` (`[lat, lon]` quando o aviso traz só coordenada, ou `null`).
+- `avurnav`: lista de posições de aviso (um aviso com tabela de sinais tem uma posição por sinal), com `numero`, `texto` (prévia: os primeiros 200 caracteres do texto, terminando em "…" quando cortado; em posição de sinal, a linha do sinal vem antes do começo do aviso), `sistema` (`CUIABA` ou `PARAGUAI`), `km` (KM citado no texto do aviso, ou `null`) e `coord` (`[lat, lon]` quando o aviso traz só coordenada, ou `null`).
+- `avisos_texto`: objeto `{numero: texto}` com o texto completo de cada aviso, como lido do PDF (espaços e quebras de linha normalizados), uma entrada por número, mesmo quando o aviso tem várias posições em `avurnav`. Para ver o aviso inteiro, use `avisos_texto[numero]`.
 - `avurnav_de`: data (AAAA-MM-DD) da lista de `avurnav`. Se a AVURNAV falhou na coleta, a lista é a anterior inteira, e `avurnav_de` é a data dela.
 - `fontes`: para cada fonte, `ok` (true/false, se a fonte respondeu nesta coleta) e `msg` (o que aconteceu).
 
