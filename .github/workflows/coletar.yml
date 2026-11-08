@@ -44,30 +44,35 @@ jobs:
         # Sai com 0 se ao menos uma fonte respondeu (o log mostra cada uma). Sai com 1 se todas falharam.
         run: python coletor.py hidro.json
 
-      - name: Ver se os dados mudaram (ignora gerado_em_*)
+      - name: Ver se a coleta deu certo e se os dados mudaram
         id: mudanca
+        # Commita sempre que ao menos uma fonte respondeu nesta rodada, para o app ver a hora da
+        # ultima verificacao (verificado_em_utc). gerado_em_utc muda so quando algum dado mudou.
         run: |
           python -I - <<'PY'
           import json, os, subprocess
-          def limpo(txt):
-              d = json.loads(txt)
-              d.pop("gerado_em_utc", None)
-              d.pop("gerado_em_local", None)
-              return json.dumps(d, sort_keys=True, ensure_ascii=False)
-          novo = limpo(open("hidro.json", encoding="utf-8").read())
-          antigo = subprocess.run(["git", "show", "HEAD:hidro.json"],
-                                  capture_output=True, text=True).stdout
-          mudou = (not antigo) or novo != limpo(antigo)
-          print("[*] dados mudaram: vai commitar" if mudou else "[*] dados iguais ao commit anterior: nada a commitar")
+          novo = json.load(open("hidro.json", encoding="utf-8"))
+          antigo_txt = subprocess.run(["git", "show", "HEAD:hidro.json"],
+                                      capture_output=True, text=True).stdout
+          antigo = json.loads(antigo_txt) if antigo_txt else {}
+          coleta_ok = any(f.get("ok") for f in novo.get("fontes", {}).values())
+          dados_mudaram = novo.get("gerado_em_utc") != antigo.get("gerado_em_utc")
+          hora = novo["verificado_em_utc"][:16] + "Z"          # AAAA-MM-DDTHH:MMZ
+          mensagem = f"Dados: coleta {hora}" if dados_mudaram else f"Dados: verificação {hora}"
+          print("[*] coleta com fonte OK: " + ("sim, vai commitar" if coleta_ok else "nao, nada a commitar"))
+          print("[*] dados mudaram: " + ("sim" if dados_mudaram else "nao (so a hora da verificacao)"))
           with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
-              f.write(f"mudou={'true' if mudou else 'false'}\n")
+              f.write(f"coleta_ok={'true' if coleta_ok else 'false'}\n")
+              f.write(f"mensagem={mensagem}\n")
           PY
 
       - name: Commitar e enviar hidro.json
-        if: steps.mudanca.outputs.mudou == 'true'
+        if: steps.mudanca.outputs.coleta_ok == 'true'
+        env:
+          MENSAGEM: ${{ steps.mudanca.outputs.mensagem }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add hidro.json
-          git commit -m "Dados: coleta $(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -m "$MENSAGEM"
           git push

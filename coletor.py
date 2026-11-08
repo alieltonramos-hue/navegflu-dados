@@ -291,9 +291,10 @@ def _publicar_avisos():
         sinais = sinais_da_tabela(texto_aviso)
         if sinais:
             for nome_s, km_s, sit_s in sinais:
-                resumo_s = f"{sit_s}: {nome_s} (KM {km_s:.1f}). " + texto_aviso[:120]
-                avisos.append({"id": f"HI {ident}", "texto": resumo_s[:200] + ("..." if len(resumo_s) > 200 else ""),
-                               "texto_completo": texto_aviso, "km": km_s, "coord": None, "sistema": sistema_av})
+                # linha do sinal + texto completo do aviso (o sinal diferencia as entradas do mesmo aviso)
+                resumo_s = f"{sit_s}: {nome_s} (KM {km_s:.1f})."
+                avisos.append({"id": f"HI {ident}", "texto": f"{resumo_s} {texto_aviso}",
+                               "km": km_s, "coord": None, "sistema": sistema_av})
             continue
 
         # KM so do texto (KM do Cuiaba: 1 a 3 digitos; o do Paraguai: 3 a 4).
@@ -314,8 +315,7 @@ def _publicar_avisos():
             if la is not None and lo is not None:
                 coord = [round(la, 5), round(lo, 5)]
 
-        texto_resumo = texto_aviso[:160] + ("..." if len(texto_aviso) > 160 else "")
-        avisos.append({"id": f"HI {ident}", "texto": texto_resumo, "texto_completo": texto_aviso,
+        avisos.append({"id": f"HI {ident}", "texto": texto_aviso,
                        "km": km_encontrado, "coord": coord, "sistema": sistema_av})
     dados_nav["avurnav"] = avisos
     dados_nav["avurnav_de"] = dia_lista.isoformat()
@@ -464,6 +464,18 @@ def _serie_do_anterior(velho):
     return [{"data": velho.get("data_leitura"), "valor_m": velho.get("valor_m")}]
 
 
+CAMPOS_TEMPO = ("gerado_em_utc", "gerado_em_local", "verificado_em_utc", "verificado_em_local")
+
+
+def _agora_utc():
+    return datetime.datetime.now(datetime.timezone.utc)
+
+
+def _sem_tempo(dados):
+    """Conteudo do hidro.json sem os campos de horario: serve para saber se algum dado mudou."""
+    return {k: v for k, v in dados.items() if k not in CAMPOS_TEMPO}
+
+
 def coletar(anterior=None):
     global HOJE_STR
     agora = datetime.datetime.now(TZ_LOCAL)
@@ -575,13 +587,28 @@ def coletar(anterior=None):
             reg["serie"] = _serie_atualizada(_serie_do_anterior(velho), None, None)
             finais.append(reg)
 
-    return {
-        "gerado_em_utc": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "gerado_em_local": agora.isoformat(timespec="seconds"),
+    saida = {
         "estacoes": finais,
         "avurnav": avurnav,
         "avurnav_de": avurnav_de,
         "fontes": fontes,
+    }
+    # verificado_em_*: esta rodada, sempre. gerado_em_*: quando os dados mudaram pela ultima vez
+    # (sem mudanca de dado, mantem o valor do hidro.json anterior).
+    verificado_utc = _agora_utc()
+    verificado_local = verificado_utc.astimezone(TZ_LOCAL)
+    if anterior and anterior.get("gerado_em_utc") and _sem_tempo(anterior) == saida:
+        gerado_utc = anterior["gerado_em_utc"]
+        gerado_local = anterior.get("gerado_em_local") or verificado_local.isoformat(timespec="seconds")
+    else:
+        gerado_utc = verificado_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+        gerado_local = verificado_local.isoformat(timespec="seconds")
+    return {
+        "gerado_em_utc": gerado_utc,
+        "gerado_em_local": gerado_local,
+        "verificado_em_utc": verificado_utc.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "verificado_em_local": verificado_local.isoformat(timespec="seconds"),
+        **saida,
     }
 
 

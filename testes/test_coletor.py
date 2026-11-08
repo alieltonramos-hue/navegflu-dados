@@ -38,6 +38,7 @@ class ColetorTeste(unittest.TestCase):
         # cenario padrao: BDARN e revisao respondem; DMH responde nas 3 paginas paraguaias
         self.bdarn_ok = True
         self.av_ok = True
+        self.texto_aviso = AVISO_TXT
         self.lidos_bdarn = {"Cuiabá": (0.86, "DESCENDO", 0.09), "Cáceres": (1.18, "DESCENDO", 0.05),
                             "Ladário": (0.82, "DESCENDO", 0.03), "P. Murtinho": (2.27, "DESCENDO", 0.02)}
         self.dmh = {"Vallemi PY": self._dmh(2.33, self.hoje, -0.04),
@@ -58,7 +59,7 @@ class ColetorTeste(unittest.TestCase):
         return dict(self.lidos_bdarn)
 
     def _fake_avisos(self, pdf):
-        return {"0049/26"}, {"0049/26": AVISO_TXT}
+        return {"0049/26"}, {"0049/26": self.texto_aviso}
 
     def _fake_avurnav(self):
         return (b"%PDF-falso", "07/11/2026", self.hoje - UM_DIA) if self.av_ok else (None, "", None)
@@ -216,6 +217,45 @@ class ColetorTeste(unittest.TestCase):
                 f.write("{nao e json")
             self.assertIsNone(coletor.carregar_anterior(ruim))
             self.assertIsNone(coletor.carregar_anterior(os.path.join(tmp, "nao_existe.json")))
+
+    def test_j_texto_do_aviso_sai_inteiro(self):
+        longo = AVISO_TXT + " " + "trecho de teste " * 40 + "FIM."
+        self.assertGreater(len(longo), 500)
+        self.texto_aviso = longo
+        d = self.rodar(None)
+        self.assertEqual(d["avurnav"][0]["texto"], longo)
+        self.assertFalse(d["avurnav"][0]["texto"].endswith("..."))
+
+    def test_k_verificado_muda_a_cada_rodada(self):
+        t1 = datetime.datetime(2026, 11, 8, 10, 45, 0, tzinfo=datetime.timezone.utc)
+        t2 = t1 + datetime.timedelta(minutes=15)
+        with mock.patch.object(coletor, "_agora_utc", side_effect=[t1, t2]):
+            d1 = self.rodar(None)
+            d2 = self.rodar(json.loads(json.dumps(d1)))
+        self.assertEqual(d1["verificado_em_utc"], "2026-11-08T10:45:00Z")
+        self.assertEqual(d1["verificado_em_local"], "2026-11-08T06:45:00-04:00")
+        self.assertEqual(d2["verificado_em_utc"], "2026-11-08T11:00:00Z")
+        self.assertEqual(d2["verificado_em_local"], "2026-11-08T07:00:00-04:00")
+
+    def test_l_gerado_em_so_muda_quando_os_dados_mudam(self):
+        t1 = datetime.datetime(2026, 11, 8, 10, 45, 0, tzinfo=datetime.timezone.utc)
+        t2 = t1 + datetime.timedelta(minutes=15)
+        t3 = t2 + datetime.timedelta(minutes=15)
+        with mock.patch.object(coletor, "_agora_utc", side_effect=[t1, t2, t3]):
+            d1 = self.rodar(None)
+            d2 = self.rodar(json.loads(json.dumps(d1)))          # mesmos dados
+            self.lidos_bdarn["Cuiabá"] = (0.80, "DESCENDO", 0.06)  # um valor mudou
+            d3 = self.rodar(json.loads(json.dumps(d2)))
+        self.assertEqual(d1["gerado_em_utc"], "2026-11-08T10:45:00Z")
+        self.assertEqual(d1["gerado_em_local"], "2026-11-08T06:45:00-04:00")
+        # sem mudanca de dado: gerado_em fica, verificado_em anda
+        self.assertEqual(d2["gerado_em_utc"], d1["gerado_em_utc"])
+        self.assertEqual(d2["gerado_em_local"], d1["gerado_em_local"])
+        self.assertEqual(d2["verificado_em_utc"], "2026-11-08T11:00:00Z")
+        # com mudanca de dado: gerado_em e verificado_em sao da rodada que mudou
+        self.assertEqual(d3["gerado_em_utc"], "2026-11-08T11:15:00Z")
+        self.assertEqual(d3["gerado_em_local"], "2026-11-08T07:15:00-04:00")
+        self.assertEqual(d3["verificado_em_utc"], "2026-11-08T11:15:00Z")
 
 
 if __name__ == "__main__":
