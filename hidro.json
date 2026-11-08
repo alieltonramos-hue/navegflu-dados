@@ -1,0 +1,1907 @@
+{
+  "gerado_em_utc": "2026-11-08T13:32:24Z",
+  "gerado_em_local": "2026-11-08T09:31:30-04:00",
+  "estacoes": [
+    {
+      "nome": "Cuiabá",
+      "valor_m": 0.86,
+      "data_leitura": "2026-11-08",
+      "fonte": "BDARN CHN-6",
+      "variacao_24h": -0.09
+    },
+    {
+      "nome": "Cáceres",
+      "valor_m": 1.18,
+      "data_leitura": "2026-11-08",
+      "fonte": "BDARN CHN-6",
+      "variacao_24h": -0.05
+    },
+    {
+      "nome": "Ladário",
+      "valor_m": 0.82,
+      "data_leitura": "2026-11-08",
+      "fonte": "BDARN CHN-6",
+      "variacao_24h": -0.03
+    },
+    {
+      "nome": "P. Murtinho",
+      "valor_m": 2.27,
+      "data_leitura": "2026-11-08",
+      "fonte": "BDARN CHN-6",
+      "variacao_24h": -0.02
+    },
+    {
+      "nome": "Vallemi PY",
+      "valor_m": 2.33,
+      "data_leitura": "2026-11-08",
+      "fonte": "DMH-PY",
+      "variacao_24h": -0.04
+    },
+    {
+      "nome": "Concepción PY",
+      "valor_m": 1.89,
+      "data_leitura": "2026-11-08",
+      "fonte": "DMH-PY",
+      "variacao_24h": -0.03
+    },
+    {
+      "nome": "Assunção PY",
+      "valor_m": 2.3,
+      "data_leitura": "2026-11-08",
+      "fonte": "DMH-PY",
+      "variacao_24h": -0.03
+    }
+  ],
+  "avurnav": [
+    {
+      "numero": "HI 0067/09",
+      "texto": "HI 0067/09 – BRASIL – RIO PARAGUAI (CARTA 3365). PRECAUÇÃO DE SEGURANÇA. MARGEM ESQUERDA - PROXIMIDADES DA EMPRESA DE NAVEGAÇÃO CINCO BACIA S/A, EXISTÊNCIA DE Q...",
+      "sistema": "PARAGUAI",
+      "km": 1516.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0025/10",
+      "texto": "HI 0025/10 – BRASIL – RIO PARAGUAI (CARTA 3362). PRECAUÇÃO DE SEGURANÇA. ILHA DE SANTANA AO SALADEIRO OTÍLIA - CARTA N°3362 - PRECAUÇÃO DE SEGURANÇA. DESDE 13 D...",
+      "sistema": "PARAGUAI",
+      "km": 1470.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0062/11",
+      "texto": "HI 0062/11 – BRASIL– RIO CUIABÁ- PRECAUÇÃO DE SEGURANÇA. NO KM 254,7 DO RIO CUIABÁ ENCONTRA SE NAUFRAGADA A EMBARCAÇÃO SEMI TÔ A TOA, NA POSIÇÃO LAT. 16°49’ 47,...",
+      "sistema": "CUIABA",
+      "km": 254.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0014/15",
+      "texto": "HI 0014/15 – BRASIL – RIO PARAGUAI (CARTA 3434). PRECAUÇÃO DE SEGURANÇA. CORUMBÁ A CÁCERES, PROXIMIDADES DO PASSO JAURU, KM 2110,6, MARGEM ESQUERDA. EXISTÊNCIA ...",
+      "sistema": "PARAGUAI",
+      "km": 2110.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0016/15",
+      "texto": "HI 0016/15 – BRASIL – RIO CUIABÁ – PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE LINHAS DE TRANSMISSÃO COM 20 METROS DE ALTURA NAS SEGUINTES LOCALIDADES NAS POSIÇÕES: L...",
+      "sistema": "CUIABA",
+      "km": null,
+      "coord": [
+        -16.42306,
+        -56.03639
+      ]
+    },
+    {
+      "numero": "HI 0099/17",
+      "texto": "HI 0099/17 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3361). PROXIMIDADES DO FTE MUCUNÃ (KM 1452,5). PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PED...",
+      "sistema": "PARAGUAI",
+      "km": 1452.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0060/18",
+      "texto": "HI 0060/18 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA – (CARTAS 3357 E 3358). PRECAUÇÃO DE SEGURANÇA. POR OCASIÃO DA TRANSPOSIÇÃO DA PONTE RODOVIÁRIA...",
+      "sistema": "PARAGUAI",
+      "km": 1402.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0061/18",
+      "texto": "HI 0061/18 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3357). PRECAUÇÃO DE SEGURANÇA. A REALIZAÇÃO DOS TRABALHOS PARA REFLUTUAÇÃO/REMOÇÃO DA BA...",
+      "sistema": "PARAGUAI",
+      "km": 1402.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0062/18",
+      "texto": "HI 0062/18 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTA 3441). PRECAUÇÃO DE SEGURANÇA. NAS PROXIMIDADES DO KM 2168,5, (POUSADA PINTÚ), EM UM BRAÇO NAVE...",
+      "sistema": "PARAGUAI",
+      "km": 2168.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0074/18",
+      "texto": "HI 0074/18 – AVISO AOS NAVEGANTES – RIO CUIABÁ – PORTO CERCADO. EXISTÊNCIA DE ESTRUTURAS DE AÇO NO RIO CUIABÁ, MARGEM DIREITA NA LAT. 16° 30' 51\"S e LONG. 056° ...",
+      "sistema": "CUIABA",
+      "km": null,
+      "coord": [
+        -16.51417,
+        -56.37528
+      ]
+    },
+    {
+      "numero": "HI 0020/19",
+      "texto": "HI 0020/19 – BRASIL – RIO CUIABÁ – BARÃO DE MELGAÇO (CROQUI DE NAVEGAÇÃO N°83). PRECAUÇÃO DE SEGURANÇA. CABOS DA LINHA DE TRANSMISSÃO DE ENERGIA NA SEGUINTE POS...",
+      "sistema": "CUIABA",
+      "km": 536.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0035/19",
+      "texto": "HI 0035/19 – BRASIL – RIO CUIABÁ – PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE LINHA DE TRANSMISSÃO COM ALTURA INFERIOR A DEZ (10) METROS OFERECENDO PERIGO A NAVEGA- ...",
+      "sistema": "CUIABA",
+      "km": null,
+      "coord": [
+        -15.91306,
+        -56.03222
+      ]
+    },
+    {
+      "numero": "HI 0042/19",
+      "texto": "HI 0042/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTAS 3429, 3430, 3431 E 3432). PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS A...",
+      "sistema": "PARAGUAI",
+      "km": 2081.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0068/19",
+      "texto": "HI 0068/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTA 3432). PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA...",
+      "sistema": "PARAGUAI",
+      "km": 2100.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0106/19",
+      "texto": "HI 0106/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTA 3442). PRECAUÇÃO DE SEGURANÇA – EMBARCAÇÃO NAUFRAGADA. NAS PROXIMIDADES DO KM 2174 DO RIO PARAG...",
+      "sistema": "PARAGUAI",
+      "km": 2174.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0119/19",
+      "texto": "HI 0119/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTAS 3439 E 3440). PRECAUÇÃO DE SEGURANÇA. CARTA 3439 PROFUNDIDADES ABAIXO DE 2 METROS NAS PROXIMID...",
+      "sistema": "PARAGUAI",
+      "km": 2154.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0128/19",
+      "texto": "HI 0128/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTA 3442). PROXIMIDADES DA AGÊNCIA FLUVIAL DE CÁCERES (KM 2183,0). PRECAUÇÃO DE SEGURANÇA. EROSÃO D...",
+      "sistema": "PARAGUAI",
+      "km": 2183.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0148/19",
+      "texto": "HI 0148/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À CÁCERES (CARTAS 3365 E 3366). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA...",
+      "sistema": "PARAGUAI",
+      "km": 1520.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0154/19",
+      "texto": "HI 0154/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3357). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA PONTE...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -19.59765,
+        -57.44105
+      ]
+    },
+    {
+      "numero": "HI 0162/19",
+      "texto": "HI 0162/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3352). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA VOLTA...",
+      "sistema": "PARAGUAI",
+      "km": 1300.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0163/19",
+      "texto": "HI 0163/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3350). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ISLA ...",
+      "sistema": "PARAGUAI",
+      "km": 1270.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0164/19",
+      "texto": "HI 0164/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3348). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA ...",
+      "sistema": "PARAGUAI",
+      "km": 1230.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0165/19",
+      "texto": "HI 0165/19 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3348). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA ...",
+      "sistema": "PARAGUAI",
+      "km": 1223.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0002/20",
+      "texto": "HI 0002/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3341). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO...",
+      "sistema": "PARAGUAI",
+      "km": 1086.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0003/20",
+      "texto": "HI 0003/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA N° 3341). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PA...",
+      "sistema": "PARAGUAI",
+      "km": 1084.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0004/20",
+      "texto": "HI 0004/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA N° 3344). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA IL...",
+      "sistema": "PARAGUAI",
+      "km": 1145.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0005/20",
+      "texto": "HI 0005/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA N° 3342). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PA...",
+      "sistema": "PARAGUAI",
+      "km": 1107.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0006/20",
+      "texto": "HI 0006/20 – BRASIL – RIO CUIABÁ – REGIÃO DO PORTO JOFRE (CROQUI DE NAVEGAÇÃO N° 22). PRECAUÇÃO DE SEGURANÇA. NAUFRÁGIO DA EMBARCAÇÃO J. LAURINHA NA MARGEM ESQU...",
+      "sistema": "CUIABA",
+      "km": null,
+      "coord": [
+        -17.4925,
+        -56.86583
+      ]
+    },
+    {
+      "numero": "HI 0007/20",
+      "texto": "HI 0007/20 – BRASIL – RIO CUIABÁ – REGIÃO DE PORTO CERCADO. PRECAUÇÃO DE SEGURANÇA. CABO DE REDE ELÉTRICA CRUZANDO O RIO CUIABÁ COM BAIXA ALTURA, NA SEGUINTE PO...",
+      "sistema": "CUIABA",
+      "km": 320.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0037/20",
+      "texto": "HI 0037/20 – BRASIL – RIO MIRANDA. PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA ÀS EMBARCAÇÕES QUE TRAFEGAREM SOB A PONTE RODOVIÁRIA SOBRE O RIO MIRANDA, SI- TU...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -19.57667,
+        -57.03722
+      ]
+    },
+    {
+      "numero": "HI 0070/20",
+      "texto": "HI 0070/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ A FOZ DO RIO APA (CARTA 3361). PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE FORMAÇÃO ROCHOSA AFLORADA E NÃO CARTOGRAFADA...",
+      "sistema": "PARAGUAI",
+      "km": 1449.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0083/20",
+      "texto": "HI 0083/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3337). PRECAUÇÃO DE SEGURANÇA. 1) RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA ILHA MAR...",
+      "sistema": "PARAGUAI",
+      "km": 1000.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0084/20",
+      "texto": "HI 0084/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3338). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO FAROL...",
+      "sistema": "PARAGUAI",
+      "km": 1026.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0085/20",
+      "texto": "HI 0085/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3341). PRECAUÇÃO DE SEGURANÇA. RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA BALIZA BARR...",
+      "sistema": "PARAGUAI",
+      "km": 1083.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0101/20",
+      "texto": "HI 0101/20 – BRASIL – RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA (CARTA 3361). PRECAUÇÃO DE SEGURANÇA. SURGIMENTO DE BANCO DE AREIA, DELIMITADO PELO POLÍGONO FO...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -19.20978,
+        -57.24358
+      ]
+    },
+    {
+      "numero": "HI 0041/21",
+      "texto": "HI 0041/21 – BRASIL – RIO PARAGUAI – DE CORUMBÁ A CÁCERES (CARTA 3432). PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -16.49856,
+        -57.8062
+      ]
+    },
+    {
+      "numero": "HI 0066/22",
+      "texto": "HI 0066/22 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – CARTA 3430. PRECAUÇÃO DE SEGURANÇA. CRESCIMENTO DE BANCO DE AREIA NAS PROXIMIDADES DO PASSO CORIXÃO LAT 16°3...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -16.604,
+        -57.84867
+      ]
+    },
+    {
+      "numero": "HI 0091/22",
+      "texto": "HI 0091/22 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3365. PRECAUÇÃO DE SEGURANÇA. ATENÇÃO E CAUTELA NO RIO PARAGUAI, CASCO SOÇOBRADO DA EMBARCAÇÃO \"VENCEDOR...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -18.9935,
+        -57.64547
+      ]
+    },
+    {
+      "numero": "HI 0025/23",
+      "texto": "HI 0025/23 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3365 E 3366. ALTERAÇÃO DE SINAL NÁUTICO. ALTERADAS AS CARACTERÍSTICAS DO FTE BALDUÍNO INFERIOR, NRORD BR...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": null
+    },
+    {
+      "numero": "HI 0026/23",
+      "texto": "HI 0026/23 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3365 E 3366. ALTERAÇÃO DE SINAL NÁUTICO. BALIZA DONA EMÍLIA, NRORD BR-1195 E SIMBOLOGIA X/O. REPOSICIONA...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -18.99773,
+        -57.63247
+      ]
+    },
+    {
+      "numero": "HI 0122/23",
+      "texto": "HI 0122/23 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3354. PRECAUÇÃO DE SEGURANÇA RECOMENDA-SE ATENÇÃO E CAUTELA AOS NAVEGANTES QUE DEMANDAREM NAS PROXIMIDAD...",
+      "sistema": "PARAGUAI",
+      "km": 1332.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0127/23",
+      "texto": "HI 0127/23 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3336. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -21.70767,
+        -57.9
+      ]
+    },
+    {
+      "numero": "HI 0128/23",
+      "texto": "HI 0128/23 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3365. ATENÇÃO E CAUTELA EM VIRTUDE DO ENCALHE DA BARCAÇA NSL 2045 CARREGADA COM MINÉRIO NA MARGEM DIREIT...",
+      "sistema": "PARAGUAI",
+      "km": 1513.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0010/24",
+      "texto": "HI 0010/24 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – CARTA 3440. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE ALTO-FUNDO E PEDRAS NAS PROXIMIDADES DA LAT 16°09,0907' S ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -16.15151,
+        -57.76932
+      ]
+    },
+    {
+      "numero": "HI 0028/24",
+      "texto": "HI 0028/24 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – CARTAS 3393 E 3394. ATENÇÃO E CAUTELA. FIM MITIGAR OS PROCESSOS DE ASSOREAMENTO E EROSÃO NA REGIÃO DA BARRA ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -17.93283,
+        -57.4725
+      ]
+    },
+    {
+      "numero": "HI 0041/24",
+      "texto": "HI 0041/24 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3328. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE ALTO-FUNDO E PEDRAS. EXISTÊNCIA DE PROFUNDIDADES MENORES QUE...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -22.5293,
+        -57.83165
+      ]
+    },
+    {
+      "numero": "HI 0042/24",
+      "texto": "HI 0042/24 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTAS 3320 E 3319. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NAS CARTAS...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -23.35693,
+        -57.51324
+      ]
+    },
+    {
+      "numero": "HI 0052/24",
+      "texto": "HI 0052/24– BRASIL – RIO PARAGUAI – MATO GROSSO E MATO GROSSO DO SUL ATENÇÃO E CAUTELA. EM VIRTUDE DO BIOMA DO PANTANAL ESTAR PASSANDO POR UMA DAS PIORES SECAS ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": null
+    },
+    {
+      "numero": "HI 0056/24",
+      "texto": "HI 0056/24 – BRASIL – RIO PARAGUAI – DA FOZ DO RIO APA À CÁCERES (CARTAS 3429, 3430, 3431 E 3432). PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE PROFUNDIDADES MENORES Q...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -22.09585,
+        -57.99593
+      ]
+    },
+    {
+      "numero": "HI 0067/24",
+      "texto": "HI 0067/24 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3354. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE BANCOS DE AREIA COM PROFUNDIDADES MENORES QUE AS REPRESENTAD...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -19.86057,
+        -57.75249
+      ]
+    },
+    {
+      "numero": "HI 0073/24",
+      "texto": "HI 0073/24 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3340. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE BAIXAS PROFUNDIDADES MENORES QUE AS REPRESENTADAS NA CARTA N...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -21.27116,
+        -57.91522
+      ]
+    },
+    {
+      "numero": "HI 0085/24",
+      "texto": "HI 0085/24 - BRASIL - RIO PARAGUAI. PRECAUÇÃO DE SEGURANÇA. EM VIRTUDE DO RÍGIDO REGIME DE SECA OBSERVADO NO RIO PARAGUAI E O CONSEQUENTE AFLORAMENTO DE BANCOS ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": null
+    },
+    {
+      "numero": "HI 0026/25",
+      "texto": "HI 0026/25 – BRASIL – RIO PARAGUAI – TRAMO SUL DO RIO PARAGUAI - CARTA 3336 ATENÇÃO E CAUTELA ATENÇÃO E CAUTELA AOS NAVEGANTES AO SE APROXIMAREM DO TRECHO DO RI...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -21.69167,
+        -57.88333
+      ]
+    },
+    {
+      "numero": "HI 0037/25",
+      "texto": "HI 0037/25 – PARAGUAI - RIO PARAGUAI – CARTA 3303. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE ALTO-FUNDO E PEDRAS. EXISTÊNCIA DE ALTO FUNDO E PEDRAS AFLORADAS NÃO CA...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -25.10506,
+        -57.48033
+      ]
+    },
+    {
+      "numero": "HI 0041/25",
+      "texto": "HI 0041/25 – BRASIL – RIO PARAGUAI – TRAMO NORTE DO RIO PARAGUAI - CARTAS 3427, 3428, 3429, 3430, 3431, 3432, 3433 E 3434. PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -16.72258,
+        -57.74794
+      ]
+    },
+    {
+      "numero": "HI 0076/25",
+      "texto": "HI 0076/25 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3337. ATENÇÃO E CAUTELA. RECOMENDA-SE ATENÇÃO E CAUTELA AOS NAVEGANTES NAS PROXIMIDADES DA ILHA MARIA, L...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -21.64453,
+        -57.93478
+      ]
+    },
+    {
+      "numero": "HI 0009/26",
+      "texto": "HI 0009/26 – BRASIL – RIO PARAGUAI – TRAMO SUL DO RIO PARAGUAI - CARTA 3419. PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NAS ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -16.89018,
+        -57.39822
+      ]
+    },
+    {
+      "numero": "HI 0018/26",
+      "texto": "HI 0018/26 – BRASIL – RIO PARAGUAI – TRAMO SUL DO RIO PARAGUAI - CARTA 3442. ATENÇÃO E CAUTELA OS NAVEGANTES DEVEM REDOBRAR A ATENÇÃO AO DEMANDAREM A CIDADE DE ...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": null
+    },
+    {
+      "numero": "HI 0019/26",
+      "texto": "HI 0019/26 – BRASIL – RIO CUIABÁ. ATENÇÃO E CAUTELA. OS NAVEGANTES DEVEM REDOBRAR A ATENÇÃO AO DEMANDAREM A CIDADE DE BARÃO DE MELGAÇO-MT, EM RAZÃO DAS OBRAS DE...",
+      "sistema": "CUIABA",
+      "km": null,
+      "coord": null
+    },
+    {
+      "numero": "HI 0020/26",
+      "texto": "HI 0020/26 – BRASIL – RIO CUIABÁ. PRECAUÇÃO DE SEGURANÇA. ATENÇÃO E CAUTELA AOS NAVEGANTES AO NAVEGAREM NO TRECHO DO RIO CUIABÁ-MT, COMPREENDIDO ENTRE O POÇO DO...",
+      "sistema": "CUIABA",
+      "km": 411.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0037/26",
+      "texto": "HI 0037/26 – BRASIL – RIO PARAGUAI – TRAMO SUL DO RIO PARAGUAI - CARTAS 3344, 3345, 3346, 3347, 3348, 3349, 3354 E 3357. PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PR...",
+      "sistema": "PARAGUAI",
+      "km": 1222.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0057/26",
+      "texto": "HI 0057/26 - BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3350. ATENÇÃO E CAUTELA. ATENÇÃO AS EMBARCAÇÕES AO NAVEGAREM NAS PROXIMIDADES DO KM 1271, DO RIO PARAGUA...",
+      "sistema": "PARAGUAI",
+      "km": 1271.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0061/26",
+      "texto": "HI 0061/26 – BRASIL – RIO PARAGUAI – CANAL DO TAMENGO. PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA H2100, NA...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -18.98216,
+        -57.70944
+      ]
+    },
+    {
+      "numero": "HI 0066/26",
+      "texto": "HI 0066/26 – BRASIL – RIO PARAGUAI – TRAMO NORTE DO RIO PARAGUAI - CARTAS 3395, 3399, 3426 E 3440. PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QU...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -17.84034,
+        -57.53138
+      ]
+    },
+    {
+      "numero": "HI 0072/26",
+      "texto": "HI 0072/26 – RIO PARAGUAI – CARTA 3352. PRECAUÇÃO DE SEGURANÇA. EXISTÊNCIA DE ALTO-FUNDO E PEDRAS. EXISTÊNCIA DE ALTO FUNDO E PEDRAS AFLORADAS NÃO CARTOGRAFADAS...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -19.97078,
+        -57.86033
+      ]
+    },
+    {
+      "numero": "HI 0074/26",
+      "texto": "HI 0074/26 – BRASIL – RIO PARAGUAI – CARTAS 3354 ATENÇÃO E CAUTELA – DRAGAGEM INTERDIÇÃO PARCIAL - PASSO PIÚVAS. EM VIRTUDE DE DRAGAGEM DE MANUTENÇÃO A SER REAL...",
+      "sistema": "PARAGUAI",
+      "km": 1336.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0075/26",
+      "texto": "HI 0075/26 – BRASIL – RIO PARAGUAI – TRAMO PARAGUAIO - CARTAS 3305, 3306, 3307, 3308, 3309, 3310 E 3311. PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENO...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -24.92319,
+        -57.29485
+      ]
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ PORTO MATO GRANDE (KM 1668.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1668.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ SOBRADINHO (KM 1538.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1538.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ PASSARINHO PRETO INFERIOR (KM 1544.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1544.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ PASSARINHO PRETO SUPERIOR (KM 1545.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1545.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ TUIUIU (KM 1547.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1547.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ FAIA INFERIOR (KM 1563.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1563.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FAIA (KM 1566.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1566.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ ALIANÇA INFERIOR (KM 1592.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1592.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ ALIANÇA SUPERIOR (KM 1593.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1593.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ CARANDAZINHO INFERIOR (KM 1598.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1598.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ CARANDAZINHO SUPERIOR (KM 1598.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1598.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ CURURU II (KM 1606.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1606.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA DO CASTELO INFERIOR (KM 1611.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1611.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ TUCANO SUPERIOR (KM 1620.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1620.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ LARANJEIRA INFERIOR (KM 1626.3). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1626.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ LARANJEIRA SUPERIOR (KM 1627.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1627.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ PORTO LARANJEIRA (KM 1634.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1634.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA VERDE (KM 1643.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1643.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ PARAGUAI MIRIM II (KM 1647.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1647.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ PATRICIA (KM 1656.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1656.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FURADO DO MATO GRANDE INFERIOR (KM 1670.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1670.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ ILHA RUFINO (KM 1688.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1688.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO RUFINO (KM 1689.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1689.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ PORTO CHANE (KM 1695.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1695.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ ESTIRÃO CHANÉ (KM 1696.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1696.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ DOURADOS (KM 1705.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1705.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "APAGADO: FTE DOURADO (KM 1706.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1706.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA NOVA INFERIOR (KM 1711.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1711.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ ILHA NOVA SUPERIOR (KM 1712.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1712.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ MORRO AMOLAR (KM 1716.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1716.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ AMOLAR (KM 1718.3). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1718.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ SÃO SEBASTIÃO INFERIOR (KM 1722.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1722.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ SÃO SEBASTIÃO SUPERIOR (KM 1723.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1723.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ BOCA DO FELIPE (KM 1724.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1724.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ RIO NOVO SUPERIOR (KM 1726.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1726.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ RIO VELHO SUPERIOR (KM 1731.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1731.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ CORIXO DA PENHA (KM 1732.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1732.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ CORIXO DO MOQUEM (KM 1741.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1741.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADO: FTE TRÊS BOCAS (KM 1743.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1743.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ BAÍA VERDE (KM 1751.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1751.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: FTE GAIVA (KM 1781.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1781.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: FTE BOCA BRAVA (KM 1784.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1784.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BOCA BRAVA INFERIOR (KM 1785.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1785.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ESTIRÃO GAIVA INFERIOR (KM 1785.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1785.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ESTIRÃO GAIVA (KM 1786.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1786.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ESTIRÃO GAIVA SUPERIOR (KM 1786.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1786.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ VOLTA DA CACHORRADA (KM 1787.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1787.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ BELA VISTA DO NORTE (KM 1796.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1796.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BOCA DA ANTA I (KM 1803.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1803.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ BOCA DA ANTA II (KM 1803.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1803.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ VOLTA DO BRACINHO INFERIOR (KM 1990.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1990.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ VOLTA DO BRACINHO SUPERIOR (KM 1990.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1990.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ RIO FORMOSO SUPERIOR (KM 1992.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 1992.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO DA ANTA INFERIOR (KM 2021.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2021.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ VOLTA DA MUTUCA SUPERIOR (KM 2024.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2024.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ VOLTA DO CAITITU SUPERIOR (KM 2026.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2026.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO DA ONÇA INFERIOR (KM 2029.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2029.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ESTIRÃO DA RESERVA SUPERIOR (KM 2031.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2031.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ VOLTA DA RESERVA SUPERIOR (KM 2032.3). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2032.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ CASTELO DE AREIA (KM 2032.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2032.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ BOCA DO TAIAMÃ (KM 2033.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2033.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ SINIMBU SUPERIOR (KM 2034.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2034.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ VOLTA DO SINIMBU (KM 2034.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2034.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BOCA DO GAMA SUPERIOR (KM 2036.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2036.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO JATOBÁ SUPERIOR (KM 2046.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2046.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA NEGRA INFERIOR (KM 2051.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2051.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA NEGRA (KM 2052.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2052.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ MORRO SÃO JOÃO INFERIOR (KM 2056.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2056.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ MORRO SÃO JOÃO SUPERIOR (KM 2057.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2057.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FAZENDA PARATUDAL (KM 2058.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2058.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA SOSSEGO INFERIOR (KM 2060.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2060.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ INHADONA (KM 2065.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2065.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ PORTO PRESIDENTE (KM 2069.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2069.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ PASSO PRESIDENTE INFERIOR (KM 2070.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2070.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO PRESIDENTE (KM 2070.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2070.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ RETIRO BRACINHO (KM 2076.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2076.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "APAGADO: FTE MORRINHO (KM 2078.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2078.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BAÍA DAS ÉGUAS SUPERIOR (KM 2079.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2079.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO BAÍA DAS ÉGUAS (KM 2082.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2082.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ NOVATEIRO (KM 2083.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2083.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ ESPINHEIRO (KM 2083.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2083.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ZOIUDO (KM 2084.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2084.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ CORIXÃO SUPERIOR (KM 2086.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2086.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ MARGARIDA (KM 2086.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2086.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ CORIXÃO (KM 2086.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2086.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA MARGARIDA INFERIOR (KM 2087.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2087.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ ILHA MARGARIDA (KM 2087.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2087.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA BAIAZINHA INFERIOR (KM 2089.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2089.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BAIAZINHA SUPERIOR (KM 2091.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2091.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA BEIÇUDO (KM 2092.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2092.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PONTA DO BEIÇUDO (KM 2092.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2092.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BARRANCO DA CHICA (KM 2096.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2096.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO DO SOLDADO SUPERIOR (KM 2098.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2098.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PORTO TUCUM (KM 2105.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2105.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PORTO TUCUM SUPERIOR (KM 2105.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2105.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FIGUEIRA DO TUCUM (KM 2106.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2106.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: FTE TUCUM (KM 2106.3). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2106.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ POTE DO TUCUM (KM 2107.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2107.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ PASSO JAURU INFERIOR (KM 2011.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2011.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ JAURU VELHO (KM 2113.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2113.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ ACURI (KM 2117.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2117.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ JAURUZINHO SUPERIOR (KM 2118.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2118.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BOCA DO SIMÃO NUNES (KM 2126.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2126.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FURADO DO JATOBÁ INFERIOR (KM 2128.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2128.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ FURADO DO TOTICO (KM 2128.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2128.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ BASSOURAS SUPERIOR (KM 2130.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2130.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FURADO DO TUIUIÚ SUPERIOR (KM 2131.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2131.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "OBSTRUÍDA: BZ JACOBINA INFERIOR (KM 2132.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2132.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BOCA JACOBINA (KM 2134.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2134.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PASSO DO ALEGRE INFERIOR (KM 2138.4). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2138.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ TIMBÁ SUPERIOR (KM 2140.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2140.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ LENHADA SUPERIOR (KM 2043.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2043.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PADRE INÁCIO SUPERIOR (KM 2144.0). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2144.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA PORTOBRAS SUPERIOR (KM 2145.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2145.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ PANTANALZINHO SUPERIOR (KM 2147.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2147.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ ILHA VELHA INFERIOR (KM 2148.3). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2148.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ ILHA VELHA (KM 2149.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2149.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ FURADO DO RETIRO VELHO INFERIOR (KM 2152.7). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2152.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ SITIO SÃO PEDRO (KM 2158.8). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2158.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ INHAROSA INFERIOR (KM 2159.3). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2159.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BAÍA DO BARREIRO SUPERIOR 2 (KM 2162.1). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2162.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ FURADO ALFERES SUPERIOR (KM 2164.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2164.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "INOPERANTE: BZ CAMPINA (KM 2165.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2165.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESAPARECIDA: BZ SOVACO SUPERIOR (KM 2168.5). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2168.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ SERAFIM INFERIOR (KM 2169.9). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2169.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "DESTRUÍDA: BZ BOCA DA PALHA (KM 2172.6). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2172.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0081/26",
+      "texto": "AVARIADA: BZ PALHA INFERIOR (KM 2173.2). HI 0081/26 – BRASIL – TRAMO NORTE DO RIO PARAGUAI – DE CORUMBÁ À CÁCERES. SINAIS NÁUTICOS INOPERANTES NO TRAMO NORTE DO ",
+      "sistema": "PARAGUAI",
+      "km": 2173.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0086/26",
+      "texto": "HI 0086/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3357. ATENÇÃO E CAUTELA NA TARDE DE 29 DE SETEMBRO DE 2026, DURANTE CONDIÇÕES METEOROLÓGICAS ADVERSAS RE...",
+      "sistema": "PARAGUAI",
+      "km": 1388.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "INOPERANTE: BZ RIO NEGRINHO (KM 1463.2). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1463.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "INOPERANTE: BZ LARANJEIRA SUPERIOR II (KM 1436.9). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1436.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "INOPERANTE: BZ ESTIRÃO DO PULGA (KM 1383.8). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1383.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ APA INFERIOR (KM 932.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 932.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ APA SUPERIOR (KM 933.4). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 933.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADO: FTE ILHA DA REPUBLICA (KM 937.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 937.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: SASTRE SUPERIOR (KM 941.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 941.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ PANTANAL INFERIOR (KM 944.4). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 944.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ VOLTA FLORES (KM 981.2). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 981.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ YATAIBA (KM 1022.7). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1022.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE SUCURI (KM 1077.2). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1077.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ ILHA SUCURI (KM 1078.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1078.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ PORTO BRAGA INFERIOR (KM 1122.8). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1122.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE RABO DE EMA (KM 1136.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1136.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ MIHANOVICH (KM 1141.5). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1141.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ COVA DA ONÇA SUPERIOR (KM 1153.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1153.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ BAIA DE LEDA (KM 1190.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1190.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ SOMBREIRO INFERIOR (KM 1194.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1194.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ ESPERANZA SUPERIOR (KM 1224.6). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1224.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ CURURU (KM 1229.4). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1229.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "OBSTRUÍDA: BZ SÃO SALVADOR (KM 1266.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1266.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ ILHA PATATIVA SUPERIOR (KM 1279.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1279.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ PASSO SANTA FÉ (KM 1285.9). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1285.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ CANCHA SANTA FE (KM 1287.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1287.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ MBIGUÁ (KM 1289.7). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1289.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ VOLTA DO REBOJO (KM 1301.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1301.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ PASSO DA BAIA VERDE INFERIOR (KM 1303.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1303.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ PASSO COIMBRA (KM 1311.5). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1311.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ MORRO DA MARINHA SUPERIOR (KM 1321.9). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1321.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ TUCANO (KM 1326.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1326.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ ILHA PARATUDAL (KM 1328.6). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1328.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADO: FTE PIÚVAS SUPERIOR (KM 1333.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1333.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ PIÚVAS SUPERIOR (KM 1336.8). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1336.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ SAPUCAIA (KM 1349.5). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1349.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ GAIVOTAS (KM 1333.1). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1333.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE ILHA DO BUGIO (KM 1376.8). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1376.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE SANTA BLANCA (KM 1379.7). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1379.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "DESTRUÍDA: BZ PULGA INFERIOR (KM 1380.7). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1380.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE ILHA CARAGUATÁ (KM 1417.2). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1417.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "AVARIADA: BZ ESTIRÃO MIRANDA SUPERIOR (KM 1423.9). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1423.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE CAMBARÁ FERRADO (KM 1427.6). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1427.6,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "OBSTRUÍDA: BZ PORTO DA MANGA (KM 1443.4). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1443.4,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE SANTANA (KM 1488.9). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1488.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE RABICHO (KM 1500.5). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1500.5,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE PARAGUASSU (KM 1514.7). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1514.7,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "INOPERANTE: FTE BALDUÍNO INFERIOR (KM 1521.2). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1521.2,
+      "coord": null
+    },
+    {
+      "numero": "HI 0087/26",
+      "texto": "APAGADO: FTE BALDUÍNO (KM 1521.3). HI 0087/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – DE CORUMBÁ À FOZ DO RIO APA. SINAIS NÁUTICOS INOPERANTES NO TRAMO SUL ",
+      "sistema": "PARAGUAI",
+      "km": 1521.3,
+      "coord": null
+    },
+    {
+      "numero": "HI 0088/26",
+      "texto": "HI 0088/26 – RIO PARAGUAI – TRECHO PARAGUAIO DA ILHA MONTE LINDO ATÉ ASSUNÇÃO. ATENÇÃO – CARTAS (3300, 3301, 3302, 3303, 3304, 3305, 3306, 3307, 3308, 3309, 331...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -25.27688,
+        -57.65927
+      ]
+    },
+    {
+      "numero": "HI 0089/26",
+      "texto": "HI 0089/26 - BRASIL - TRAMO SUL DO RIO PARAGUAI - CARTAS 3366 E 3353. OPERAÇÕES MILITARES. EM RAZÃO DE MANOBRAS MILITARES, SERÁ REALIZADA A INTERDIÇÃO DO RIO PA...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -18.99273,
+        -57.64671
+      ]
+    },
+    {
+      "numero": "HI 0091/26",
+      "texto": "HI 0091/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3359. ATENÇÃO E CAUTELA EM 26OUT2026, POR VOLTA DAS 06H, OCORREU O NAUFRÁGIO DE UMA EMBARCAÇÃO, DO TIPO ...",
+      "sistema": "PARAGUAI",
+      "km": 1422.9,
+      "coord": null
+    },
+    {
+      "numero": "HI 0093/26",
+      "texto": "HI 0093/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3365. ATENÇÃO E CAUTELA RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI NAS PROXIM...",
+      "sistema": "PARAGUAI",
+      "km": 1522.1,
+      "coord": null
+    },
+    {
+      "numero": "HI 0094/26",
+      "texto": "HI 0094/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTA 3364. ATENÇÃO E CAUTELA. RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI COMPREEND...",
+      "sistema": "PARAGUAI",
+      "km": 1504.8,
+      "coord": null
+    },
+    {
+      "numero": "HI 0095/26",
+      "texto": "HI 0095/26 – BRASIL – TRAMO SUL DO RIO PARAGUAI – CARTAS 3362, 3363 E 3364. ATENÇÃO E CAUTELA. RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARA...",
+      "sistema": "PARAGUAI",
+      "km": 1500.0,
+      "coord": null
+    },
+    {
+      "numero": "HI 0096/26",
+      "texto": "HI 0096/26 – LAGO DO MANSO – CHAPADA DOS GUIMARÃES - MT. INCIDENTE SAR. QUEDA DE UMA PESSOA NA ÁGUA, ÚLTIMA POSIÇÃO EM 14º50'09\"S / 055º43'01\"W - LAGO DO MANSO,...",
+      "sistema": "PARAGUAI",
+      "km": null,
+      "coord": [
+        -14.83583,
+        -55.71694
+      ]
+    }
+  ],
+  "fontes": {
+    "BDARN": {
+      "ok": true,
+      "msg": "BDARN_NOV_08.pdf (1360849 bytes), data confere, 4 estacoes"
+    },
+    "DMH-PY": {
+      "ok": true,
+      "msg": "3 paginas lidas"
+    },
+    "AVURNAV": {
+      "ok": true,
+      "msg": "revisao 07/11/2026; boletim do dia: sim"
+    }
+  }
+}
