@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Nada de regua, GPX, PDF ou temporarios no repositorio publico
+*.gpx
+regua*
+ancoras*
+*.pdf
+bdarn_tmp.pdf
+saida/

@@ -1,0 +1,67 @@
+name: coletar
+
+# Teste inicial: so manual (workflow_dispatch).
+# O agendamento abaixo fica DESLIGADO ate o teste ser validado; para ligar, descomente.
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0,30 9-17 * * *"              # 05h-13h locais (UTC-4) = 09h-17h UTC, a cada 30 min
+  #   - cron: "0 0,2,4,6,8,18,20,22 * * *"   # demais horas, de 2 em 2 h (UTC)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: coletar
+  cancel-in-progress: false
+
+jobs:
+  coletar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python 3.12 (com cache do pip)
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Coletar fontes oficiais
+        id: coleta
+        # Sai com 0 se ao menos uma fonte respondeu (o log mostra cada uma). Sai com 1 se todas falharam.
+        run: python coletor.py hidro.json
+
+      - name: Ver se os dados mudaram (ignora gerado_em_*)
+        id: mudanca
+        run: |
+          python -I - <<'PY'
+          import json, os, subprocess
+          def limpo(txt):
+              d = json.loads(txt)
+              d.pop("gerado_em_utc", None)
+              d.pop("gerado_em_local", None)
+              return json.dumps(d, sort_keys=True, ensure_ascii=False)
+          novo = limpo(open("hidro.json", encoding="utf-8").read())
+          antigo = subprocess.run(["git", "show", "HEAD:hidro.json"],
+                                  capture_output=True, text=True).stdout
+          mudou = (not antigo) or novo != limpo(antigo)
+          print("[*] dados mudaram: vai commitar" if mudou else "[*] dados iguais ao commit anterior: nada a commitar")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as f:
+              f.write(f"mudou={'true' if mudou else 'false'}\n")
+          PY
+
+      - name: Commitar e enviar hidro.json
+        if: steps.mudanca.outputs.mudou == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hidro.json
+          git commit -m "Dados: coleta $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
