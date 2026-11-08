@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-08T17:28:48Z",
-  "gerado_em_local": "2026-11-08T13:28:48-04:00",
-  "verificado_em_utc": "2026-11-08T17:28:48Z",
-  "verificado_em_local": "2026-11-08T13:28:48-04:00",
+  "gerado_em_utc": "2026-11-08T17:33:04Z",
+  "gerado_em_local": "2026-11-08T13:33:04-04:00",
+  "verificado_em_utc": "2026-11-08T17:33:04Z",
+  "verificado_em_local": "2026-11-08T13:33:04-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -85,7 +85,7 @@
       "valor_m": 3.17,
       "data_leitura": "2026-11-08",
       "fonte": "CHN-6 grade mensal",
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-02",
@@ -115,7 +115,9 @@
           "data": "2026-11-08",
           "valor_m": 3.17
         }
-      ]
+      ],
+      "variacao_24h": 0.0,
+      "variacao_fonte": "serie"
     },
     {
       "nome": "Ladário",
@@ -160,7 +162,7 @@
       "valor_m": -0.14,
       "data_leitura": "2026-11-08",
       "fonte": "CHN-6 grade mensal",
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-02",
@@ -190,7 +192,9 @@
           "data": "2026-11-08",
           "valor_m": -0.14
         }
-      ]
+      ],
+      "variacao_24h": -0.02,
+      "variacao_fonte": "serie"
     },
     {
       "nome": "P. Murtinho",
@@ -2271,10 +2275,6 @@
     "DMH-PY": {
       "ok": true,
       "msg": "3 paginas lidas"
-    },
-    "CHN-6 grade": {
-      "ok": true,
-      "msg": "6 reguas com historico"
     },
     "AVURNAV": {
       "ok": true,
