@@ -16,6 +16,11 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, RAIZ)
 import coletor  # noqa: E402
 
+# funcoes reais, guardadas antes dos stubs do setUp (os testes de parser usam estas)
+_ler_dmh_real = coletor.ler_dmh
+_grade_historico_real = coletor._grade_chn6_historico
+ALVO_VALLEMI = next(a["url"] for a in coletor.ALVOS_DMH if a["estacao"] == "Vallemi PY")
+
 UM_DIA = datetime.timedelta(days=1)
 AVISO_TXT = ("HI 0049/26 - RIO PARAGUAI - ALTERADA A SINALIZACAO. "
              "Paraguai km 1234,5 - AVISO DE TESTE.")
@@ -44,9 +49,14 @@ class ColetorTeste(unittest.TestCase):
         self.dmh = {"Vallemi PY": self._dmh(2.33, self.hoje, -0.04),
                     "Concepción PY": self._dmh(1.89, self.hoje, -0.03),
                     "Assunção PY": self._dmh(2.30, self.hoje, -0.03)}
+        # grade mensal do CHN-6: nome do arquivo -> {data ISO: valor} (ou excecao); ausente = sem PDF
+        self.grade = {}
+        self.chamadas_grade = []
         for nome, fn in [("_baixar_bdarn", self._fake_bdarn), ("ler_bdarn", self._fake_ler_bdarn),
                          ("_ler_avisos_pdf", self._fake_avisos),
-                         ("_baixar_avurnav_mais_novo", self._fake_avurnav), ("ler_dmh", self._fake_dmh)]:
+                         ("_baixar_avurnav_mais_novo", self._fake_avurnav), ("ler_dmh", self._fake_dmh),
+                         ("_achar_grade_chn6", self._fake_achar_grade),
+                         ("_grade_chn6_historico", self._fake_hist_grade)]:
             p = mock.patch.object(coletor, nome, side_effect=fn)
             p.start()
             self.addCleanup(p.stop)
@@ -70,6 +80,16 @@ class ColetorTeste(unittest.TestCase):
         if isinstance(r, Exception):
             raise r
         return r
+
+    def _fake_achar_grade(self, nome_arq, hoje, camuflagem):
+        self.chamadas_grade.append(nome_arq)
+        val = self.grade.get(nome_arq)
+        if isinstance(val, Exception):
+            raise val
+        return nome_arq.encode() if val is not None else None
+
+    def _fake_hist_grade(self, pdf, hoje):
+        return dict(self.grade[pdf.decode()])
 
     # ---- auxiliares --------------------------------------------------------
     def _dmh(self, nivel, data, variacao):
@@ -268,6 +288,92 @@ class ColetorTeste(unittest.TestCase):
         self.assertEqual(d3["gerado_em_utc"], "2026-11-08T11:15:00Z")
         self.assertEqual(d3["gerado_em_local"], "2026-11-08T07:15:00-04:00")
         self.assertEqual(d3["verificado_em_utc"], "2026-11-08T11:15:00Z")
+
+    def test_n_dmh_le_sete_datas_da_tabela(self):
+        linhas = ""
+        for i in range(9):
+            data = (self.hoje - UM_DIA * i).strftime("%d-%m-%Y")
+            valor = f"{2.0 - i / 10:.2f}".replace(".", ",")
+            linhas += f"<tr><td>{data}</td><td>{valor} M</td></tr>"
+        html = f"<html><body><table>{linhas}</table></body></html>"
+        resp = mock.Mock(status_code=200, content=html.encode(), text=html)
+        with mock.patch.object(coletor.requests, "get", return_value=resp):
+            with contextlib.redirect_stdout(io.StringIO()):
+                r = _ler_dmh_real(ALVO_VALLEMI)
+        self.assertEqual(len(r["serie"]), 7)
+        self.assertEqual([p["data"] for p in r["serie"]],
+                         [(self.hoje - UM_DIA * i).isoformat() for i in range(7)])
+        self.assertEqual(r["serie"][0]["valor_m"], 2.0)
+        self.assertEqual(r["serie"][-1]["valor_m"], 1.4)
+        self.assertEqual(r["nivel"], 2.0)
+        self.assertAlmostEqual(r["variacao"], 0.1)
+
+    def test_o_mescla_bdarn_tem_prioridade_na_mesma_data(self):
+        ant = self.anterior(nomes=["Cuiabá"], dias=3)           # datas ontem-2, ontem-1, ontem; valor 0.95
+        ant["estacoes"][0]["serie"][-1]["valor_m"] = 0.50        # ontem: valor de BDARN guardado
+        cinco_antes = (self.ontem - UM_DIA * 5).isoformat()
+        self.grade["CUIABA"] = {self.ontem.isoformat(): 0.99, cinco_antes: 1.11}
+        est = {e["nome"]: e for e in self.rodar(ant)["estacoes"]}
+        serie = {p["data"]: p["valor_m"] for p in est["Cuiabá"]["serie"]}
+        self.assertEqual(serie[self.ontem.isoformat()], 0.50)    # guardado vence o PDF
+        self.assertEqual(serie[cinco_antes], 1.11)                # data nova vem do PDF
+        self.assertEqual(serie[self.hoje.isoformat()], 0.86)      # leitura de hoje
+        self.assertEqual(len(serie), 5)
+
+    def test_p_falha_do_historico_mantem_a_serie(self):
+        ant = self.anterior(dias=3)
+        antigo = {e["nome"]: e for e in ant["estacoes"]}
+        self.grade["CUIABA"] = RuntimeError("PDF fora do ar")
+        self.dmh["Vallemi PY"] = RuntimeError("DMH fora do ar")
+        d = self.rodar(ant)
+        est = {e["nome"]: e for e in d["estacoes"]}
+        self.assertFalse(d["fontes"]["CHN-6 grade"]["ok"])
+        self.assertEqual([p["data"] for p in est["Cuiabá"]["serie"]],
+                         [p["data"] for p in antigo["Cuiabá"]["serie"]] + [self.hoje.isoformat()])
+        self.assertFalse(est["Vallemi PY"]["atual"])
+        self.assertEqual(est["Vallemi PY"]["serie"], antigo["Vallemi PY"]["serie"])
+        self.assertTrue(d["fontes"]["BDARN"]["ok"])
+
+    def test_q_estacao_so_no_pdf_mensal_passa_a_existir(self):
+        self.grade["BELA VISTA DO NORTE"] = {self.ontem.isoformat(): 0.77,
+                                             (self.ontem - UM_DIA).isoformat(): 0.80}
+        self.grade["FORTE COIMBRA"] = {self.hoje.isoformat(): 1.01}
+        est = {e["nome"]: e for e in self.rodar(None)["estacoes"]}
+        b = est["Bela Vista Norte"]
+        self.assertEqual(b["data_leitura"], self.ontem.isoformat())
+        self.assertEqual(b["valor_m"], 0.77)
+        self.assertEqual(b["fonte"], coletor.FONTE_GRADE_CHN6)
+        self.assertFalse(b["atual"])                              # valor de ontem: nao e atual
+        self.assertEqual([p["data"] for p in b["serie"]],
+                         [(self.ontem - UM_DIA).isoformat(), self.ontem.isoformat()])
+        self.assertNotIn("variacao_24h", b)                       # variacao so da fonte principal
+        self.assertTrue(est["F. Coimbra"]["atual"])               # valor de hoje: atual
+
+    def test_r_nao_busca_pdf_com_serie_completa_e_uma_vez_por_rodada(self):
+        self.rodar(self.anterior(dias=7))
+        self.assertEqual(self.chamadas_grade, [])
+        self.rodar(self.anterior(dias=3))
+        self.assertEqual(sorted(self.chamadas_grade), sorted(set(self.chamadas_grade)))
+        self.assertIn("CUIABA", self.chamadas_grade)
+
+    def test_s_mes_anterior_so_nos_primeiros_dias_e_mesmo_pdf(self):
+        chamadas = []
+
+        def fake_coluna(pdf, mes, ano):
+            chamadas.append(mes)
+            if mes == "OUT":
+                return {30: 2.0, 31: 2.5}
+            if mes == "NOV":
+                return {1: 1.0, 5: 9.0}
+            return {}
+        with mock.patch.object(coletor, "_coluna_mes_grade", side_effect=fake_coluna):
+            saida = _grade_historico_real(b"%PDF", datetime.date(2026, 11, 3))
+            self.assertEqual(saida, {"2026-10-30": 2.0, "2026-10-31": 2.5, "2026-11-01": 1.0})
+            self.assertEqual(chamadas, ["NOV", "OUT"])
+            chamadas.clear()
+            saida = _grade_historico_real(b"%PDF", datetime.date(2026, 11, 16))
+            self.assertEqual(chamadas, ["NOV"])
+            self.assertEqual(saida, {"2026-11-01": 1.0, "2026-11-05": 9.0})
 
 
 if __name__ == "__main__":

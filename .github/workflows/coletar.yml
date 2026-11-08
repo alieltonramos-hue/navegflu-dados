@@ -2,14 +2,15 @@ name: coletar
 
 # A Marinha publica a altura do rio entre 06:45 e 08:30 (Cuiaba, UTC-4, sem horario de verao)
 # e depois nao publica mais nada. Os crons abaixo estao em UTC (= hora local + 4).
-# O cron do GitHub pode atrasar de 5 a 20 minutos.
+# O cron do GitHub pode atrasar de 5 a 20 minutos e pode pular a hora cheia: por isso os
+# minutos sao quebrados (nao 00/15/30/45), para nao cair junto com a fila das horas cheias.
 on:
   workflow_dispatch:
   schedule:
-    - cron: "45 10 * * *"           # 06:45 local
-    - cron: "*/15 11 * * *"         # 07:00-07:45 local
-    - cron: "0,15,30,45 12 * * *"   # 08:00-08:45 local (folga apos as 08:30)
-    - cron: "0 16,22 * * *"         # 12:00 e 18:00 local: DMH-PY e AVURNAV
+    - cron: "47 10 * * *"           # 06:47 local
+    - cron: "2,17,32,47 11 * * *"   # 07:02, 07:17, 07:32 e 07:47 local
+    - cron: "2,17,32,47 12 * * *"   # 08:02, 08:17, 08:32 e 08:47 local (folga apos as 08:30)
+    - cron: "7 16,22 * * *"         # 12:07 e 18:07 local: DMH-PY e AVURNAV
 
 permissions:
   contents: write

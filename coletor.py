@@ -11,6 +11,8 @@ Fontes oficiais, todas publicas:
     do dia nao traz o aviso).
   - DMH-PY (Direccion de Meteorologia e Hidrologia, Paraguai): paginas com a tabela de
     leituras das estacoes paraguaias (e de algumas brasileiras, como fallback).
+  - Grade mensal (CHN-6): um PDF por regua brasileira (dias x meses). So fornece o
+    historico de 7 dias, e a estacao que so aparece nele entra com o valor de hoje/ontem.
 
 Uso:  python coletor.py [saida.json]      (padrao: hidro.json)
 
@@ -19,14 +21,15 @@ texto traz so coordenada, km = null e "coord" = [lat, lon].
 
 Ultima leitura boa: se uma estacao nao trouxe valor nesta rodada, ela fica com o registro
 do hidro.json anterior e "atual": false. Cada estacao tem "serie" (ultimos 7 dias, um
-valor por data). Se a AVURNAV falhar, a lista anterior inteira fica e "avurnav_de" diz
-a data dela.
+valor por data), preenchida com o historico da DMH-PY e da grade do CHN-6 quando a serie
+guardada ainda nao tem 7 datas. Se a AVURNAV falhar, a lista anterior inteira fica e
+"avurnav_de" diz a data dela.
 
 Codigo de saida: 0 se pelo menos uma fonte respondeu, ou se todas falharam mas existe um
 hidro.json anterior (que e regravado com o que ja estava); 1 se todas falharam e nao ha
 hidro.json anterior.
 """
-import io, os, re, sys, json, datetime, unicodedata
+import io, os, re, sys, json, datetime, unicodedata, urllib.parse, email.utils
 import urllib3, requests, pdfplumber
 from bs4 import BeautifulSoup
 
@@ -38,6 +41,10 @@ HOJE_STR = ""
 dados_nav = {}                                               # _publicar_avisos grava dados_nav["avurnav"]
 _avisos_fontes = {"bdarn": None, "avrad": None}
 SERIE_DIAS = 7                                               # datas guardadas em "serie"
+# Grade mensal do CHN-6: nome do arquivo (NOME_DD[_n].pdf, DD = dia da publicacao) de cada regua.
+NOMES_GRADE_CHN6 = {"Cuiabá": "CUIABA", "Cáceres": "CACERES", "Bela Vista Norte": "BELA VISTA DO NORTE",
+                    "Ladário": "LADARIO", "F. Coimbra": "FORTE COIMBRA", "P. Murtinho": "PORTO MURTINHO"}
+FONTE_GRADE_CHN6 = "CHN-6 grade mensal"
 
 ORDEM_ESTACOES = ["Cuiabá", "Cáceres", "Bela Vista Norte", "Ladário", "F. Coimbra", "P. Murtinho",
                   "Vallemi PY", "Concepción PY", "Assunção PY"]
@@ -431,16 +438,166 @@ def ler_dmh(url):
                         except Exception:
                             pass
                         break
-        if len(leituras) >= 4:
+        if len(leituras) >= SERIE_DIAS:
             break
     if not leituras:
         return None
     iso = lambda s: datetime.datetime.strptime(s, "%d-%m-%Y").date().isoformat()
+    serie, vistas = [], set()
+    for ds, v in zip(datas_leit, leituras):      # uma leitura por data; a primeira linha da data vence
+        try:
+            d = iso(ds)
+        except ValueError:
+            continue
+        if d not in vistas:
+            vistas.add(d)
+            serie.append({"data": d, "valor_m": round(v, 2)})
     return {"nivel": leituras[0],
             "data": iso(datas_leit[0]),
             "hoje": primeira_data == HOJE_STR,
             "variacao": (leituras[0] - leituras[1]) if len(leituras) > 1 else None,
-            "data_ref": iso(datas_leit[1]) if len(datas_leit) > 1 else None}
+            "data_ref": iso(datas_leit[1]) if len(datas_leit) > 1 else None,
+            "serie": serie[:SERIE_DIAS]}
+
+
+_MESES_GRADE = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ']
+
+
+def _coluna_mes_grade(pdf_bytes, mes_alvo, ano_alvo):
+    """{dia: valor} da coluna do mes `mes_alvo` (abreviatura, ex.: 'JUL') na PAGINA DO ANO
+    `ano_alvo` da grade do CHN-6 (linhas = dias, colunas = meses). Mesmo criterio da
+    _extrair_coluna_mes_pdf do Painel. Sem pagina do ano: {} (nao chuta outra pagina)."""
+    out = {}
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            pagina_obj = None
+            for pagina in pdf.pages:
+                if str(ano_alvo) in (pagina.extract_text() or ""):
+                    pagina_obj = pagina
+                    break
+            if pagina_obj is None:
+                return out
+            palavras = pagina_obj.extract_words(use_text_flow=False, keep_blank_chars=False)
+            if not palavras:
+                return out
+            linhas_vis, _atual, _ref = [], [], None
+            for w in sorted(palavras, key=lambda w: (w["top"], w["x0"])):
+                if _ref is None or abs(w["top"] - _ref) <= 4:
+                    _atual.append(w)
+                    _ref = w["top"] if _ref is None else _ref
+                else:
+                    linhas_vis.append(_atual)
+                    _atual = [w]
+                    _ref = w["top"]
+            if _atual:
+                linhas_vis.append(_atual)
+            mes_cx = {}
+            for ws in linhas_vis:
+                ach = {remover_acentos(w["text"]).upper(): (w["x0"] + w["x1"]) / 2
+                       for w in ws if remover_acentos(w["text"]).upper() in _MESES_GRADE}
+                if len(ach) >= 6:
+                    mes_cx = ach
+                    break
+            if mes_alvo not in mes_cx:
+                return out
+            cs = sorted(mes_cx.values())
+            espac = min(cs[i + 1] - cs[i] for i in range(len(cs) - 1)) if len(cs) > 1 else 30
+            tol_x = espac * 0.5
+            for ws in linhas_vis:
+                ws = sorted(ws, key=lambda w: w["x0"])
+                if not ws:
+                    continue
+                try:
+                    txt_limpo = re.sub(r'[^\d]', '', ws[0]["text"].split('\n')[0])
+                    if not txt_limpo:
+                        continue
+                    dia = int(txt_limpo)
+                    if not (1 <= dia <= 31):
+                        continue
+                except Exception:
+                    continue
+                for w in ws[1:]:
+                    val_limpo = w["text"].split('\n')[0].strip()
+                    if not re.match(r'^-?\d+[.,]\d+$', val_limpo):
+                        continue
+                    cx = (w["x0"] + w["x1"]) / 2
+                    mp = min(mes_cx.items(), key=lambda kv: abs(kv[1] - cx))
+                    if abs(mp[1] - cx) <= tol_x and mp[0] == mes_alvo:
+                        try:
+                            out[dia] = float(val_limpo.replace(",", "."))
+                        except ValueError:
+                            pass
+    except Exception:
+        return out
+    return out
+
+
+def _grade_chn6_historico(pdf_bytes, hoje):
+    """{data ISO: valor} dos dias do mes de `hoje` lidos da grade. O mes anterior sai do MESMO
+    PDF e so entra nos primeiros SERIE_DIAS dias do mes. Datas depois de hoje ficam de fora."""
+    meses = [(hoje.year, hoje.month)]
+    if hoje.day <= SERIE_DIAS:
+        meses.append((hoje.year, hoje.month - 1) if hoje.month > 1 else (hoje.year - 1, 12))
+    saida = {}
+    for ano, mes in meses:
+        for dia, valor in _coluna_mes_grade(pdf_bytes, _MESES_GRADE[mes - 1], ano).items():
+            try:
+                d = datetime.date(ano, mes, dia)
+            except ValueError:
+                continue
+            if d <= hoje:
+                saida[d.isoformat()] = round(valor, 2)
+    return saida
+
+
+def _achar_grade_chn6(nome_arq, hoje, camuflagem):
+    """Baixa a grade do CHN-6 de uma regua (NOME_DD[_n].pdf, DD = dia da publicacao). Varre os
+    candidatos de hoje e depois de ontem; para na primeira publicacao de hoje, senao escolhe o
+    de Last-Modified mais novo ("maior sufixo = mais novo" nao vale neste servidor). Devolve os
+    bytes do PDF, ou None."""
+    ontem = hoje - datetime.timedelta(days=1)
+    sufixos = [f"_{i}.pdf" for i in range(25, -1, -1)] + [".pdf"]
+    candidatos = []                          # [(Last-Modified ou None, url)] na ordem da varredura
+    for dia in (hoje, ontem):
+        achou_hoje = False
+        for suf in sufixos:
+            url = _BASE_BDARN + urllib.parse.quote(f"{nome_arq}_{dia.day:02d}{suf}")
+            try:
+                r = requests.get(url, headers=camuflagem, verify=False, timeout=5, stream=True)
+                st = r.status_code
+                tam = int(r.headers.get("Content-Length", 0) or 0)
+                lm_raw = r.headers.get("Last-Modified")
+                r.close()
+            except Exception:
+                continue
+            if st != 200 or tam <= 200000:
+                continue
+            lm = None
+            try:
+                if lm_raw:
+                    lm = email.utils.parsedate_to_datetime(lm_raw)
+                    if lm.tzinfo is None:
+                        lm = lm.replace(tzinfo=datetime.timezone.utc)
+            except Exception:
+                lm = None
+            candidatos.append((lm, url))
+            if lm is not None and lm.date() >= hoje:
+                achou_hoje = True
+                break
+        if achou_hoje:
+            break
+    if not candidatos:
+        return None
+    com_lm = [c for c in candidatos if c[0] is not None]
+    url = max(com_lm, key=lambda c: c[0])[1] if com_lm else candidatos[0][1]
+    try:
+        r = requests.get(url, headers=camuflagem, verify=False, timeout=20)
+    except Exception as e:
+        log_erro("CHN-6 grade", url, e)
+        return None
+    ok = r.status_code == 200 and r.content[:4] == b"%PDF"
+    log_http("CHN-6 grade", url, r.status_code, r.content, "PDF candidato" if ok else "descartado")
+    return r.content if ok else None
 
 
 def carregar_anterior(caminho):
@@ -456,16 +613,22 @@ def carregar_anterior(caminho):
     return None
 
 
-def _serie_atualizada(serie, data_iso, valor):
-    """Serie curta da estacao: um valor por data, so as ultimas SERIE_DIAS datas. Data repetida
-    fica com o valor novo. Com data_iso/valor None, so reaplica o limite de dias."""
+def _serie_mesclada(camadas):
+    """Serie curta da estacao: um valor por data, so as ultimas SERIE_DIAS datas. Cada camada e
+    uma lista de pontos {data, valor_m}, da MENOS para a MAIS prioritaria (na mesma data, a
+    ultima que traz o valor vence)."""
     por_data = {}
-    for p in serie or []:
-        if isinstance(p, dict) and p.get("data") and p.get("valor_m") is not None:
-            por_data[p["data"]] = p["valor_m"]
-    if data_iso and valor is not None:
-        por_data[data_iso] = round(float(valor), 2)
+    for camada in camadas:
+        for p in camada or []:
+            if isinstance(p, dict) and p.get("data") and p.get("valor_m") is not None:
+                por_data[p["data"]] = round(float(p["valor_m"]), 2)
     return [{"data": d, "valor_m": por_data[d]} for d in sorted(por_data)[-SERIE_DIAS:]]
+
+
+def _serie_atualizada(serie, data_iso, valor):
+    """Serie do registro com uma leitura nova. Com data_iso/valor None, so reaplica o limite de dias."""
+    nova = [{"data": data_iso, "valor_m": valor}] if data_iso and valor is not None else []
+    return _serie_mesclada([serie, nova])
 
 
 def _serie_do_anterior(velho):
@@ -491,9 +654,20 @@ def coletar(anterior=None):
     global HOJE_STR
     agora = datetime.datetime.now(TZ_LOCAL)
     hoje = agora.date()
+    ontem = hoje - datetime.timedelta(days=1)
     HOJE_STR = hoje.strftime("%d-%m-%Y")
     fontes = {}
     estacoes = {}          # nome -> registro (o mais novo vence; BDARN ganha empate)
+    hist_dmh, hist_grade = {}, {}   # nome -> {data ISO: valor}: historico (menor prioridade que a leitura)
+    # Ultima leitura boa de cada estacao (hidro.json anterior)
+    anteriores = {e["nome"]: e for e in (anterior or {}).get("estacoes", [])
+                  if isinstance(e, dict) and e.get("nome")}
+
+    def _falta_serie(nome):
+        """Estacao sem SERIE_DIAS datas na serie guardada (ou nova): vale buscar historico."""
+        velho = anteriores.get(nome)
+        datas = {p.get("data") for p in (_serie_do_anterior(velho) if velho else []) if isinstance(p, dict)}
+        return len(datas - {None}) < SERIE_DIAS
 
     def oferecer(nome, nivel, data_iso, fonte, variacao):
         atual = estacoes.get(nome)
@@ -525,31 +699,69 @@ def coletar(anterior=None):
     print(f"      -> {fontes['BDARN']['msg']}", flush=True)
 
     # 2. DMH-PY: Paraguai (sempre) e fallback BR (so se o BDARN nao trouxe a estacao de hoje)
-    print("[2/3] DMH-PY (Paraguai e fallback)", flush=True)
+    print("[2/4] DMH-PY (Paraguai e fallback)", flush=True)
     erros_dmh = []
     ok_dmh = 0
     for alvo in ALVOS_DMH:
         est = alvo["estacao"]
-        if alvo["tipo"] == "BR_FALLBACK" and estacoes.get(est, {}).get("data_leitura") == hoje.isoformat():
+        pulada = alvo["tipo"] == "BR_FALLBACK" and estacoes.get(est, {}).get("data_leitura") == hoje.isoformat()
+        if pulada and not _falta_serie(est):
             print(f"  [DMH-PY] {est}: pulada (BDARN ja trouxe hoje)", flush=True)
             continue
         try:
             r = ler_dmh(alvo["url"])
             if r is None:
-                erros_dmh.append(f"{est}: sem tabela ou HTTP diferente de 200")
+                if not pulada:
+                    erros_dmh.append(f"{est}: sem tabela ou HTTP diferente de 200")
+                continue
+            if r.get("serie"):
+                hist_dmh[est] = {p["data"]: p["valor_m"] for p in r["serie"]}
+            if pulada:
+                print(f"  [DMH-PY] {est}: pulada para a leitura (BDARN ja trouxe hoje); so historico", flush=True)
                 continue
             ok_dmh += 1
             fonte = "DMH-PY" if alvo["tipo"] == "PY" else "DMH-PY (fallback BR)"
             oferecer(est, r["nivel"], r["data"], fonte, r["variacao"])
         except Exception as e:
             log_erro("DMH-PY", alvo["url"], e)
-            erros_dmh.append(f"{est}: {type(e).__name__}: {e}")
+            if not pulada:
+                erros_dmh.append(f"{est}: {type(e).__name__}: {e}")
     fontes["DMH-PY"] = {"ok": ok_dmh > 0 and not erros_dmh,
                         "msg": f"{ok_dmh} paginas lidas" + (("; erros: " + " | ".join(erros_dmh)) if erros_dmh else "")}
     print(f"      -> {fontes['DMH-PY']['msg']}", flush=True)
 
-    # 3. AVURNAV: revisao mais nova das Avisos-Radio em Vigor + boletim do dia
-    print("[3/3] AVURNAV (Avisos-Radio em Vigor)", flush=True)
+    # 3. CHN-6 grade mensal: historico das reguas brasileiras. Um PDF por regua por rodada e so
+    # para regua cuja serie ainda nao tem 7 datas. Falha aqui nao derruba a coleta.
+    precisam = [est for est in NOMES_GRADE_CHN6 if _falta_serie(est)]
+    if precisam:
+        print("[3/4] CHN-6 grade mensal (historico)", flush=True)
+        erros_grade, ok_grade = [], 0
+        for est in precisam:
+            try:
+                pdf = _achar_grade_chn6(NOMES_GRADE_CHN6[est], hoje, CAMUFLAGEM)
+                if not pdf:
+                    erros_grade.append(f"{est}: sem PDF de hoje ou de ontem")
+                    continue
+                hist = _grade_chn6_historico(pdf, hoje)
+                if not hist:
+                    erros_grade.append(f"{est}: PDF sem valores")
+                    continue
+                ok_grade += 1
+                hist_grade[est] = hist
+                ultima = max(hist)
+                if ultima in (hoje.isoformat(), ontem.isoformat()):   # so aparece com valor de hoje/ontem
+                    oferecer(est, hist[ultima], ultima, FONTE_GRADE_CHN6, None)
+            except Exception as e:
+                erros_grade.append(f"{est}: {type(e).__name__}: {e}")
+        fontes["CHN-6 grade"] = {"ok": ok_grade > 0 and not erros_grade,
+                                 "msg": f"{ok_grade} reguas com historico"
+                                        + (("; erros: " + " | ".join(erros_grade)) if erros_grade else "")}
+        print(f"      -> {fontes['CHN-6 grade']['msg']}", flush=True)
+    else:
+        print("[3/4] CHN-6 grade mensal: nenhuma regua precisa de historico (series com 7 datas)", flush=True)
+
+    # 4. AVURNAV: revisao mais nova das Avisos-Radio em Vigor + boletim do dia
+    print("[4/4] AVURNAV (Avisos-Radio em Vigor)", flush=True)
     av_ok = False
     try:
         pdf_av, etiqueta, dia_rev = _baixar_avurnav_mais_novo()
@@ -584,20 +796,24 @@ def coletar(anterior=None):
     print(f"      -> {fontes['AVURNAV']['msg']}", flush=True)
 
     # Ultima leitura boa: estacao sem valor nesta rodada fica com o registro anterior
-    anteriores = {e["nome"]: e for e in (anterior or {}).get("estacoes", [])
-                  if isinstance(e, dict) and e.get("nome")}
     finais = []
     for nome in ORDEM_ESTACOES + [n for n in anteriores if n not in ORDEM_ESTACOES]:
         novo, velho = estacoes.get(nome), anteriores.get(nome)
+        # serie: um valor por data; da menos para a mais prioritaria: historico DMH, historico
+        # CHN-6, serie guardada, leitura nova. Na mesma data, vence a mais prioritaria (BDARN ganha).
+        hist_d = [{"data": d, "valor_m": v} for d, v in hist_dmh.get(nome, {}).items()]
+        hist_g = [{"data": d, "valor_m": v} for d, v in hist_grade.get(nome, {}).items()]
+        guardada = _serie_do_anterior(velho) if velho else []
         # leitura com data mais antiga que a guardada nao substitui a guardada
         if novo and not (velho and (velho.get("data_leitura") or "") > novo["data_leitura"]):
-            reg = dict(novo, atual=True)
-            reg["serie"] = _serie_atualizada(_serie_do_anterior(velho) if velho else [],
-                                             novo["data_leitura"], novo["valor_m"])
+            # estacao que veio so do PDF mensal: atual apenas se o valor for de hoje
+            reg = dict(novo, atual=(novo["fonte"] != FONTE_GRADE_CHN6 or novo["data_leitura"] == hoje.isoformat()))
+            leitura = [{"data": novo["data_leitura"], "valor_m": novo["valor_m"]}]
+            reg["serie"] = _serie_mesclada([hist_d, hist_g, guardada, leitura])
             finais.append(reg)
         elif velho:
             reg = dict(velho, atual=False)
-            reg["serie"] = _serie_atualizada(_serie_do_anterior(velho), None, None)
+            reg["serie"] = _serie_mesclada([hist_d, hist_g, guardada])
             finais.append(reg)
 
     saida = {
