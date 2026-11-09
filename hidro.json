@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-09T01:47:42Z",
-  "gerado_em_local": "2026-11-08T21:47:42-04:00",
-  "verificado_em_utc": "2026-11-09T01:47:42Z",
-  "verificado_em_local": "2026-11-08T21:47:42-04:00",
+  "gerado_em_utc": "2026-11-09T02:08:07Z",
+  "gerado_em_local": "2026-11-08T22:08:07-04:00",
+  "verificado_em_utc": "2026-11-09T02:08:07Z",
+  "verificado_em_local": "2026-11-08T22:08:07-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -2269,7 +2269,7 @@
   "avisos_geo": {
     "HI 0067/09": [
       {
-        "nome": "MARGEM ESQUERDA - PROXIMIDADES DA EMPRESA DE NAVEGAÇÃO CINCO BACIA S/A, EXISTÊNCIA DE QUAT",
+        "nome": "MARGEM ESQUERDA - PROXIMIDADES DA EMPRESA DE NAVEGAÇÃO CINCO BACIA S/A, EXISTÊNCIA DE QUATRO BÓIAS DE AMARRAÇÃO",
         "tipo": "PONTOS",
         "coords": [
           [
@@ -2305,7 +2305,7 @@
     ],
     "HI 0062/11": [
       {
-        "nome": "NO KM 254,7 DO RIO CUIABÁ ENCONTRA SE NAUFRAGADA A EMBARCAÇÃO SEMI TÔ A TOA, NA POSIÇÃO",
+        "nome": "NO KM 254,7 DO RIO CUIABÁ ENCONTRA SE NAUFRAGADA A EMBARCAÇÃO SEMI TÔ A TOA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2317,7 +2317,7 @@
     ],
     "HI 0016/15": [
       {
-        "nome": "EXISTÊNCIA DE LINHAS DE TRANSMISSÃO COM 20 METROS DE ALTURA NAS SEGUINTES LOCALIDADES NAS",
+        "nome": "EXISTÊNCIA DE LINHAS DE TRANSMISSÃO COM 20 METROS DE ALTURA NAS SEGUINTES LOCALIDADES",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2347,7 +2347,7 @@
         ]
       },
       {
-        "nome": "EXISTÊNCIA DE LINHAS DE TRANSMISSÃO COM 25 METROS DE ALTURA NA LOCALIDADE DE BARÃO DE MELG",
+        "nome": "EXISTÊNCIA DE LINHAS DE TRANSMISSÃO COM 25 METROS DE ALTURA NA LOCALIDADE DE BARÃO DE MELGAÇO",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2359,7 +2359,7 @@
     ],
     "HI 0099/17": [
       {
-        "nome": "UNO - LAGE DE PEDRA NA MARGEM DIREITA COM PROFUNDIDADE DE 2,54, DELIMITADA PELAS SEGUINTES",
+        "nome": "UNO - LAGE DE PEDRA NA MARGEM DIREITA COM PROFUNDIDADE DE 2,54",
         "tipo": "AREA",
         "coords": [
           [
@@ -2381,7 +2381,7 @@
         ]
       },
       {
-        "nome": "DOIS - PEDRAS COM PROFUNDIDADES CONHECIDAS NAS SEGUINTES POSIÇÕES",
+        "nome": "DOIS - PEDRAS COM PROFUNDIDADES CONHECIDAS",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2413,7 +2413,7 @@
     ],
     "HI 0061/18": [
       {
-        "nome": "A REALIZAÇÃO DOS TRABALHOS PARA REFLUTUAÇÃO/REMOÇÃO DA BARCAÇA PG 21, NAUFRAGADA NO KM 140",
+        "nome": "A REALIZAÇÃO DOS TRABALHOS PARA REFLUTUAÇÃO/REMOÇÃO DA BARCAÇA PG 21, NAUFRAGADA NO KM 1402,7 DO RIO PARAGUAI",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2449,7 +2449,7 @@
     ],
     "HI 0020/19": [
       {
-        "nome": "CABOS DA LINHA DE TRANSMISSÃO DE ENERGIA NA SEGUINTE POSIÇÃO",
+        "nome": "CABOS DA LINHA DE TRANSMISSÃO DE ENERGIA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2593,7 +2593,7 @@
         ]
       },
       {
-        "nome": "CINCO - CARTA 3429 EXTENSÃO DE BANCO DE AREIA, NAS PROXIMIDADES DO PASSO BAÍA DAS ÉGUAS, K",
+        "nome": "CINCO - CARTA 3429 EXTENSÃO DE BANCO DE AREIA, NAS PROXIMIDADES DO PASSO BAÍA DAS ÉGUAS, KM 2080,4, DELIMITADO PELA INTERLI- GAÇÃO",
         "tipo": "AREA",
         "coords": [
           [
@@ -2617,7 +2617,7 @@
     ],
     "HI 0068/19": [
       {
-        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, DELIMITADAS PELA",
+        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, DELIMITADAS PELA ÁREA",
         "tipo": "AREA",
         "coords": [
           [
@@ -2697,7 +2697,7 @@
     ],
     "HI 0119/19": [
       {
-        "nome": "CARTA 3439 PROFUNDIDADES ABAIXO DE 2 METROS NAS PROXIMIDADES DA BOCA INFERIOR DO RIO VELHO",
+        "nome": "CARTA 3439 PROFUNDIDADES ABAIXO DE 2 METROS NAS PROXIMIDADES DA BOCA INFERIOR DO RIO VELHO KM 2154,5",
         "tipo": "AREA",
         "coords": [
           [
@@ -2727,7 +2727,7 @@
         ]
       },
       {
-        "nome": "CARTA 3440 EXTENSÃO DE BANCO DE AREIA COM PROFUNDIDADES ABAIXO DE 3 METROS NAS PROXIMIDADE",
+        "nome": "CARTA 3440 EXTENSÃO DE BANCO DE AREIA COM PROFUNDIDADES ABAIXO DE 3 METROS NAS PROXIMIDADES DA VOLTA DO PIUVAL, KM 2163,1",
         "tipo": "AREA",
         "coords": [
           [
@@ -2767,7 +2767,7 @@
     ],
     "HI 0128/19": [
       {
-        "nome": "EROSÃO DO MURO DE CONTENÇÃO DA BARRANCA DA MARGEM ESQUERDA, COM EXISTÊNCIA DE PEDRAS, ENTR",
+        "nome": "EROSÃO DO MURO DE CONTENÇÃO DA BARRANCA DA MARGEM ESQUERDA, COM EXISTÊNCIA DE PEDRAS",
         "tipo": "LINHA",
         "coords": [
           [
@@ -2783,7 +2783,7 @@
     ],
     "HI 0148/19": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA DO LIMOEIRO, KM 1520,5, DEVIDO AO",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA DO LIMOEIRO, KM 1520,5, DEVIDO AO CRESCIMEN- TO DE BANCO DE AREIA, ALTERANDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LINHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -2835,7 +2835,7 @@
     ],
     "HI 0154/19": [
       {
-        "nome": "RUÍNA DE CONCRETO NÃO CARTOGRAFADA NA POSIÇÃO",
+        "nome": "RUÍNA DE CONCRETO NÃO CARTOGRAFADA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -2847,7 +2847,7 @@
     ],
     "HI 0162/19": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA VOLTA DO REBOJO GRANDE, KM 1300, DEVID",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA VOLTA DO REBOJO GRANDE, KM 1300, DEVIDO AO CRES- CIMENTO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LI- NHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -2871,7 +2871,7 @@
     ],
     "HI 0163/19": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ISLA DEL SAUCE, KM 1270, DEVIDO AO SUR",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ISLA DEL SAUCE, KM 1270, DEVIDO AO SURGIMENTO DE BANCO DE AREIA, FORMANDO UMA ISOBATIMÉTRICA DE 3 METROS NA CARTA NÁUTICA EM VIGOR",
         "tipo": "AREA",
         "coords": [
           [
@@ -2919,7 +2919,7 @@
     ],
     "HI 0164/19": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA CABEÇA DE BOI, KM 1230, DEVIDO AO",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA CABEÇA DE BOI, KM 1230, DEVIDO AO CRESCIMEN- TO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LINHA",
         "tipo": "LINHA",
         "coords": [
           [
@@ -2955,7 +2955,7 @@
     ],
     "HI 0165/19": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA DEL PUERTO ESPERANZA, KM 1223, DE",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA DEL PUERTO ESPERANZA, KM 1223, DEVIDO AO CRESCIMENTO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LINHA",
         "tipo": "LINHA",
         "coords": [
           [
@@ -2979,7 +2979,7 @@
     ],
     "HI 0002/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO OLIMPO, KM 1086, DEVIDO AO CRESC",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO OLIMPO, KM 1086, DEVIDO AO CRESCIMENTO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LINHA",
         "tipo": "LINHA",
         "coords": [
           [
@@ -3007,7 +3007,7 @@
     ],
     "HI 0003/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO OLIMPO, KM 1084, DEVIDO AO CRESC",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO OLIMPO, KM 1084, DEVIDO AO CRESCIMENTO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LINHA",
         "tipo": "LINHA",
         "coords": [
           [
@@ -3035,7 +3035,7 @@
     ],
     "HI 0004/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA YAGUARETÊ, KM 1145, DEVIDO AO CRE",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA YAGUARETÊ, KM 1145, DEVIDO AO CRESCIMENTO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LINHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -3087,7 +3087,7 @@
     ],
     "HI 0005/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO CURURU CANCHA, KM 1107, DEVIDO A",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO CURURU CANCHA, KM 1107, DEVIDO AO CRESCI- MENTO DE BANCO DE AREIA, EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR PARA A LI- NHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -3127,7 +3127,7 @@
     ],
     "HI 0006/20": [
       {
-        "nome": "LAURINHA NA MARGEM ESQUERDA DO RIO CUIABÁ, REGIÃO DE PORTO JOFRE, NA SE- GUINTE POSIÇÃO",
+        "nome": "LAURINHA NA MARGEM ESQUERDA DO RIO CUIABÁ, REGIÃO DE PORTO JOFRE, NA SE- GUINTE",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3139,7 +3139,7 @@
     ],
     "HI 0007/20": [
       {
-        "nome": "CABO DE REDE ELÉTRICA CRUZANDO O RIO CUIABÁ COM BAIXA ALTURA, NA SEGUINTE POSIÇÃO",
+        "nome": "CABO DE REDE ELÉTRICA CRUZANDO O RIO CUIABÁ COM BAIXA ALTURA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3151,7 +3151,7 @@
     ],
     "HI 0037/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA ÀS EMBARCAÇÕES QUE TRAFEGAREM SOB A PONTE RODOVIÁRIA SOBRE O RIO MIRA",
+        "nome": "RECOMENDA-SE CAUTELA ÀS EMBARCAÇÕES QUE TRAFEGAREM SOB A PONTE RODOVIÁRIA SOBRE O RIO MIRANDA, SI- TUADA NA ESTRADA PARQUE KM 4,2 (PASSO DO LONTRA)",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3163,7 +3163,7 @@
     ],
     "HI 0070/20": [
       {
-        "nome": "PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE FORMAÇÃO ROCHOSA AFLORADA E NÃO CARTOGRAFADA NO KM 14",
+        "nome": "PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE FORMAÇÃO ROCHOSA AFLORADA E NÃO CARTOGRAFADA NO KM 1449,5 DO RIO PARAGUAI, JUNTO À MARGEM ESQUERDA, DELIMITADA PELAS SEGUINTES COORDENADAS",
         "tipo": "AREA",
         "coords": [
           [
@@ -3187,39 +3187,21 @@
     ],
     "HI 0083/20": [
       {
-        "nome": "1) RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA ILHA MARGARITA, ENTRE OS KM 1000,0 E 1001",
-        "tipo": "PONTO",
+        "nome": "1) RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA ILHA MARGARITA, ENTRE OS KM 1000,0 E 1001,1, DEVIDO AO SURGIMENTO DE BANCO DE AREIA, COM PROFUNDIDADES MENORES QUE 3 METROS",
+        "tipo": "AREA",
         "coords": [
           [
             -21.66814,
             -57.91691
-          ]
-        ]
-      },
-      {
-        "nome": "B)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.66222,
             -57.92582
-          ]
-        ]
-      },
-      {
-        "nome": "C)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.66132,
             -57.92486
-          ]
-        ]
-      },
-      {
-        "nome": "E D)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.66735,
             -57.91606
@@ -3227,39 +3209,21 @@
         ]
       },
       {
-        "nome": "2) RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA MARIA, ENTRE OS KM 1006,4 E 10",
-        "tipo": "PONTO",
+        "nome": "2) RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA MARIA, ENTRE OS KM 1006,4 E 1007,0, DEVIDO AO SURGIMENTO DE BANCO DE AREIA, COM PROFUNDIDADES MENORES QUE 3 METROS",
+        "tipo": "AREA",
         "coords": [
           [
             -21.62095,
             -57.94047
-          ]
-        ]
-      },
-      {
-        "nome": "B)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.62046,
             -57.94134
-          ]
-        ]
-      },
-      {
-        "nome": "C)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.61611,
             -57.93819
-          ]
-        ]
-      },
-      {
-        "nome": "E D)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.61662,
             -57.93741
@@ -3269,49 +3233,25 @@
     ],
     "HI 0084/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO FAROLETE ILHA FLORINDA (KM 1026,0), EN",
-        "tipo": "PONTO",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO FAROLETE ILHA FLORINDA (KM 1026,0), ENTRE OS KM 1024,9 E 1026,8, DEVIDO À EXTENSÃO DE BANCO DE AREIA, COM PROFUNDIDADES MENORES QUE 3 METROS",
+        "tipo": "AREA",
         "coords": [
           [
             -21.50061,
             -57.94671
-          ]
-        ]
-      },
-      {
-        "nome": "B)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.49947,
             -57.94769
-          ]
-        ]
-      },
-      {
-        "nome": "C)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.48721,
             -57.93899
-          ]
-        ]
-      },
-      {
-        "nome": "D)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.48852,
             -57.93682
-          ]
-        ]
-      },
-      {
-        "nome": "E E)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.49556,
             -57.94101
@@ -3321,49 +3261,25 @@
     ],
     "HI 0085/20": [
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA BALIZA BARRANCO BRANCO (KM 1083,1), ENTRE OS",
-        "tipo": "PONTO",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA BALIZA BARRANCO BRANCO (KM 1083,1), ENTRE OS KM 1083,5 E 1084,8, DEVIDO À EXTENSÃO DE BANCO DE AREIA, COM PROFUNDIDADES MENORES QUE 3 METROS",
+        "tipo": "AREA",
         "coords": [
           [
             -21.0908,
             -57.85131
-          ]
-        ]
-      },
-      {
-        "nome": "B)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.08821,
             -57.8539
-          ]
-        ]
-      },
-      {
-        "nome": "C)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.08045,
             -57.85659
-          ]
-        ]
-      },
-      {
-        "nome": "D)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.08422,
             -57.85328
-          ]
-        ]
-      },
-      {
-        "nome": "E E)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.09021,
             -57.85077
@@ -3371,49 +3287,25 @@
         ]
       },
       {
-        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR A JUSANTE DA BALIZA PASSO OLIMPO SUPERIOR (KM 1086,7), ENT",
-        "tipo": "PONTO",
+        "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR A JUSANTE DA BALIZA PASSO OLIMPO SUPERIOR (KM 1086,7), ENTRE OS KM 1085,2 E 1086,9, DEVIDO À EXTENSÃO DE BANCO DE AREIA, COM PROFUNDIDADES MENORES QUE 3 METROS",
+        "tipo": "AREA",
         "coords": [
           [
             -21.07627,
             -57.85755
-          ]
-        ]
-      },
-      {
-        "nome": "B)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.06934,
             -57.86345
-          ]
-        ]
-      },
-      {
-        "nome": "C)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.0631,
             -57.86584
-          ]
-        ]
-      },
-      {
-        "nome": "D)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.06312,
             -57.86466
-          ]
-        ]
-      },
-      {
-        "nome": "E E)",
-        "tipo": "PONTO",
-        "coords": [
+          ],
           [
             -21.07579,
             -57.85701
@@ -3423,7 +3315,7 @@
     ],
     "HI 0101/20": [
       {
-        "nome": "SURGIMENTO DE BANCO DE AREIA, DELIMITADO PELO POLÍGONO FORMADO PELAS SEGUINTES POSIÇÕES",
+        "nome": "SURGIMENTO DE BANCO DE AREIA, DELIMITADO PELO POLÍGONO",
         "tipo": "AREA",
         "coords": [
           [
@@ -3455,7 +3347,7 @@
     ],
     "HI 0041/21": [
       {
-        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA EM VIGOR, NA ÁREA",
+        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA EM VIGOR, NA ÁREA FORMADA PELA INTERLIGAÇÃO DAS POSIÇÕES ABAIXO, PROXIMIDADES BOCA DO NATALINO",
         "tipo": "AREA",
         "coords": [
           [
@@ -3491,7 +3383,7 @@
     ],
     "HI 0091/22": [
       {
-        "nome": "ATENÇÃO E CAUTELA NO RIO PARAGUAI, CASCO SOÇOBRADO DA EMBARCAÇÃO \"VENCEDORA-AEW\", NA MARGE",
+        "nome": "ATENÇÃO E CAUTELA NO RIO PARAGUAI, CASCO SOÇOBRADO DA EMBARCAÇÃO \"VENCEDORA-AEW\", NA MARGEM DIREI- TA, PRÓXIMO AO PORTO DONA EMÍLIA, NA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3515,7 +3407,7 @@
     ],
     "HI 0122/23": [
       {
-        "nome": "EXISTÊNCIA DE OBJETO NO FUNDO, FORA DO CANAL DE NAVEGAÇÃO, MARGEM ESQUERDA, NUM RAIO DE 15",
+        "nome": "EXISTÊNCIA DE OBJETO NO FUNDO, FORA DO CANAL DE NAVEGAÇÃO, MARGEM ESQUERDA, NUM RAIO DE 15 METROS CENTRADO",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3527,7 +3419,7 @@
     ],
     "HI 0127/23": [
       {
-        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, SEGUEM AS COORDE",
+        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, SEGUEM AS COORDENADAS E PROFUNDIDADES ALTERADAS",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3537,7 +3429,7 @@
         ]
       },
       {
-        "nome": "15,7 METROS; B.",
+        "nome": "15,7 METROS; B",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3547,7 +3439,7 @@
         ]
       },
       {
-        "nome": "15,4 METROS; C.",
+        "nome": "15,4 METROS; C",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3557,7 +3449,7 @@
         ]
       },
       {
-        "nome": "13,0 METROS; D.",
+        "nome": "13,0 METROS; D",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3567,7 +3459,7 @@
         ]
       },
       {
-        "nome": "13,5 METROS; E.",
+        "nome": "13,5 METROS; E",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3577,7 +3469,7 @@
         ]
       },
       {
-        "nome": "6,2 METROS; e F.",
+        "nome": "6,2 METROS; e F",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3597,7 +3489,7 @@
         ]
       },
       {
-        "nome": "14,7 METROS; B.",
+        "nome": "14,7 METROS; B",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3607,7 +3499,7 @@
         ]
       },
       {
-        "nome": "18,6 METROS; C.",
+        "nome": "18,6 METROS; C",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3617,7 +3509,7 @@
         ]
       },
       {
-        "nome": "6,8 METROS; D.",
+        "nome": "6,8 METROS; D",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3627,7 +3519,7 @@
         ]
       },
       {
-        "nome": "19,6 METROS; e E.",
+        "nome": "19,6 METROS; e E",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3651,7 +3543,7 @@
     ],
     "HI 0028/24": [
       {
-        "nome": "FIM MITIGAR OS PROCESSOS DE ASSOREAMENTO E EROSÃO NA REGIÃO DA BARRA DO SÃO LOURENÇO, AS E",
+        "nome": "FIM MITIGAR OS PROCESSOS DE ASSOREAMENTO E EROSÃO NA REGIÃO DA BARRA DO SÃO LOURENÇO, AS EMBARCA- ÇÕES QUE TRAFEGAREM NO TRECHO COMPREENDIDO ENTRE A",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3673,7 +3565,7 @@
     ],
     "HI 0041/24": [
       {
-        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, VARIANDO ENTRE 0",
+        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, VARIANDO ENTRE 0,8M E 3,8M, OFERECENDO PERIGO À NAVEGAÇÃO, LINHA DE PERIGO DELIMITADA PELAS SEGUINTES COORDENADAS",
         "tipo": "LINHA",
         "coords": [
           [
@@ -3709,7 +3601,7 @@
     ],
     "HI 0042/24": [
       {
-        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NAS CARTAS NÁUTICAS, VARIANDO ENTR",
+        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NAS CARTAS NÁUTICAS, VARIANDO ENTRE 0,9M E 2,8M, OFERECENDO PERIGO À NAVEGAÇÃO, DELIMITANDO-SE PELA SEGUINTE ÁREA",
         "tipo": "AREA",
         "coords": [
           [
@@ -3737,7 +3629,7 @@
     ],
     "HI 0056/24": [
       {
-        "nome": "UNO – CARTAS 3333, 3334, 3335, 3336, 3337, 3338, 3339, 3340, 3341, 3342, 3343, 3344, 3345,",
+        "nome": "UNO – CARTAS 3333, 3334, 3335, 3336, 3337, 3338, 3339, 3340, 3341, 3342, 3343, 3344, 3345, 3346, 3347 E 3348",
         "tipo": "LINHA",
         "coords": [
           [
@@ -3809,7 +3701,7 @@
     ],
     "HI 0067/24": [
       {
-        "nome": "EXISTÊNCIA DE BANCOS DE AREIA COM PROFUNDIDADES MENORES QUE AS REPRESENTADAS NA CARTA NÁUT",
+        "nome": "EXISTÊNCIA DE BANCOS DE AREIA COM PROFUNDIDADES MENORES QUE AS REPRESENTADAS NA CARTA NÁUTICA, VARIANDO ENTRE 0,1M E 1,9M, OFERECENDO PERIGO À NAVEGAÇÃO, DELIMITADOS PELAS LINHAS DE PERIGO, NAS SEGUINTES COORDENADAS (LAT/LONG)",
         "tipo": "AREA",
         "coords": [
           [
@@ -3903,7 +3795,7 @@
     ],
     "HI 0073/24": [
       {
-        "nome": "EXISTÊNCIA DE BAIXAS PROFUNDIDADES MENORES QUE AS REPRESENTADAS NA CARTA NÁUTICA, VARIANDO",
+        "nome": "EXISTÊNCIA DE BAIXAS PROFUNDIDADES MENORES QUE AS REPRESENTADAS NA CARTA NÁUTICA, VARIANDO ENTRE 0,9M E 2,0M, OFERECENDO PERIGO À NAVEGAÇÃO, DELIMITADOS PELAS LINHAS DE PERIGO, NAS SEGUINTES COORDENADAS (LAT/LONG)",
         "tipo": "AREA",
         "coords": [
           [
@@ -3931,7 +3823,7 @@
     ],
     "HI 0026/25": [
       {
-        "nome": "HI 0026/25 – BRASIL – RIO PARAGUAI – TRAMO SUL DO RIO PARAGUAI - CARTA 3336 ATENÇÃO E CAUT",
+        "nome": "HI 0026/25 – BRASIL – RIO PARAGUAI – TRAMO SUL DO RIO PARAGUAI - CARTA 3336 ATENÇÃO E CAUTELA ATENÇÃO E CAUTELA AOS NAVEGANTES AO SE APROXIMAREM DO TRECHO DO RIO PARAGUAI NA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3943,7 +3835,7 @@
     ],
     "HI 0037/25": [
       {
-        "nome": "EXISTÊNCIA DE ALTO FUNDO E PEDRAS AFLORADAS NÃO CARTOGRAFADAS, OFERECENDO PERIGO À NAVEGAÇ",
+        "nome": "EXISTÊNCIA DE ALTO FUNDO E PEDRAS AFLORADAS NÃO CARTOGRAFADAS, OFERECENDO PERIGO À NAVEGAÇÃO NA SEGUINTE COORDENADA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -4845,7 +4737,7 @@
     ],
     "HI 0009/26": [
       {
-        "nome": "PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NAS CARTA N",
+        "nome": "PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NAS CARTA NÁUTICA, NAS PROXIMIDADES DA VOLTA DO FORMOSO, DELIMITADAS PELA ÁREA",
         "tipo": "AREA",
         "coords": [
           [
@@ -4881,7 +4773,7 @@
     ],
     "HI 0020/26": [
       {
-        "nome": "ATENÇÃO E CAUTELA AOS NAVEGANTES AO NAVEGAREM NO TRECHO DO RIO CUIABÁ-MT, COMPREENDIDO ENT",
+        "nome": "ATENÇÃO E CAUTELA AOS NAVEGANTES AO NAVEGAREM NO TRECHO DO RIO CUIABÁ-MT, COMPREENDIDO ENTRE O POÇO DO INFERNO E O PORTO NOSSA SENHORA DA CONCEIÇÃO NAS PROXIMIDADES DO KM 411 DO RIO CUIABÁ, NA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -5925,7 +5817,7 @@
     ],
     "HI 0061/26": [
       {
-        "nome": "PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁ",
+        "nome": "PRECAUÇÃO DE SEGURANÇA EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA H2100, NAS PROXIMIDADES DO FREE PORT, DELIMITADAS PELA ÁREA",
         "tipo": "AREA",
         "coords": [
           [
@@ -5947,7 +5839,7 @@
         ]
       },
       {
-        "nome": "MENOR PROFUNDIDADE ENCONTRADA É -0,7M NA POSIÇÃO",
+        "nome": "MENOR PROFUNDIDADE ENCONTRADA É -0,7M",
         "tipo": "PONTO",
         "coords": [
           [
@@ -6295,7 +6187,7 @@
     ],
     "HI 0072/26": [
       {
-        "nome": "EXISTÊNCIA DE ALTO FUNDO E PEDRAS AFLORADAS NÃO CARTOGRAFADAS, OFERECENDO PERIGO À NAVEGAÇ",
+        "nome": "EXISTÊNCIA DE ALTO FUNDO E PEDRAS AFLORADAS NÃO CARTOGRAFADAS, OFERECENDO PERIGO À NAVEGAÇÃO NA SEGUINTE COORDENADA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -6307,7 +6199,7 @@
     ],
     "HI 0074/26": [
       {
-        "nome": "EM VIRTUDE DE DRAGAGEM DE MANUTENÇÃO A SER REALIZADA NO RIO PARAGUAI NO TRECHO PASSO PIÚVA",
+        "nome": "EM VIRTUDE DE DRAGAGEM DE MANUTENÇÃO A SER REALIZADA NO RIO PARAGUAI NO TRECHO PASSO PIÚVAS, LOCALIZADO NO TRAMO SUL DA HIDROVIA DO RIO PARAGUAI, ENTRE CORUMBÁ – MS E A FOZ DO RIO APA DE ACORDO COM AS SEGUINTES COORDENADAS INICIAIS",
         "tipo": "PONTO",
         "coords": [
           [
@@ -6359,7 +6251,7 @@
         ]
       },
       {
-        "nome": "DOIS - CARTA 3306 - PROXIMIDADES DE PUERTO PRATT GILL - CASCO SOÇOBRADO SUBMERSO - MENOR P",
+        "nome": "DOIS - CARTA 3306 - PROXIMIDADES DE PUERTO PRATT GILL - CASCO SOÇOBRADO SUBMERSO - MENOR PROFUNDIDADE ENCONTRADA",
         "tipo": "AREA",
         "coords": [
           [
@@ -6531,7 +6423,7 @@
         ]
       },
       {
-        "nome": "OITO - CARTA 3311 - PROXIMIDADES DA ISLA BURRO YGUA (CENTENÁRIO) - ALTERAÇÃO DA ISOBATIMÉT",
+        "nome": "OITO - CARTA 3311 - PROXIMIDADES DA ISLA BURRO YGUA (CENTENÁRIO) - ALTERAÇÃO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -6599,7 +6491,7 @@
         ]
       },
       {
-        "nome": "DEZ - CARTA 3312 - PROXIMIDADES DE PUERTO BARRANQUERITA - ALTERAÇÃO DA ISOBATIMÉTRICA DE 3",
+        "nome": "DEZ - CARTA 3312 - PROXIMIDADES DE PUERTO BARRANQUERITA - ALTERAÇÃO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -6635,7 +6527,7 @@
     ],
     "HI 0086/26": [
       {
-        "nome": "ATENÇÃO E CAUTELA NA TARDE DE 29 DE SETEMBRO DE 2026, DURANTE CONDIÇÕES METEOROLÓGICAS ADV",
+        "nome": "ATENÇÃO E CAUTELA NA TARDE DE 29 DE SETEMBRO DE 2026, DURANTE CONDIÇÕES METEOROLÓGICAS ADVERSAS REGISTRADAS NA REGIÃO DO PORTO GREGÓRIO CURVO, SITUADO NO KM 1388 NA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -6647,7 +6539,7 @@
     ],
     "HI 0088/26": [
       {
-        "nome": "A FIM DE GARANTIR A SEGURANÇA DA NAVEGAÇÃO NO TRECHO EXCLUSIVAMENTE PARAGUAIO, A MARINHA D",
+        "nome": "A FIM DE GARANTIR A SEGURANÇA DA NAVEGAÇÃO NO TRECHO EXCLUSIVAMENTE PARAGUAIO, A MARINHA DO BRASIL ESTABELECEU OS SEGUINTES AUXÍLIOS À NAVEGAÇÃO COM O INTUITO DE ORIENTAR OS NAVEGANTES NA REGIÃO",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7007,7 +6899,7 @@
         ]
       },
       {
-        "nome": "RELAÇÃO DE SINAIS NÁUTICOS ESTABELECIDOS NO TRECHO PARAGUAIO Nº NOME DO SINAL MARG SIMB KM",
+        "nome": "RELAÇÃO DE SINAIS NÁUTICOS ESTABELECIDOS NO TRECHO PARAGUAIO Nº NOME DO SINAL MARG SIMB KM CARTA LATITUDE LONGITUDE 37 BZ PASO VILLA REY E O/H 500.4 3307/3308",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7337,7 +7229,7 @@
         ]
       },
       {
-        "nome": "RELAÇÃO DE SINAIS NÁUTICOS ESTABELECIDOS NO TRECHO PARAGUAIO Nº NOME DO SINAL MARG SIMB KM",
+        "nome": "RELAÇÃO DE SINAIS NÁUTICOS ESTABELECIDOS NO TRECHO PARAGUAIO Nº NOME DO SINAL MARG SIMB KM CARTA LATITUDE LONGITUDE 70 BZ PASO EL POROTO D 579.5 3313 O/H",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7479,7 +7371,7 @@
     ],
     "HI 0089/26": [
       {
-        "nome": "EM RAZÃO DE MANOBRAS MILITARES, SERÁ REALIZADA A INTERDIÇÃO DO RIO PARAGUAI NOS DIAS 16, 1",
+        "nome": "EM RAZÃO DE MANOBRAS MILITARES, SERÁ REALIZADA A INTERDIÇÃO DO RIO PARAGUAI NOS DIAS 16, 17 E 18 DE NOVEMBRO DE 2026, DAS 13H ÀS 17H, NAS PROXIMIDADES DA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7489,7 +7381,7 @@
         ]
       },
       {
-        "nome": "NO DIA 23 DE NOVEMBRO, NO PERÍODO DAS 13H ÀS 17H, E NO DIA 24 DE NOVEMBRO, NO PERÍODO DAS",
+        "nome": "NO DIA 23 DE NOVEMBRO, NO PERÍODO DAS 13H ÀS 17H, E NO DIA 24 DE NOVEMBRO, NO PERÍODO DAS 07H ÀS 11H, NAS PROXIMIDADES DA",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7501,7 +7393,7 @@
     ],
     "HI 0093/26": [
       {
-        "nome": "ATENÇÃO E CAUTELA RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI NA",
+        "nome": "ATENÇÃO E CAUTELA RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI NAS PROXIMIDADES DO KM 1522,1",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7513,7 +7405,7 @@
     ],
     "HI 0094/26": [
       {
-        "nome": "RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI COMPREENDIDO ENTRE O",
+        "nome": "RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI COMPREENDIDO ENTRE O KM 1504,8",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7535,7 +7427,7 @@
     ],
     "HI 0095/26": [
       {
-        "nome": "RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI COMPREENDIDO ENTRE O",
+        "nome": "RECOMENDA-SE ATENÇÃO E CAUTELA AO NAVEGAREM NO TRECHO DO RIO PARAGUAI COMPREENDIDO ENTRE O KM 1500",
         "tipo": "PONTO",
         "coords": [
           [
@@ -7557,7 +7449,7 @@
     ],
     "HI 0096/26": [
       {
-        "nome": "QUEDA DE UMA PESSOA NA ÁGUA, ÚLTIMA POSIÇÃO EM",
+        "nome": "QUEDA DE UMA PESSOA NA ÁGUA, ÚLTIMA",
         "tipo": "PONTO",
         "coords": [
           [
