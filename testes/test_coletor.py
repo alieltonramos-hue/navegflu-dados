@@ -462,6 +462,36 @@ class AvisosGeoTeste(unittest.TestCase):
         self.assertLessEqual(len(grupos[0]["nome"]), 90)
         self.assertTrue(grupos[0]["nome"].startswith("UNO"))
 
+    def test_linha_formada_com_hifen_da_quebra_do_pdf_aberta_e_linha(self):
+        pos = ("LAT. 19º10'00\"S LONG. 057º10'00\"W; LAT. 19º11'00\"S LONG. 057º11'00\"W; "
+               "LAT. 19º12'00\"S LONG. 057º12'00\"W; LAT. 19º13'00\"S LONG. 057º13'00\"W; "
+               "LAT. 19º14'00\"S LONG. 057º14'00\"W.")
+        texto = ("HI 0003/20 - RIO PARAGUAI - EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR "
+                 "PARA A LINHA FORMA- DA PELA INTERLIGAÇÃO DAS SEGUINTES POSIÇÕES: " + pos)
+        grupos, _ = coletor.extrair_avisos_geo(texto)
+        self.assertEqual(len(grupos), 1)
+        self.assertEqual(len(grupos[0]["coords"]), 5)
+        self.assertEqual(grupos[0]["tipo"], "LINHA")
+
+    def test_linha_formada_com_pontos_fechados_continua_area(self):
+        pos = ("LAT. 19º10'00\"S LONG. 057º10'00\"W; LAT. 19º11'00\"S LONG. 057º11'00\"W; "
+               "LAT. 19º12'00\"S LONG. 057º12'00\"W; LAT. 19º13'00\"S LONG. 057º13'00\"W; "
+               "LAT. 19º10'00\"S LONG. 057º10'00\"W.")
+        texto = ("HI 0003/20 - RIO PARAGUAI - EXPANDINDO A ISOBATIMÉTRICA DE 3 METROS DA CARTA NÁUTICA EM VIGOR "
+                 "PARA A LINHA FORMA- DA PELA INTERLIGAÇÃO DAS SEGUINTES POSIÇÕES: " + pos)
+        grupos, _ = coletor.extrair_avisos_geo(texto)
+        self.assertEqual(len(grupos), 1)
+        self.assertEqual(grupos[0]["tipo"], "AREA")
+
+    def test_area_delimitada_aberta_continua_area(self):
+        pos = ("LAT. 19º10'00\"S LONG. 057º10'00\"W; LAT. 19º11'00\"S LONG. 057º11'00\"W; "
+               "LAT. 19º12'00\"S LONG. 057º12'00\"W; LAT. 19º13'00\"S LONG. 057º13'00\"W; "
+               "LAT. 19º14'00\"S LONG. 057º14'00\"W.")
+        texto = "HI 0004/20 - RIO PARAGUAI - ÁREA DELIMITADA PELAS POSIÇÕES: " + pos
+        grupos, _ = coletor.extrair_avisos_geo(texto)
+        self.assertEqual(len(grupos), 1)
+        self.assertEqual(grupos[0]["tipo"], "AREA")
+
 
 if __name__ == "__main__":
     unittest.main()

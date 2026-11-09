@@ -303,14 +303,14 @@ def _geo_nome(prefixo):
 
 
 def _geo_tipo(pontos, texto):
-    """PONTO (1), LINHA (2, ou aberta com "LINHA DE"), AREA (fechada ou com palavra de area), PONTOS (bóias, pedras)."""
+    """PONTO (1), LINHA (2, ou aberta com "LINHA DE" / "LINHA FORMADA"), AREA (fechada ou com palavra de area), PONTOS (bóias, pedras)."""
     n = len(pontos)
     if n == 1:
         return "PONTO"
     if n == 2:
         return "LINHA"
     fechada = abs(pontos[0][0] - pontos[-1][0]) < 1e-5 and abs(pontos[0][1] - pontos[-1][1]) < 1e-5
-    if not fechada and re.search(r'LINHA DE', texto):
+    if not fechada and re.search(r'LINHA\s+(DE|FORMA)', texto):
         return "LINHA"
     if fechada or _GEO_AREA_KW.search(texto):
         return "AREA"
