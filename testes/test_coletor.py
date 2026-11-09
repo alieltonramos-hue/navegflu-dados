@@ -432,6 +432,22 @@ class AvisosGeoTeste(unittest.TestCase):
             for lat, lon in g["coords"]:
                 self.assertTrue(-28 <= lat <= -14 and -62 <= lon <= -54)
 
+    def test_hi_0037_26_nome_do_dez_mantem_o_texto_depois_do_dois_pontos(self):
+        grupos, _ = coletor.extrair_avisos_geo(_fixture("hi_0037_26.txt"))
+        dez = [g for g in grupos if g["nome"].startswith("DEZ")]
+        self.assertEqual(len(dez), 1)
+        self.assertEqual(dez[0]["nome"],
+                         "DEZ – CARTA 3344 - PROXIMIDADES DA ILHA COVA DA ONÇA OU YAGUARETÊ (SUL DA ILHA): "
+                         "BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M NA PARTE SUL DA ILHA")
+
+    def test_rotulo_de_posicao_depois_do_dois_pontos_sai_e_o_resto_fica(self):
+        self.assertEqual(coletor._geo_nome("NAS SEGUINTES COORDENADAS: LAT/LONG "),
+                         "NAS SEGUINTES COORDENADAS")
+        self.assertEqual(coletor._geo_nome("INSERIR AS SEGUINTES PROFUNDIDADES: A. "),
+                         "INSERIR AS SEGUINTES PROFUNDIDADES")
+        self.assertEqual(coletor._geo_nome("MENOR PROFUNDIDADE ENCONTRADA: 3,1M "),
+                         "MENOR PROFUNDIDADE ENCONTRADA: 3,1M")
+
     def test_hi_0067_09_pontos_com_quatro_posicoes(self):
         grupos, _ = coletor.extrair_avisos_geo(_fixture("hi_0067_09.txt"))
         self.assertEqual(len(grupos), 1)

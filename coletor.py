@@ -238,6 +238,10 @@ _GEO_POSI = r'PO-?\s?SI[ÇC](?:[ÃA]O|[ÕO]ES)\b'
 _GEO_LIGACAO = re.compile(
     r'\s+(?:(?:DE|DA|DO|DAS|DOS|NA|NO|NAS|NOS|EM|POR|PELA|PELO|PELAS|PELOS|AS|OS|ENTRE|COM|FORMAD[OA]|FORMA-|FOR-\s?MAD[OA]|'
     r'DELIMITAD[OA]|LIMITAD[OA]|SEGUINTES?|INTERLIGA[ÇC][ÃA]O)\s+)*' + _GEO_POSI + r'[^,]*$', re.I)
+# rotulo de posicao depois do ':' no fim do nome ("...: LAT/LONG", "...: A.", "...(LAT/LONG): UNO").
+# So sai o rotulo; ':' com texto de verdade depois ("ENCONTRADA: 3,1M") fica.
+_GEO_ROTULO_FIM = re.compile(
+    r':\s*(?:\(?LAT(?:ITUDE)?(?:\s*/\s*LONG(?:ITUDE)?)?\)?\.?|LONG(?:ITUDE)?\.?|[A-Z]\)?\.?|' + _GEO_ORD + r')?\s*$')
 
 
 def _geo_coord(hemisferios):
@@ -306,7 +310,11 @@ def _geo_nome(prefixo):
     marcas = list(_GEO_MARCA.finditer(ultimo))
     if marcas:
         ultimo = ultimo[marcas[-1].start():]
-    ultimo = ultimo.split(':')[0]
+    while True:                                  # ": LAT/LONG", ": A.", "(LAT/LONG): UNO" no fim saem; o texto antes fica
+        sem_rotulo = _GEO_ROTULO_FIM.sub('', ultimo)
+        if sem_rotulo == ultimo:
+            break
+        ultimo = sem_rotulo
     ultimo = _GEO_LIGACAO.sub('', ultimo)
     ultimo = re.sub(r'(?<![A-Za-zÀ-ÿ])[A-Z]\)\s*$', '', ultimo)     # rotulo "A)" que sobrou antes da lista
     ultimo = re.sub(r'\s+', ' ', ultimo).strip(' -–—:;,.')
