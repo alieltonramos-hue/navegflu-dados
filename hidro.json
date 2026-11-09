@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-09T02:08:07Z",
-  "gerado_em_local": "2026-11-08T22:08:07-04:00",
-  "verificado_em_utc": "2026-11-09T02:08:07Z",
-  "verificado_em_local": "2026-11-08T22:08:07-04:00",
+  "gerado_em_utc": "2026-11-09T02:24:37Z",
+  "gerado_em_local": "2026-11-08T22:24:37-04:00",
+  "verificado_em_utc": "2026-11-09T02:24:37Z",
+  "verificado_em_local": "2026-11-08T22:24:37-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -3419,7 +3419,7 @@
     ],
     "HI 0127/23": [
       {
-        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, SEGUEM AS COORDENADAS E PROFUNDIDADES ALTERADAS",
+        "nome": "EXISTÊNCIA DE PROFUNDIDADES MENORES QUE AS APRESENTADAS NA CARTA NÁUTICA, SEGUEM AS COORDENADAS E PROFUNDIDADES ALTERADAS: INSERIR AS SEGUINTES PROFUNDIDADES",
         "tipo": "PONTO",
         "coords": [
           [
@@ -3847,7 +3847,7 @@
     ],
     "HI 0041/25": [
       {
-        "nome": "UNO – CARTA 3427 - PROXIMIDADES DA ILHA SÃO JOÃO",
+        "nome": "UNO – CARTA 3427 - PROXIMIDADES DA ILHA SÃO JOÃO: BAIXAS PROFUNDIDADES",
         "tipo": "LINHA",
         "coords": [
           [
@@ -3877,7 +3877,7 @@
         ]
       },
       {
-        "nome": "DOIS – CARTA 3427 - PROXIMIDADES DO PASSO DESCALVADINHO",
+        "nome": "DOIS – CARTA 3427 - PROXIMIDADES DO PASSO DESCALVADINHO: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -3903,7 +3903,7 @@
         ]
       },
       {
-        "nome": "TRÊS – CARTAS 3427/3428 - PROXIMIDADES DA INHADONA",
+        "nome": "TRÊS – CARTAS 3427/3428 - PROXIMIDADES DA INHADONA: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -3933,7 +3933,7 @@
         ]
       },
       {
-        "nome": "QUATRO – CARTA 3428 - PROXIMIDADES DA BOCA DO PAPAGAIO",
+        "nome": "QUATRO – CARTA 3428 - PROXIMIDADES DA BOCA DO PAPAGAIO: ALTERAÇÕES DE CONTORNO",
         "tipo": "LINHA",
         "coords": [
           [
@@ -4037,7 +4037,7 @@
         ]
       },
       {
-        "nome": "CINCO – CARTA 3429 – A MONTANTE DA ILHA DO RIO VELHO",
+        "nome": "CINCO – CARTA 3429 – A MONTANTE DA ILHA DO RIO VELHO: ALTERAÇÕES DE CONTORNO",
         "tipo": "LINHA",
         "coords": [
           [
@@ -4153,7 +4153,7 @@
         ]
       },
       {
-        "nome": "SEIS – CARTA 3429 - PROXIMIDADES DA BOCA DO MORRINHO",
+        "nome": "SEIS – CARTA 3429 - PROXIMIDADES DA BOCA DO MORRINHO: ALTERAÇÕES DE CONTORNO",
         "tipo": "LINHA",
         "coords": [
           [
@@ -4241,7 +4241,7 @@
         ]
       },
       {
-        "nome": "SETE – CARTAS 3429/3430 - PROXIMIDADES DA BOCA DA BAÍA DAS ÉGUAS",
+        "nome": "SETE – CARTAS 3429/3430 - PROXIMIDADES DA BOCA DA BAÍA DAS ÉGUAS: ALTERAÇÕES DE CONTORNO",
         "tipo": "LINHA",
         "coords": [
           [
@@ -4341,7 +4341,7 @@
         ]
       },
       {
-        "nome": "OITO – CARTA 3430 - PROXIMIDADES DO PASSO CORIXÃO SUPERIOR",
+        "nome": "OITO – CARTA 3430 - PROXIMIDADES DO PASSO CORIXÃO SUPERIOR: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4429,7 +4429,7 @@
         ]
       },
       {
-        "nome": "NOVE – CARTA 3431 – A JUSANTE DA ILHA DA BAIAZINHA",
+        "nome": "NOVE – CARTA 3431 – A JUSANTE DA ILHA DA BAIAZINHA: BAIXAS PROFUNDIDADES A OESTE (W) DA LINHA",
         "tipo": "LINHA",
         "coords": [
           [
@@ -4455,7 +4455,7 @@
         ]
       },
       {
-        "nome": "DEZ – CARTA 3431 - PROXIMIDADES DO HOTEL BAIAZINHA",
+        "nome": "DEZ – CARTA 3431 - PROXIMIDADES DO HOTEL BAIAZINHA: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4493,7 +4493,7 @@
         ]
       },
       {
-        "nome": "ONZE – CARTA 3432 – PROXIMIDADES DO PASSO DO BEIÇUDO",
+        "nome": "ONZE – CARTA 3432 – PROXIMIDADES DO PASSO DO BEIÇUDO: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4551,7 +4551,7 @@
         ]
       },
       {
-        "nome": "DOZE – CARTAS 3432/3433 – A MONTANTE DA BOCA DO NATALINO",
+        "nome": "DOZE – CARTAS 3432/3433 – A MONTANTE DA BOCA DO NATALINO: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4577,7 +4577,7 @@
         ]
       },
       {
-        "nome": "TREZE – CARTA 3433 - PROXIMIDADES DO PASSO DO SOLDADO",
+        "nome": "TREZE – CARTA 3433 - PROXIMIDADES DO PASSO DO SOLDADO: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4631,7 +4631,7 @@
         ]
       },
       {
-        "nome": "CATORZE – CARTA 3433 - PROXIMIDADES DO PASSO DO TUCUM",
+        "nome": "CATORZE – CARTA 3433 - PROXIMIDADES DO PASSO DO TUCUM: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4681,7 +4681,7 @@
         ]
       },
       {
-        "nome": "QUINZE – CARTA 3434 - PROXIMIDADES DO PASSO CAMBARÁ",
+        "nome": "QUINZE – CARTA 3434 - PROXIMIDADES DO PASSO CAMBARÁ: BAIXAS PROFUNDIDADES",
         "tipo": "AREA",
         "coords": [
           [
@@ -4785,7 +4785,7 @@
     ],
     "HI 0037/26": [
       {
-        "nome": "UNO – CARTA 3357 - PROXIMIDADES DA ILHA FIGUEIRINHA",
+        "nome": "UNO – CARTA 3357 - PROXIMIDADES DA ILHA FIGUEIRINHA: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -4959,7 +4959,7 @@
         ]
       },
       {
-        "nome": "DOIS – CARTA 3354 - PROXIMIDADES DO PASSO PIÚVAS SUPERIOR",
+        "nome": "DOIS – CARTA 3354 - PROXIMIDADES DO PASSO PIÚVAS SUPERIOR: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -5057,7 +5057,7 @@
         ]
       },
       {
-        "nome": "TRÊS – CARTA 3354 - PROXIMIDADES DO PASSO PIÚVAS SUPERIOR",
+        "nome": "TRÊS – CARTA 3354 - PROXIMIDADES DO PASSO PIÚVAS SUPERIOR: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -5123,7 +5123,7 @@
         ]
       },
       {
-        "nome": "QUATRO – CARTA 3349 - PROXIMIDADES DO PORTO RAMOS",
+        "nome": "QUATRO – CARTA 3349 - PROXIMIDADES DO PORTO RAMOS: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -5201,7 +5201,7 @@
         ]
       },
       {
-        "nome": "CINCO – CARTA 3348 - PROXIMIDADES DO PASSO CURURU",
+        "nome": "CINCO – CARTA 3348 - PROXIMIDADES DO PASSO CURURU: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -5307,7 +5307,7 @@
         ]
       },
       {
-        "nome": "SEIS – CARTA 3348 - PROXIMIDADES DA ILHA ESPERANÇA, NO KM 1222,0",
+        "nome": "SEIS – CARTA 3348 - PROXIMIDADES DA ILHA ESPERANÇA, NO KM 1222,0: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M ENGLOBANDO TODA A ILHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -5445,7 +5445,7 @@
         ]
       },
       {
-        "nome": "SETE – CARTA 3347 - PROXIMIDADES DA ILHA CAPÃO QUEIMADO",
+        "nome": "SETE – CARTA 3347 - PROXIMIDADES DA ILHA CAPÃO QUEIMADO: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -5511,7 +5511,7 @@
         ]
       },
       {
-        "nome": "OITO – CARTA 3346 - PROXIMIDADES DO PUERTO LEDA",
+        "nome": "OITO – CARTA 3346 - PROXIMIDADES DO PUERTO LEDA: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M",
         "tipo": "AREA",
         "coords": [
           [
@@ -5597,7 +5597,7 @@
         ]
       },
       {
-        "nome": "NOVE – CARTA 3345 - PROXIMIDADES DO PUERTO VOLUNTAD",
+        "nome": "NOVE – CARTA 3345 - PROXIMIDADES DO PUERTO VOLUNTAD: BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M ENGLOBANDO TODA A ILHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -5691,7 +5691,7 @@
         ]
       },
       {
-        "nome": "DEZ – CARTA 3344 - PROXIMIDADES DA ILHA COVA DA ONÇA OU YAGUARETÊ (SUL DA ILHA)",
+        "nome": "DEZ – CARTA 3344 - PROXIMIDADES DA ILHA COVA DA ONÇA OU YAGUARETÊ (SUL DA ILHA): BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M NA PARTE SUL DA ILHA",
         "tipo": "AREA",
         "coords": [
           [
@@ -5781,7 +5781,7 @@
         ]
       },
       {
-        "nome": "ONZE – CARTA 3344 - PROXIMIDADES DA ILHA COVA DA ONÇA OU YAGUARETÊ (ALEGRETE)",
+        "nome": "ONZE – CARTA 3344 - PROXIMIDADES DA ILHA COVA DA ONÇA OU YAGUARETÊ (ALEGRETE): BAIXAS PROFUNDIDADES E CONTORNO APROXIMADO DA ISOBATIMÉTRICA DE 3M NA MARGEM DIREITA",
         "tipo": "AREA",
         "coords": [
           [
@@ -6251,7 +6251,7 @@
         ]
       },
       {
-        "nome": "DOIS - CARTA 3306 - PROXIMIDADES DE PUERTO PRATT GILL - CASCO SOÇOBRADO SUBMERSO - MENOR PROFUNDIDADE ENCONTRADA",
+        "nome": "DOIS - CARTA 3306 - PROXIMIDADES DE PUERTO PRATT GILL - CASCO SOÇOBRADO SUBMERSO - MENOR PROFUNDIDADE ENCONTRADA: 3,1M",
         "tipo": "AREA",
         "coords": [
           [
@@ -6539,7 +6539,7 @@
     ],
     "HI 0088/26": [
       {
-        "nome": "A FIM DE GARANTIR A SEGURANÇA DA NAVEGAÇÃO NO TRECHO EXCLUSIVAMENTE PARAGUAIO, A MARINHA DO BRASIL ESTABELECEU OS SEGUINTES AUXÍLIOS À NAVEGAÇÃO COM O INTUITO DE ORIENTAR OS NAVEGANTES NA REGIÃO",
+        "nome": "A FIM DE GARANTIR A SEGURANÇA DA NAVEGAÇÃO NO TRECHO EXCLUSIVAMENTE PARAGUAIO, A MARINHA DO BRASIL ESTABELECEU OS SEGUINTES AUXÍLIOS À NAVEGAÇÃO COM O INTUITO DE ORIENTAR OS NAVEGANTES NA REGIÃO: RELAÇÃO DE SINAIS NÁUTICOS ESTABELECIDOS NO TRECHO PARAGUAIO…",
         "tipo": "PONTO",
         "coords": [
           [
