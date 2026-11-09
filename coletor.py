@@ -224,13 +224,20 @@ def sinais_da_tabela(texto):
 # ---- posicoes dos avisos (avisos_geo): grupos "LAT ... LONG ..." do texto de cada aviso ----
 GEO_LAT = (-28.0, -14.0)                  # caixa da bacia Paraguai-Parana: coordenada fora dela e descartada
 GEO_LON = (-62.0, -54.0)
-GEO_NOME_MAX = 90
+GEO_NOME_MAX = 260
 _GEO_NUMD = r'\d{1,2}(?:[.,]\s?\d+)?'
 _GEO_SEP = r'[^\dA-Za-z]{1,6}?'           # qualquer separador: ° ' " ’ ” espaco
 _GEO_ORD = (r'(?:PRIMEIRO|UNO|DOIS|TR.S|QUATRO|CINCO|SEIS|SETE|OITO|NOVE|DEZESSEIS|DEZESSETE|DEZOITO|'
             r'DEZENOVE|CATORZE|QUINZE|TREZE|DOZE|ONZE|DEZ|VINTE)')
 _GEO_MARCA = re.compile(r'(?<![A-Za-zÀ-ÿ])' + _GEO_ORD + r'\s*[–—\-]\s*')   # "UNO – ..." (nome do grupo)
 _GEO_AREA_KW = re.compile(r'DELIMITAD|INTERLIGA|ÁREA|AREA |CONTORNO|ENGLOBA|ISOBAT|PERÍMETRO|PERIMETRO')
+# frase que liga o descritivo à lista de posicoes ("..., FORMADO PELA INTERLIGAÇÃO DAS SEGUINTES POSIÇÕES:"):
+# sai do nome. So os conectivos colados antes de "POSIÇÃO(ÕES)" (PO- SIÇÕES, quebra do PDF, tambem vale);
+# o descritivo antes deles (EXISTÊNCIA DE ... BÓIAS) fica.
+_GEO_POSI = r'PO-?\s?SI[ÇC](?:[ÃA]O|[ÕO]ES)\b'
+_GEO_LIGACAO = re.compile(
+    r'\s+(?:(?:DE|DA|DO|DAS|DOS|NA|NO|NAS|NOS|EM|POR|PELA|PELO|PELAS|PELOS|AS|OS|ENTRE|COM|FORMAD[OA]|FORMA-|FOR-\s?MAD[OA]|'
+    r'DELIMITAD[OA]|LIMITAD[OA]|SEGUINTES?|INTERLIGA[ÇC][ÃA]O)\s+)*' + _GEO_POSI + r'[^,]*$', re.I)
 
 
 def _geo_coord(hemisferios):
@@ -264,8 +271,10 @@ def _geo_pontos(texto):
 
 
 def _geo_separador_ok(entre):
-    """Texto entre dois pares que ainda faz parte da mesma lista (E, virgula, ponto e virgula, ate)."""
+    """Texto entre dois pares que ainda faz parte da mesma lista (E, virgula, ponto e virgula, ate).
+    Rotulo de posicao com letra ("B)", "E D)") nao separa grupo: so o item numerado ("2)") separa."""
     g = re.sub(r'\([^)]*\)', '', entre)
+    g = re.sub(r'(?<![A-Za-zÀ-ÿ])[A-Z]\)', '', g)
     g = re.sub(r'\b(E|e|ATÉ|ATE|AT.)\b', '', g)
     return re.fullmatch(r'[\s;,/.]*', g) is not None
 
@@ -298,8 +307,15 @@ def _geo_nome(prefixo):
     if marcas:
         ultimo = ultimo[marcas[-1].start():]
     ultimo = ultimo.split(':')[0]
-    ultimo = re.sub(r'\s+', ' ', ultimo).strip(' -–—:;,')
-    return ultimo[:GEO_NOME_MAX].rstrip()
+    ultimo = _GEO_LIGACAO.sub('', ultimo)
+    ultimo = re.sub(r'(?<![A-Za-zÀ-ÿ])[A-Z]\)\s*$', '', ultimo)     # rotulo "A)" que sobrou antes da lista
+    ultimo = re.sub(r'\s+', ' ', ultimo).strip(' -–—:;,.')
+    if len(ultimo) > GEO_NOME_MAX:
+        corte = ultimo[:GEO_NOME_MAX - 1]
+        if ' ' in corte:
+            corte = corte.rsplit(' ', 1)[0]     # corta em fronteira de palavra
+        ultimo = corte.rstrip(' ,;:-–—') + '…'
+    return ultimo
 
 
 def _geo_tipo(pontos, texto):

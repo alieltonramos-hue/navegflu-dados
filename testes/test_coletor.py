@@ -428,7 +428,7 @@ class AvisosGeoTeste(unittest.TestCase):
         self.assertEqual(len(grupos[0]["coords"]), 42)
         self.assertEqual(descartadas, 0)
         for g in grupos:
-            self.assertLessEqual(len(g["nome"]), 90)
+            self.assertLessEqual(len(g["nome"]), 260)
             for lat, lon in g["coords"]:
                 self.assertTrue(-28 <= lat <= -14 and -62 <= lon <= -54)
 
@@ -455,12 +455,41 @@ class AvisosGeoTeste(unittest.TestCase):
         self.assertEqual(grupos[0]["coords"], [[-18.99773, -57.63247]])
         self.assertEqual(descartadas, 0)
 
-    def test_nome_tem_no_maximo_90_caracteres(self):
+    def test_nome_tem_no_maximo_260_caracteres_e_corta_em_palavra(self):
         texto = "HI 0003/26 - RIO PARAGUAI - UNO – " + "PROXIMIDADES " * 30 + "LAT. 19º35'54\"S LONG. 057º26'29\"W."
         grupos, _ = coletor.extrair_avisos_geo(texto)
         self.assertEqual(len(grupos), 1)
-        self.assertLessEqual(len(grupos[0]["nome"]), 90)
-        self.assertTrue(grupos[0]["nome"].startswith("UNO"))
+        nome = grupos[0]["nome"]
+        self.assertLessEqual(len(nome), 260)
+        self.assertTrue(nome.startswith("UNO"))
+        self.assertTrue(nome.endswith("…"))
+        self.assertEqual(nome[:-1].split()[-1], "PROXIMIDADES")
+
+    def test_hi_0083_20_dois_grupos_de_quatro_posicoes_sem_separar_por_letra(self):
+        grupos, descartadas = coletor.extrair_avisos_geo(_fixture("hi_0083_20.txt"))
+        self.assertEqual([(g["tipo"], len(g["coords"])) for g in grupos], [("AREA", 4), ("AREA", 4)])
+        self.assertEqual(descartadas, 0)
+
+    def test_hi_0083_20_nome_traz_o_motivo_e_preserva_palavras_de_uma_letra(self):
+        grupos, _ = coletor.extrair_avisos_geo(_fixture("hi_0083_20.txt"))
+        self.assertEqual(grupos[0]["nome"],
+                         "1) RECOMENDA-SE CAUTELA AO NAVEGAR A MONTANTE DA ILHA MARGARITA, ENTRE OS KM 1000,0 E 1001,1, "
+                         "DEVIDO AO SURGIMENTO DE BANCO DE AREIA, COM PROFUNDIDADES MENORES QUE 3 METROS")
+        self.assertTrue(grupos[1]["nome"].startswith("2) RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA MARIA"))
+        self.assertFalse(any("POSIÇÕES" in g["nome"] or "SEGUINTES" in g["nome"] for g in grupos))
+
+    def test_frase_de_ligacao_sai_do_nome_em_varias_formas(self):
+        for ligacao in ("FORMADO PELA INTERLIGAÇÃO DAS SEGUINTES POSIÇÕES:", "NAS SEGUINTES POSIÇÕES:",
+                        "NA POSIÇÃO:", "LIMITADA PELAS POSIÇÕES:", "NA SEGUINTE POSIÇÃO:"):
+            with self.subTest(ligacao=ligacao):
+                texto = ("HI 0009/26 - RIO PARAGUAI. RECOMENDA-SE CAUTELA AO NAVEGAR NA PROXIMIDADE DA ILHA X, "
+                         "DEVIDO A BANCO DE AREIA, " + ligacao + " A) LAT. 19º10'00\"S LONG. 057º10'00\"W; "
+                         "B) LAT. 19º11'00\"S LONG. 057º11'00\"W.")
+                grupos, _ = coletor.extrair_avisos_geo(texto)
+                self.assertEqual(len(grupos), 1)
+                self.assertEqual(grupos[0]["nome"], "RECOMENDA-SE CAUTELA AO NAVEGAR NA PROXIMIDADE DA ILHA X, "
+                                                    "DEVIDO A BANCO DE AREIA")
+                self.assertEqual(len(grupos[0]["coords"]), 2)
 
     def test_linha_formada_com_hifen_da_quebra_do_pdf_aberta_e_linha(self):
         pos = ("LAT. 19º10'00\"S LONG. 057º10'00\"W; LAT. 19º11'00\"S LONG. 057º11'00\"W; "
