@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-09T01:42:17Z",
-  "gerado_em_local": "2026-11-08T21:42:17-04:00",
-  "verificado_em_utc": "2026-11-09T01:42:17Z",
-  "verificado_em_local": "2026-11-08T21:42:17-04:00",
+  "gerado_em_utc": "2026-11-09T01:47:42Z",
+  "gerado_em_local": "2026-11-08T21:47:42-04:00",
+  "verificado_em_utc": "2026-11-09T01:47:42Z",
+  "verificado_em_local": "2026-11-08T21:47:42-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -2920,7 +2920,7 @@
     "HI 0164/19": [
       {
         "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA CABEÇA DE BOI, KM 1230, DEVIDO AO",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -20.31891,
@@ -2956,7 +2956,7 @@
     "HI 0165/19": [
       {
         "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DA ILHA DEL PUERTO ESPERANZA, KM 1223, DE",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -20.36613,
@@ -2980,7 +2980,7 @@
     "HI 0002/20": [
       {
         "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO OLIMPO, KM 1086, DEVIDO AO CRESC",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -21.0712,
@@ -3008,7 +3008,7 @@
     "HI 0003/20": [
       {
         "nome": "RECOMENDA-SE CAUTELA AO NAVEGAR NAS PROXIMIDADES DO PASSO OLIMPO, KM 1084, DEVIDO AO CRESC",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -21.08143,
@@ -3956,7 +3956,7 @@
     "HI 0041/25": [
       {
         "nome": "UNO – CARTA 3427 - PROXIMIDADES DA ILHA SÃO JOÃO",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.72258,
@@ -4042,7 +4042,7 @@
       },
       {
         "nome": "QUATRO – CARTA 3428 - PROXIMIDADES DA BOCA DO PAPAGAIO",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.70242,
@@ -4146,7 +4146,7 @@
       },
       {
         "nome": "CINCO – CARTA 3429 – A MONTANTE DA ILHA DO RIO VELHO",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.67942,
@@ -4262,7 +4262,7 @@
       },
       {
         "nome": "SEIS – CARTA 3429 - PROXIMIDADES DA BOCA DO MORRINHO",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.65547,
@@ -4350,7 +4350,7 @@
       },
       {
         "nome": "SETE – CARTAS 3429/3430 - PROXIMIDADES DA BOCA DA BAÍA DAS ÉGUAS",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.64528,
@@ -4512,7 +4512,7 @@
       },
       {
         "nome": "BAIXAS PROFUNDIDADES (ESTIRÂNCIO)",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.62872,
@@ -4538,7 +4538,7 @@
       },
       {
         "nome": "NOVE – CARTA 3431 – A JUSANTE DA ILHA DA BAIAZINHA",
-        "tipo": "AREA",
+        "tipo": "LINHA",
         "coords": [
           [
             -16.57844,
