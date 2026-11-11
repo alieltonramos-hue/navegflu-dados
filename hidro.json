@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-11T10:23:46Z",
-  "gerado_em_local": "2026-11-11T06:23:46-04:00",
-  "verificado_em_utc": "2026-11-11T10:23:46Z",
-  "verificado_em_local": "2026-11-11T06:23:46-04:00",
+  "gerado_em_utc": "2026-11-11T10:53:28Z",
+  "gerado_em_local": "2026-11-11T06:53:28-04:00",
+  "verificado_em_utc": "2026-11-11T10:53:28Z",
+  "verificado_em_local": "2026-11-11T06:53:28-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -46,9 +46,9 @@
       "nome": "Cáceres",
       "valor_m": 1.11,
       "data_leitura": "2026-11-10",
-      "fonte": "BDARN CHN-6",
+      "fonte": "DMH-PY (fallback BR)",
       "variacao_24h": 0.03,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-04",
@@ -123,9 +123,9 @@
       "nome": "Ladário",
       "valor_m": 0.82,
       "data_leitura": "2026-11-10",
-      "fonte": "BDARN CHN-6",
+      "fonte": "DMH-PY (fallback BR)",
       "variacao_24h": 0.0,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-04",
@@ -198,16 +198,12 @@
     },
     {
       "nome": "P. Murtinho",
-      "valor_m": 2.22,
-      "data_leitura": "2026-11-10",
+      "valor_m": 2.19,
+      "data_leitura": "2026-11-11",
       "fonte": "DMH-PY (fallback BR)",
-      "variacao_24h": -0.05,
+      "variacao_24h": -0.03,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-04",
-          "valor_m": 2.4
-        },
         {
           "data": "2026-11-05",
           "valor_m": 2.36
@@ -231,21 +227,21 @@
         {
           "data": "2026-11-10",
           "valor_m": 2.22
+        },
+        {
+          "data": "2026-11-11",
+          "valor_m": 2.19
         }
       ]
     },
     {
       "nome": "Vallemi PY",
       "valor_m": 2.26,
-      "data_leitura": "2026-11-10",
+      "data_leitura": "2026-11-11",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.02,
+      "variacao_24h": 0.0,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-04",
-          "valor_m": 2.46
-        },
         {
           "data": "2026-11-05",
           "valor_m": 2.43
@@ -269,21 +265,21 @@
         {
           "data": "2026-11-10",
           "valor_m": 2.26
+        },
+        {
+          "data": "2026-11-11",
+          "valor_m": 2.26
         }
       ]
     },
     {
       "nome": "Concepción PY",
-      "valor_m": 1.76,
-      "data_leitura": "2026-11-10",
+      "valor_m": 1.71,
+      "data_leitura": "2026-11-11",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.08,
+      "variacao_24h": -0.05,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-04",
-          "valor_m": 1.98
-        },
         {
           "data": "2026-11-05",
           "valor_m": 1.96
@@ -307,21 +303,21 @@
         {
           "data": "2026-11-10",
           "valor_m": 1.76
+        },
+        {
+          "data": "2026-11-11",
+          "valor_m": 1.71
         }
       ]
     },
     {
       "nome": "Assunção PY",
-      "valor_m": 2.15,
-      "data_leitura": "2026-11-10",
+      "valor_m": 2.08,
+      "data_leitura": "2026-11-11",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.1,
+      "variacao_24h": -0.07,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-04",
-          "valor_m": 2.5
-        },
         {
           "data": "2026-11-05",
           "valor_m": 2.45
@@ -345,6 +341,10 @@
         {
           "data": "2026-11-10",
           "valor_m": 2.15
+        },
+        {
+          "data": "2026-11-11",
+          "valor_m": 2.08
         }
       ]
     }
