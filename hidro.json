@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-13T11:23:43Z",
-  "gerado_em_local": "2026-11-13T07:23:43-04:00",
-  "verificado_em_utc": "2026-11-13T19:14:36Z",
-  "verificado_em_local": "2026-11-13T15:14:36-04:00",
+  "gerado_em_utc": "2026-11-13T21:57:16Z",
+  "gerado_em_local": "2026-11-13T17:57:16-04:00",
+  "verificado_em_utc": "2026-11-13T21:57:16Z",
+  "verificado_em_local": "2026-11-13T17:57:16-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -9381,7 +9381,7 @@
     },
     "AVURNAV": {
       "ok": true,
-      "msg": "revisao 12/11/2026; boletim do dia: sim"
+      "msg": "revisao 13/11/2026; boletim do dia: sim"
     }
   }
 }
