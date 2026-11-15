@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-15T10:52:51Z",
-  "gerado_em_local": "2026-11-15T06:52:51-04:00",
-  "verificado_em_utc": "2026-11-15T12:53:10Z",
-  "verificado_em_local": "2026-11-15T08:53:10-04:00",
+  "gerado_em_utc": "2026-11-15T16:22:56Z",
+  "gerado_em_local": "2026-11-15T12:22:56-04:00",
+  "verificado_em_utc": "2026-11-15T16:22:56Z",
+  "verificado_em_local": "2026-11-15T12:22:56-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -235,16 +235,12 @@
     },
     {
       "nome": "Vallemi PY",
-      "valor_m": 2.18,
-      "data_leitura": "2026-11-14",
+      "valor_m": 2.15,
+      "data_leitura": "2026-11-15",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.02,
+      "variacao_24h": -0.03,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-08",
-          "valor_m": 2.33
-        },
         {
           "data": "2026-11-09",
           "valor_m": 2.28
@@ -268,21 +264,21 @@
         {
           "data": "2026-11-14",
           "valor_m": 2.18
+        },
+        {
+          "data": "2026-11-15",
+          "valor_m": 2.15
         }
       ]
     },
     {
       "nome": "Concepción PY",
-      "valor_m": 1.66,
-      "data_leitura": "2026-11-14",
+      "valor_m": 1.64,
+      "data_leitura": "2026-11-15",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.0,
+      "variacao_24h": -0.02,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-08",
-          "valor_m": 1.89
-        },
         {
           "data": "2026-11-09",
           "valor_m": 1.84
@@ -306,21 +302,21 @@
         {
           "data": "2026-11-14",
           "valor_m": 1.66
+        },
+        {
+          "data": "2026-11-15",
+          "valor_m": 1.64
         }
       ]
     },
     {
       "nome": "Assunção PY",
-      "valor_m": 1.85,
-      "data_leitura": "2026-11-14",
+      "valor_m": 1.81,
+      "data_leitura": "2026-11-15",
       "fonte": "DMH-PY",
-      "variacao_24h": -0.07,
+      "variacao_24h": -0.04,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-08",
-          "valor_m": 2.3
-        },
         {
           "data": "2026-11-09",
           "valor_m": 2.25
@@ -344,6 +340,10 @@
         {
           "data": "2026-11-14",
           "valor_m": 1.85
+        },
+        {
+          "data": "2026-11-15",
+          "valor_m": 1.81
         }
       ]
     }
