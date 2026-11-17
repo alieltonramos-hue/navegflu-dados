@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-17T10:53:19Z",
-  "gerado_em_local": "2026-11-17T06:53:19-04:00",
-  "verificado_em_utc": "2026-11-17T16:23:36Z",
-  "verificado_em_local": "2026-11-17T12:23:36-04:00",
+  "gerado_em_utc": "2026-11-17T16:53:28Z",
+  "gerado_em_local": "2026-11-17T12:53:28-04:00",
+  "verificado_em_utc": "2026-11-17T16:53:28Z",
+  "verificado_em_local": "2026-11-17T12:53:28-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -9342,8 +9342,8 @@
       "msg": "3 paginas lidas"
     },
     "AVURNAV": {
-      "ok": true,
-      "msg": "revisao 13/11/2026; boletim do dia: sim"
+      "ok": false,
+      "msg": "Avisos-Radio em Vigor nao encontrado (3 meses); lista anterior mantida (de 2026-11-17)"
     }
   }
 }
