@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-20T19:38:37Z",
-  "gerado_em_local": "2026-11-20T15:38:37-04:00",
-  "verificado_em_utc": "2026-11-20T19:38:37Z",
-  "verificado_em_local": "2026-11-20T15:38:37-04:00",
+  "gerado_em_utc": "2026-11-20T22:23:04Z",
+  "gerado_em_local": "2026-11-20T18:23:04-04:00",
+  "verificado_em_utc": "2026-11-20T22:23:04Z",
+  "verificado_em_local": "2026-11-20T18:23:04-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -10,7 +10,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": 0.07,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-14",
@@ -48,7 +48,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": 0.15,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-14",
@@ -86,7 +86,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": -0.01,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-08",
@@ -124,7 +124,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": 0.04,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-14",
@@ -197,10 +197,10 @@
     },
     {
       "nome": "P. Murtinho",
-      "valor_m": 2.11,
+      "valor_m": 2.39,
       "data_leitura": "2026-11-20",
-      "fonte": "DMH-PY (fallback BR)",
-      "variacao_24h": 0.0,
+      "fonte": "BDARN CHN-6",
+      "variacao_24h": 0.09,
       "atual": true,
       "serie": [
         {
@@ -229,7 +229,7 @@
         },
         {
           "data": "2026-11-20",
-          "valor_m": 2.11
+          "valor_m": 2.39
         }
       ]
     },
@@ -8853,16 +8853,16 @@
   "avurnav_de": "2026-11-20",
   "fontes": {
     "BDARN": {
-      "ok": false,
-      "msg": "indisponivel hoje (nenhum candidato com data de hoje)"
+      "ok": true,
+      "msg": "BDARN_NOV_20.pdf (1504588 bytes), data confere, 5 estacoes"
     },
     "DMH-PY": {
       "ok": true,
-      "msg": "6 paginas lidas"
+      "msg": "3 paginas lidas"
     },
     "AVURNAV": {
-      "ok": false,
-      "msg": "Avisos-Radio em Vigor nao encontrado (3 meses); lista anterior mantida (de 2026-11-20)"
+      "ok": true,
+      "msg": "revisao 13/11/2026; boletim do dia: sim"
     }
   }
 }
