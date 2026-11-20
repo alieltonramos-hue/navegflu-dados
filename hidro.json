@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-20T11:23:17Z",
-  "gerado_em_local": "2026-11-20T07:23:17-04:00",
-  "verificado_em_utc": "2026-11-20T19:03:13Z",
-  "verificado_em_local": "2026-11-20T15:03:13-04:00",
+  "gerado_em_utc": "2026-11-20T19:38:37Z",
+  "gerado_em_local": "2026-11-20T15:38:37-04:00",
+  "verificado_em_utc": "2026-11-20T19:38:37Z",
+  "verificado_em_local": "2026-11-20T15:38:37-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -10,7 +10,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": 0.07,
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-14",
@@ -48,7 +48,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": 0.15,
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-14",
@@ -86,7 +86,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": -0.01,
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-08",
@@ -124,7 +124,7 @@
       "data_leitura": "2026-11-20",
       "fonte": "BDARN CHN-6",
       "variacao_24h": 0.04,
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-14",
@@ -197,10 +197,10 @@
     },
     {
       "nome": "P. Murtinho",
-      "valor_m": 2.39,
+      "valor_m": 2.11,
       "data_leitura": "2026-11-20",
-      "fonte": "BDARN CHN-6",
-      "variacao_24h": 0.09,
+      "fonte": "DMH-PY (fallback BR)",
+      "variacao_24h": 0.0,
       "atual": true,
       "serie": [
         {
@@ -229,7 +229,7 @@
         },
         {
           "data": "2026-11-20",
-          "valor_m": 2.39
+          "valor_m": 2.11
         }
       ]
     },
@@ -8853,16 +8853,16 @@
   "avurnav_de": "2026-11-20",
   "fontes": {
     "BDARN": {
-      "ok": true,
-      "msg": "BDARN_NOV_20.pdf (1504588 bytes), data confere, 5 estacoes"
+      "ok": false,
+      "msg": "indisponivel hoje (nenhum candidato com data de hoje)"
     },
     "DMH-PY": {
       "ok": true,
-      "msg": "3 paginas lidas"
+      "msg": "6 paginas lidas"
     },
     "AVURNAV": {
-      "ok": true,
-      "msg": "revisao 13/11/2026; boletim do dia: sim"
+      "ok": false,
+      "msg": "Avisos-Radio em Vigor nao encontrado (3 meses); lista anterior mantida (de 2026-11-20)"
     }
   }
 }
