@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-21T11:23:15Z",
-  "gerado_em_local": "2026-11-21T07:23:15-04:00",
-  "verificado_em_utc": "2026-11-21T11:53:18Z",
-  "verificado_em_local": "2026-11-21T07:53:18-04:00",
+  "gerado_em_utc": "2026-11-21T12:23:19Z",
+  "gerado_em_local": "2026-11-21T08:23:19-04:00",
+  "verificado_em_utc": "2026-11-21T12:23:19Z",
+  "verificado_em_local": "2026-11-21T08:23:19-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -235,16 +235,12 @@
     },
     {
       "nome": "Vallemi PY",
-      "valor_m": 2.5,
-      "data_leitura": "2026-11-20",
+      "valor_m": 2.55,
+      "data_leitura": "2026-11-21",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.14,
+      "variacao_24h": 0.05,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-14",
-          "valor_m": 2.18
-        },
         {
           "data": "2026-11-15",
           "valor_m": 2.15
@@ -268,21 +264,21 @@
         {
           "data": "2026-11-20",
           "valor_m": 2.5
+        },
+        {
+          "data": "2026-11-21",
+          "valor_m": 2.55
         }
       ]
     },
     {
       "nome": "Concepción PY",
-      "valor_m": 1.8,
-      "data_leitura": "2026-11-20",
+      "valor_m": 1.96,
+      "data_leitura": "2026-11-21",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.14,
+      "variacao_24h": 0.16,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-14",
-          "valor_m": 1.66
-        },
         {
           "data": "2026-11-15",
           "valor_m": 1.64
@@ -306,21 +302,21 @@
         {
           "data": "2026-11-20",
           "valor_m": 1.8
+        },
+        {
+          "data": "2026-11-21",
+          "valor_m": 1.96
         }
       ]
     },
     {
       "nome": "Assunção PY",
-      "valor_m": 1.77,
-      "data_leitura": "2026-11-20",
+      "valor_m": 1.83,
+      "data_leitura": "2026-11-21",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.03,
+      "variacao_24h": 0.06,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-14",
-          "valor_m": 1.85
-        },
         {
           "data": "2026-11-15",
           "valor_m": 1.81
@@ -344,6 +340,10 @@
         {
           "data": "2026-11-20",
           "valor_m": 1.77
+        },
+        {
+          "data": "2026-11-21",
+          "valor_m": 1.83
         }
       ]
     }
