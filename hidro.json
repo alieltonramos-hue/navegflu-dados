@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-23T10:53:04Z",
-  "gerado_em_local": "2026-11-23T06:53:04-04:00",
-  "verificado_em_utc": "2026-11-23T11:53:18Z",
-  "verificado_em_local": "2026-11-23T07:53:18-04:00",
+  "gerado_em_utc": "2026-11-23T12:23:39Z",
+  "gerado_em_local": "2026-11-23T08:23:39-04:00",
+  "verificado_em_utc": "2026-11-23T12:23:39Z",
+  "verificado_em_local": "2026-11-23T08:23:39-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -239,7 +239,7 @@
       "data_leitura": "2026-11-21",
       "fonte": "DMH-PY",
       "variacao_24h": 0.05,
-      "atual": true,
+      "atual": false,
       "serie": [
         {
           "data": "2026-11-15",
@@ -8880,8 +8880,8 @@
       "msg": "BDARN_NOV_23.pdf (1506424 bytes), data confere, 4 estacoes"
     },
     "DMH-PY": {
-      "ok": true,
-      "msg": "3 paginas lidas"
+      "ok": false,
+      "msg": "2 paginas lidas; erros: Vallemi PY: ReadTimeout: HTTPSConnectionPool(host='www.meteorologia.gov.py', port=443): Read timed out. (read timeout=15)"
     },
     "AVURNAV": {
       "ok": true,
