@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-23T12:23:39Z",
-  "gerado_em_local": "2026-11-23T08:23:39-04:00",
-  "verificado_em_utc": "2026-11-23T12:23:39Z",
-  "verificado_em_local": "2026-11-23T08:23:39-04:00",
+  "gerado_em_utc": "2026-11-23T12:53:22Z",
+  "gerado_em_local": "2026-11-23T08:53:22-04:00",
+  "verificado_em_utc": "2026-11-23T12:53:22Z",
+  "verificado_em_local": "2026-11-23T08:53:22-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -239,7 +239,7 @@
       "data_leitura": "2026-11-21",
       "fonte": "DMH-PY",
       "variacao_24h": 0.05,
-      "atual": false,
+      "atual": true,
       "serie": [
         {
           "data": "2026-11-15",
@@ -273,16 +273,12 @@
     },
     {
       "nome": "Concepción PY",
-      "valor_m": 2.4,
-      "data_leitura": "2026-11-22",
+      "valor_m": 3.08,
+      "data_leitura": "2026-11-23",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.44,
+      "variacao_24h": 0.68,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-16",
-          "valor_m": 1.7
-        },
         {
           "data": "2026-11-17",
           "valor_m": 1.68
@@ -306,21 +302,21 @@
         {
           "data": "2026-11-22",
           "valor_m": 2.4
+        },
+        {
+          "data": "2026-11-23",
+          "valor_m": 3.08
         }
       ]
     },
     {
       "nome": "Assunção PY",
-      "valor_m": 1.89,
-      "data_leitura": "2026-11-22",
+      "valor_m": 2.05,
+      "data_leitura": "2026-11-23",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.06,
+      "variacao_24h": 0.16,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-16",
-          "valor_m": 1.76
-        },
         {
           "data": "2026-11-17",
           "valor_m": 1.71
@@ -344,6 +340,10 @@
         {
           "data": "2026-11-22",
           "valor_m": 1.89
+        },
+        {
+          "data": "2026-11-23",
+          "valor_m": 2.05
         }
       ]
     }
@@ -8880,8 +8880,8 @@
       "msg": "BDARN_NOV_23.pdf (1506424 bytes), data confere, 4 estacoes"
     },
     "DMH-PY": {
-      "ok": false,
-      "msg": "2 paginas lidas; erros: Vallemi PY: ReadTimeout: HTTPSConnectionPool(host='www.meteorologia.gov.py', port=443): Read timed out. (read timeout=15)"
+      "ok": true,
+      "msg": "3 paginas lidas"
     },
     "AVURNAV": {
       "ok": true,
