@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-26T10:24:15Z",
-  "gerado_em_local": "2026-11-26T06:24:15-04:00",
-  "verificado_em_utc": "2026-11-26T10:24:15Z",
-  "verificado_em_local": "2026-11-26T06:24:15-04:00",
+  "gerado_em_utc": "2026-11-26T10:54:42Z",
+  "gerado_em_local": "2026-11-26T06:54:42-04:00",
+  "verificado_em_utc": "2026-11-26T10:54:42Z",
+  "verificado_em_local": "2026-11-26T06:54:42-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -196,16 +196,12 @@
     },
     {
       "nome": "P. Murtinho",
-      "valor_m": 3.88,
-      "data_leitura": "2026-11-25",
+      "valor_m": 4.69,
+      "data_leitura": "2026-11-26",
       "fonte": "DMH-PY (fallback BR)",
-      "variacao_24h": 0.44,
+      "variacao_24h": 0.81,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-19",
-          "valor_m": 2.11
-        },
         {
           "data": "2026-11-20",
           "valor_m": 2.11
@@ -229,6 +225,10 @@
         {
           "data": "2026-11-25",
           "valor_m": 3.88
+        },
+        {
+          "data": "2026-11-26",
+          "valor_m": 4.69
         }
       ]
     },
