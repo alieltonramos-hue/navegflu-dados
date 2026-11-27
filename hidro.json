@@ -1,8 +1,8 @@
 {
-  "gerado_em_utc": "2026-11-27T10:53:11Z",
-  "gerado_em_local": "2026-11-27T06:53:11-04:00",
-  "verificado_em_utc": "2026-11-27T10:53:11Z",
-  "verificado_em_local": "2026-11-27T06:53:11-04:00",
+  "gerado_em_utc": "2026-11-27T11:23:23Z",
+  "gerado_em_local": "2026-11-27T07:23:23-04:00",
+  "verificado_em_utc": "2026-11-27T11:23:23Z",
+  "verificado_em_local": "2026-11-27T07:23:23-04:00",
   "estacoes": [
     {
       "nome": "Cuiabá",
@@ -234,16 +234,12 @@
     },
     {
       "nome": "Vallemi PY",
-      "valor_m": 5.1,
-      "data_leitura": "2026-11-26",
+      "valor_m": 5.45,
+      "data_leitura": "2026-11-27",
       "fonte": "DMH-PY",
-      "variacao_24h": 2.55,
+      "variacao_24h": 0.35,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-16",
-          "valor_m": 2.13
-        },
         {
           "data": "2026-11-17",
           "valor_m": 2.12
@@ -267,21 +263,21 @@
         {
           "data": "2026-11-26",
           "valor_m": 5.1
+        },
+        {
+          "data": "2026-11-27",
+          "valor_m": 5.45
         }
       ]
     },
     {
       "nome": "Concepción PY",
-      "valor_m": 4.38,
-      "data_leitura": "2026-11-26",
+      "valor_m": 4.79,
+      "data_leitura": "2026-11-27",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.48,
+      "variacao_24h": 0.41,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-20",
-          "valor_m": 1.8
-        },
         {
           "data": "2026-11-21",
           "valor_m": 1.96
@@ -305,21 +301,21 @@
         {
           "data": "2026-11-26",
           "valor_m": 4.38
+        },
+        {
+          "data": "2026-11-27",
+          "valor_m": 4.79
         }
       ]
     },
     {
       "nome": "Assunção PY",
-      "valor_m": 2.82,
-      "data_leitura": "2026-11-26",
+      "valor_m": 3.07,
+      "data_leitura": "2026-11-27",
       "fonte": "DMH-PY",
-      "variacao_24h": 0.27,
+      "variacao_24h": 0.25,
       "atual": true,
       "serie": [
-        {
-          "data": "2026-11-20",
-          "valor_m": 1.77
-        },
         {
           "data": "2026-11-21",
           "valor_m": 1.83
@@ -343,6 +339,10 @@
         {
           "data": "2026-11-26",
           "valor_m": 2.82
+        },
+        {
+          "data": "2026-11-27",
+          "valor_m": 3.07
         }
       ]
     }
